@@ -16,10 +16,8 @@
     <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cs-skin-elastic.css') }}">
-    <!-- <link rel="stylesheet" href="assets/css/bootstrap-select.less"> -->
     <link rel="stylesheet" href="{{ asset('scss/style.css') }}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link href="{{ asset('css/lib/vector-map/jqvmap.min.css') }}" rel="stylesheet">
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
@@ -44,7 +42,7 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="../dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Academy</a>
@@ -55,7 +53,7 @@
                             <li><i class="fa fa-share-square-o"></i><a href="../WINScer">Wins</a></li>
                             <li><i class="fa fa-id-card-o"></i><a href="../Mobilecer">Mobile</a></li>
                             <li><i class="fa fa-exclamation-triangle"></i><a href="../Enterprisecer">Enterprise</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="../Businesscer">Business Enabler</a></li>
+                            <li><i class="fa fa-spinner"></i><a href="../Business Enablercer">Business Enabler</a></li>
                             <li><i class="fa fa-fire"></i><a href="../Leadershipcer">Leadership</a></li>
                         </ul>
                     </li>
@@ -128,9 +126,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"></script>
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
+    <script src="{{ asset('js/chartjs.min.js') }}"></script>
 
-
-    <script src="{{ asset('js/lib/chart-js/Chart.bundle.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/widgets.js') }}"></script>
 

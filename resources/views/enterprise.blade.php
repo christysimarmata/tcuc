@@ -33,7 +33,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="enterprisecer" method="post" class="form-inline" style="margin-left: 15px;">
+                            <form action="Enterprisecer" method="post" class="form-inline" style="margin-left: 15px;">
                           <div class="form-group"><label for="startDate" class="pr-1  form-control-label">Period </label><input type="date" id="startDate" class="form-control" name="start_date"></div>
                           <div class="form-group"><label for="finishDate" class="px-1  form-control-label">To : </label><input type="date" id="finishDate" class="form-control" name="finish_date"></div>
 

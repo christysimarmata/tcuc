@@ -102,11 +102,30 @@ class CertificateController extends Controller
     	
     }
 
+    public static function stepfinalcreate($name) {
+            $data_baru = CertificateTemp::where('name', $name)->get();
+            $participant_data = $data_baru[0]->participants;
+
+
+            $participant = [];
+
+            $data_participant = explode(',', $participant_data);
+            
+                foreach ($data_participant as $datas) {
+                        $participant[] = Users::getParticipantFirst($datas);
+                    }
+
+
+
+            return view('step_final2')->with('data_detail', $data_baru)
+                                                   ->with('participant_detail', $participant);
+    }
+
     public static function clarificationfinal($name) {
             $data_baru = CertificateTemp::where('name', $name)->get();
             $participant_data = $data_baru[0]->participants;
 
-            \Log::info($participant_data);
+            
             $participant = [];
 
             $data_participant = explode(',', $participant_data);
@@ -286,6 +305,8 @@ class CertificateController extends Controller
                         $participant_data[] = Users::getParticipantFirst($dataa);
                     }
 
+        \Log::info($participant_data);
+
         return view('form_validation')->with('datas',$datas)
                                       ->with('mainprogram',$pluckedprogram)
                                       ->with('jobfamily',$pluckedfamily)
@@ -356,11 +377,45 @@ class CertificateController extends Controller
     public function commendtoSSO(Request $request) {
         $nama = $request->fnama;
         $commend = $request->fcommend;
-        \Log::info($commend);
+        
 
         CertificateTemp::where('name', $nama)->update(['commend' => $commend, 'status' => 'needclarification']);
         return response()->json();
 
+
+    }
+
+    public function editItem2(Request $request) {
+        $edited = ($request->fnik);
+        Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision, 'ubpp' => $request->fubpp]);
+        
+        return response()->json();
+    }
+
+    public function deleteItem2(Request $request) {
+        $deleted = ($request->fnomor) - 1;
+        $name = ($request->fname);
+
+        \Log::info($name);
+
+        $data_baru = CertificateTemp::where('name', $name)->get();
+        $participant_data = $data_baru[0]->participants;
+        $participantdata = explode(',', $participant_data);
+        array_splice($participantdata,$deleted,1);
+        $participantdat = implode(',', $participantdata);
+        CertificateTemp::where('name', $name)->update(['participants' => $participantdat]);
+        
+        return response()->json();
+    }
+
+     public function deleteItem(Request $request) {
+        $deleted = ($request->fnomor);
+     
+        $datas = session('peserta');
+        array_splice($datas,$deleted,1);
+        session(['peserta' => $datas]); 
+        session(['idx' => '2']);
+        return response()->json();
 
     }
 
@@ -387,7 +442,26 @@ class CertificateController extends Controller
         $academy = $request->facademy;
         $namebefore = $request->fnamebefore;
 
-        \Log::info($name);
+  
+
+
+        CertificateTemp::where('name', $namebefore)->update(
+            ['name' => $name, 'start_date' => $start_date, 'finish_date' => $finish_date, 'location' => $location, 'academy' => $academy]
+        );
+
+        return response()->json();
+
+    }
+
+    public function editCertification(Request $request) {
+        $name = $request->fnameafter;
+        $start_date = $request->fstart;
+        $finish_date = $request->ffinish;
+        $location = $request->flocation;
+        $academy = $request->facademy;
+        $namebefore = $request->fnamebefore;
+
+
 
         CertificateTemp::where('name', $namebefore)->update(
             ['name' => $name, 'start_date' => $start_date, 'finish_date' => $finish_date, 'location' => $location, 'academy' => $academy]
@@ -408,7 +482,7 @@ class CertificateController extends Controller
 
 
             $data_baru = CertificateTemp::where('name', $name)->first();
-            \Log::info($nama);
+        
             Users::where('nik', $nik)->update(['nik' => $nik, 'nama' => $nama, 'job' => $job, 'division' => $division, 'ubpp' => $ubpp]);
 
         return response()->json();
@@ -417,16 +491,7 @@ class CertificateController extends Controller
 
     
 
-    public function deleteItem(Request $request) {
-        $deleted = ($request->fnomor);
-     
-        $datas = session('peserta');
-        array_splice($datas,$deleted,1);
-        session(['peserta' => $datas]); 
-        session(['idx' => '2']);
-        return response()->json();
-
-    }
+   
 
      public function deleteItemClarification(Request $request) {
         $deleted = ($request->fnomor);
@@ -442,7 +507,7 @@ class CertificateController extends Controller
         array_splice($data_participant,$deleted-1,1);
 
         CertificateTemp::where('name', $name)->update(['participants' => implode(',',$data_participant)]);
-        \Log::info($data_participant);
+  
         return response()->json();
 
     }
@@ -461,6 +526,13 @@ class CertificateController extends Controller
         return response()->json();
     }
 
+    public function deleteCertification(Request $request) {
+        $deleted = $request->fnama;
+
+        CertificateTemp::where('name',$deleted)->delete();
+        return response()->json();
+    }
+
     public function draftForm() {
         $participants = session('peserta');
         $participant = '';
@@ -473,10 +545,12 @@ class CertificateController extends Controller
         CertificateTemp::insert(
             [
                 'name' => $details[0],
-                'date' => $details[1],
-                'location' => $details[2],
-                'academy' => $details[3],
-                'participants' => $participant
+                'start_date' => $details[1],
+                'finish_date' => $details[2],
+                'location' => $details[3],
+                'academy' => $details[4],
+                'participants' => $participant,
+                'status' => 'draftSSO'
             ]);
 
         return response()->json();
@@ -487,7 +561,19 @@ class CertificateController extends Controller
         return response()->json();
     }
 
-    public function submitFormClarification() {
+    public function draftFormNew() {
+
+        return response()->json();
+    }
+
+    public function submitFormNew(Request $request) {
+        $name = $request->fname;
+
+        CertificateTemp::where('name', $name)->update(['status' => 'validateLDE']);
+        return response()->json();
+    }
+
+    public function submitFormClarification(Request $request) {
         CertificateTemp::where('name', $request->fname)->update(['status' => 'validateLDE']);
 
         return response()->json();
@@ -514,7 +600,6 @@ class CertificateController extends Controller
             $participant = $participant . $data->nik . ',';
         }
         $participant = substr($participant,0,-1);
-        \Log::info($participant);
         $details = session('detail');
         
         CertificateTemp::insert(

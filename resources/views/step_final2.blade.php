@@ -32,15 +32,15 @@
                                             <div class="card">
                                                 <div class="card-body">
                                                     <h5 class="text-sm-left">Certification Name</h5>
-                                                    <p>{{ $data_detail[0] }}</p>
+                                                    <p class="val_name">{{ $data_detail[0]->name }}</p>
                                                     <h5 class="text-sm-left">Start Date</h5>
-                                                    <p>{{ $data_detail[1] }}</p>
+                                                    <p>{{ $data_detail[0]->start_date }}</p>
                                                     <h5 class="text-sm-left">Finish Date</h5>
-                                                    <p>{{ $data_detail[2] }}</p>
+                                                    <p>{{ $data_detail[0]->finish_date }}</p>
                                                     <h5 class="text-sm-left">Location</h5>
-                                                    <p>{{ $data_detail[3] }}</p>
+                                                    <p>{{ $data_detail[0]->location }}</p>
                                                     <h5 class="text-sm-left">Academy</h5>
-                                                    <p>{{ $data_detail[4] }}</p>
+                                                    <p>{{ $data_detail[0]->academy }}</p>
                                                 </div>
                                             </div>  
                                         </div>
@@ -88,24 +88,6 @@
         </button>
         
                                                         </td>                                              
-                                                        </tr>
-                                                @else
-                                                        <tr class="datas{{ ++$nomor }}">
-                                                        <td>{{ $nomor }}</td>
-                                                        <td style="color: red;">{{ $participant_detail[--$nomor] }}</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td>
-        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{ $participant_detail[$nomor] }}">
-            <span class="glyphicon glyphicon-edit"></span> Edit
-        </button>
-        <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-        data-info="{{$nomor}},{{ $participant_detail[$nomor] }}">
-            <span class="glyphicon glyphicon-trash"></span> Delete
-        </button>
-                                                        </td>                                                    
                                                         </tr>
                                                 @endif
                                             @endforeach
@@ -229,10 +211,10 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                 type: 'post',
-                url: '/draftForm',
+                url: '/draftFormNew',
                  success: function(response) {
                     setTimeout(function() {
-                        window.location = "certificationlist";
+                        window.location = "../certificationlist";
                     },500);
  
                  }
@@ -250,11 +232,14 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                 type: 'post',
-                url: '/submitForm',
-                data:{},
+                url: '/submitFormNew',
+                data:{
+                    '_token': $('input[name=_token]').val(),
+                    'fname' : $('.val_name').html()
+                },
                  success: function(response) {
                     setTimeout(function() {
-                        window.location = "certificationlist";
+                        window.location = "../certificationlist";
                     },500);
  
                  }
@@ -298,7 +283,7 @@
         $('.modal-footer').on('click', '.edit', function() {
         $.ajax({
             type: 'post',
-            url: '/editItem',
+            url: 'editItem2',
             data: {
                 '_token': $('input[name=_token]').val(),
                 'fnomor': $("#fnomor").val(),
@@ -336,12 +321,14 @@
         });
 
          $('.modal-footer').on('click', '.delete', function() {
+            console.log($('.did1').html());
             $.ajax({
                 type: 'post',
-                url: '/deleteItem',
+                url: 'deleteItem2',
                 data: {
                     '_token': $('input[name=_token]').val(),
-                    'fnomor': $('did').text()
+                    'fnomor': $('.did').html(),
+                    'fname' : $('.val_name').html()
                 },
                 success: function(data) {
                     setTimeout(function() {

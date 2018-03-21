@@ -33,7 +33,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="businesscer" method="post" class="form-inline" style="margin-left: 15px;">
+                            <form action="Business Enablercer" method="post" class="form-inline" style="margin-left: 15px;">
                           <div class="form-group"><label for="startDate" class="pr-1  form-control-label">Period </label><input type="date" id="startDate" class="form-control" name="start_date"></div>
                           <div class="form-group"><label for="finishDate" class="px-1  form-control-label">To : </label><input type="date" id="finishDate" class="form-control" name="finish_date"></div>
 
@@ -57,7 +57,7 @@
                     	@foreach($data as $dataNits)
 	                      	<tr>
 	                        <td>{{ $nomor++ }}</td>
-                        	<td><a href="Businesscer/{{ $dataNits->name }}" >{{ $dataNits->name }}</td>
+                        	<td><a href="Business Enablercer/{{ $dataNits->name }}" >{{ $dataNits->name }}</td>
                         	<td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
                         	<td>{{ $dataNits->location }}</td>

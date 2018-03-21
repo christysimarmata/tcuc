@@ -16,7 +16,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Consumer Certification</h1>
+                        <h1>All Certification</h1>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="Consumercer" method="post" class="form-inline" style="margin-left: 15px;">
+                        <form action="allcertification" method="post" class="form-inline" style="margin-left: 15px;">
                           <div class="form-group"><label for="startDate" class="pr-1  form-control-label">Period </label><input type="date" id="startDate" class="form-control" name="start_date"></div>
                           <div class="form-group"><label for="finishDate" class="px-1  form-control-label">To : </label><input type="date" id="finishDate" class="form-control" name="finish_date"></div>
 
@@ -45,22 +45,26 @@
                     <thead>
                       <tr>
                         <th>No</th>
-                        <th>Certification Name</th>
+                        <th>Certification</th>
                         <th>Start Date</th>
                         <th>Finish Date</th>
                         <th>Location</th>
+                        <th>Academy</th>
                       </tr>
                     </thead>
                     <tbody>
                         @php ($nomor = 1)
-                    	@foreach($data as $dataNits)
+                    	@foreach($data as $datas)
+                            @foreach($datas as $dataNits)
 	                      	<tr>
-	                        <td>{{ $nomor++ }}</td>
-                        	<td><a href="Consumercer/{{ $dataNits->name }}" >{{ $dataNits->name }}</td>
-                        	<td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
-                            <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
-                        	<td>{{ $dataNits->location }}</td>
-	                      </tr>
+    	                        <td>{{ $nomor++ }}</td>
+                            	<td><a href="{{$dataNits->academy}}cer/{{ $dataNits->name }}" >{{ $dataNits->name }}</td>
+                            	<td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
+                                <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
+                            	<td>{{ $dataNits->location }}</td>
+    	                        <td>{{ $dataNits->academy}}</td>
+                            </tr>
+                            @endforeach
            				@endforeach
                     </tbody>
                   </table>

@@ -66,7 +66,7 @@
 								<tr>
 	                       		<td>{{ $nomor++ }}</td>
                         		<td><a href="../profile_detail/{{ $data->nik }}" >{{ $data->nik }}</a></td>
-                        		<td>{{ $data->nama }}</td>
+                        		<td><a href="../profile_detail/{{ $data->nik }}" >{{ $data->nama }}</a></td>
                         		<td>{{ $data->job }}</td>
                         		<td>{{ $data->division }}</td>
 	                      		</tr>

@@ -12,7 +12,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>New Certification</h1>
+                        <h1>Clarification List</h1>
                     </div>
                 </div>
             </div>
@@ -212,10 +212,10 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                 type: 'post',
-                url: '../draftFormClarification',
+                url: '/draftFormClarification',
                  success: function(response) {
                     setTimeout(function() {
-                        window.location = "needclarification";
+                        window.history.back();
                     },500);
  
                  }
@@ -233,11 +233,11 @@
                     'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
                   },
                 type: 'post',
-                url: '../submitFormClarification',
+                url: '/submitFormClarification',
                 data: {'fname' : $('.val_name').html()},
                  success: function(data) {
                     setTimeout(function() {
-                        window.location = "needclarification";
+                        window.history.back();
                     },200);
  
                  }

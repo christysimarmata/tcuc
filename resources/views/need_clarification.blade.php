@@ -38,11 +38,11 @@
                       </tr>
                     </thead>
                     <tbody>
-                        @php ($nomor = 1)
+                        @php ($nomor = 0)
                     	@foreach($datas as $data)
                             @foreach($data as $certificate)
 	                      	<tr>
-	                        <td>{{ $nomor++ }}</td>
+	                        <td>{{ ++$nomor }}</td>
                         	<td><a href="clarificationfinal/{{$certificate->name}}"> {{ $certificate->name }}</a></td>
                         	<td>{{ $certificate->start_date }}</td>
                             <td>{{ $certificate->finish_date }}</td>
