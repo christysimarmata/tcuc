@@ -16,6 +16,14 @@ use App\Leadership;
 use App\Mobile;
 use App\Nits;
 use App\Wins;
+use App\ConsumerDetail;
+use App\BusinessDetail;
+use App\DispDetail;
+use App\EnterpriseDetail;
+use App\LeadershipDetail;
+use App\MobileDetail;
+use App\NitsDetail;
+use App\WinsDetail;
 use Image;
 
 class ProfileController extends Controller
@@ -53,35 +61,45 @@ class ProfileController extends Controller
 
 
         $family = [];
+        $filee = [];
         foreach($plucked as $plucks) {
           if((Nits::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Nits::getWhereThereIs($nik, $plucks);
+            $filee[] = NitsDetail::getFileName($nik, $plucks);
           }
           if((Consumer::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Consumer::getWhereThereIs($nik, $plucks);
+            $filee[] = ConsumerDetail::getFileName($nik, $plucks);
           }
           if((Disp::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Disp::getWhereThereIs($nik, $plucks);
+            $filee[] = DispDetail::getFileName($nik, $plucks);
           }
           if((Wins::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Wins::getWhereThereIs($nik, $plucks);
+            $filee[] = WinsDetail::getFileName($nik, $plucks);
           }
           if((Mobile::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Mobile::getWhereThereIs($nik, $plucks);
+            $filee[] = MobileDetail::getFileName($nik, $plucks);
           }
           if((Enterprise::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Enterprise::getWhereThereIs($nik, $plucks);
+            $filee[] = EnterpriseDetail::getFileName($nik, $plucks);
           }
           if((Business::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Business::getWhereThereIs($nik, $plucks);
+            $filee[] = BusinessDetail::getFileName($nik, $plucks);
           }
           if((Leadership::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
             $family[$plucks][] = Leadership::getWhereThereIs($nik, $plucks);
+            $filee[] = LeadershipDetail::getFileName($nik, $plucks);
           } 
         }
         
         
         return view('profile_detail')->with('family', $family)
+                                     ->with('filee', $filee)
                                      ->with('user', $user);
       }
 

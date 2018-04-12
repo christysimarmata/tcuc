@@ -41,10 +41,15 @@
                                                     <p>{{ $data_detail[3] }}</p>
                                                     <h5 class="text-sm-left">Academy</h5>
                                                     <p>{{ $data_detail[4] }}</p>
+                                                    <h5 class="text-sm-left">Certification Institution</h5>
+                                                    <p>{{ $data_detail[5] }}</p>
+                                                    <h5 class="text-sm-left">Category</h5>
+                                                    <p>{{ $data_detail[6] }}</p>
+                                                    <h5 class="text-sm-left">Internal Certification</h5>
+                                                    <p>{{ $data_detail[7] }}</p>
                                                 </div>
                                             </div>  
                                         </div>
-
                         <div class="content mt-3">
                                 <div class="animated fadeIn">
                                     <div class="row">
@@ -56,7 +61,8 @@
                                             </div>
                                             <div class="card-body">
                                                 
-                                      <table id="bootstrap-data-table" class="table table-striped table-bordered ttotsave">
+                                      <table id="bootstrap-data-table-form" class="table table-striped table-bordered ttotsave">
+                                        
                                         <thead>
                                           <tr>
                                             <th>No</th>
@@ -71,47 +77,69 @@
                                         <tbody>
                                             @php ($nomor = 0)
                                             @foreach($participant_detail as $datas)
-                                                @if(data_get($datas,'nik'))
-                                                        <tr class="datas{{ ++$nomor }}">
-                                                        <td>{{ $nomor }}</td>
+                                                @if($datas->status === 'fix')
+                                                        <tr>
+                                                        <td>{{ ++$nomor }}</td>
                                                         <td>{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
                                                         <td>{{ $datas->division }}</td>
-                                                        <td>{{ $datas->ubpp }}</td>
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
+                                                        @if($datas->ubpp)
+                                                            <td>{{ $datas->ubpp }} %</td>
+                                                        @else
+                                                            <td>{{ $datas->ubpp }}</td>
+                                                        @endif
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}" style="width: 80px;">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}" style="width: 80px;">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
         
                                                         </td>                                              
                                                         </tr>
                                                 @else
-                                                        <tr class="datas{{ ++$nomor }}">
-                                                        <td>{{ $nomor }}</td>
-                                                        <td style="color: red;">{{ $participant_detail[--$nomor] }}</td>
-                                                        <td></td>
-                                                        <td></td>
-                                                        <td></td>
+                                                        <tr>
+                                                        <td>{{ ++$nomor }}</td>
+                                                        <td>{{ $datas->nik }}</td>
+                                                        <td>{{ $datas->nama }}</td>
+                                                        <td>{{ $datas->job }}</td>
+                                                        <td>{{ $datas->division }}</td>
+                                                        @if($datas->ubpp)
+                                                            <td>{{ $datas->ubpp }} %</td>
+                                                        @else
+                                                            <td>{{ $datas->ubpp }}</td>
+                                                        @endif
                                                         <td>
-        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{ $participant_detail[$nomor] }}">
-            <span class="glyphicon glyphicon-edit"></span> Edit
-        </button>
-        <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-        data-info="{{$nomor}},{{ $participant_detail[$nomor] }}">
-            <span class="glyphicon glyphicon-trash"></span> Delete
-        </button>
+                                                            <button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal"
+                                                                data-info="{{$nomor}},{{ $datas->nik }},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}" style="width: 80px;">
+                                                                <span class="glyphicon glyphicon-edit"></span> Edit
+                                                            </button>
+                                                            <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
+                                                            data-info="{{$nomor}},{{ $datas->nik }}" style="width: 80px;">
+                                                                <span class="glyphicon glyphicon-trash"></span> Delete
+                                                            </button>
+                                                            @if( $datas->status === 'readonly' )
+                                                                <button class="request-modal btn btn-secondary" data-toggle="modal" data-target="#myModal"
+                                                                data-info="{{$nomor}},{{ $datas->nik }}" style="width: 90px;">
+                                                                    <span class="glyphicon glyphicon-trash"></span> Request
+                                                                </button>
+                                                            @else 
+                                                                <button class="request-modal btn btn-secondary" style="width: 90px;" disabled="">
+                                                                    <span class="glyphicon glyphicon-trash"></span>Request
+                                                                </button>
+                                                            @endif
                                                         </td>                                                    
                                                         </tr>
                                                 @endif
                                             @endforeach
                                         </tbody>
+
                                       </table>
+
                                             </div>
+
                                             <div class="card-footer" >
                                                 <button class="submitdata btn btn-success" style="float: right; margin-left: 20px; margin-right: 40px;">SUBMIT </button>
                                                 <button class="draftdata btn btn-warning" style="float: right;">SAVE AS DRAFT </button>
@@ -181,15 +209,18 @@
                         <div class="row form-group">
                             <label class="control-label col-sm-2" for="fubpp">UBPP</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="fubpp">
+                                <input type="number" class="form-control" id="fubpp">
                             </div>
                         </div>
                             {{ csrf_field() }}
                     </form>
                     <div class="deleteContent">
-                        Are you Sure you want to delete <span class="dname"></span> ? <span
+                        Are you sure you want to delete <span class="dname"></span> ? <span
                             class="hidden did" style="display: none;"></span>
                             <span class="hidden did1" style="display: none;"></span>
+                    </div>
+                    <div class="requestContent">
+                        Are you sure you want to request user <span class="dname2"></span> ? 
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn actionBtn" data-dismiss="modal">
@@ -278,6 +309,7 @@
             $('.actionBtn').addClass('edit');
             $('.modal-title').text('Edit');
             $('.deleteContent').hide();
+            $('.requestContent').hide();
             $('.form-horizontal').show();
             var stuff = $(this).data('info').split(',');
             fillmodalData(stuff)
@@ -328,20 +360,57 @@
             $('.actionBtn').addClass('delete');
             $('.modal-title').text('Delete');
             $('.deleteContent').show();
+            $('.requestContent').hide();
             $('.form-horizontal').hide();
             var stuff = $(this).data('info').split(',');
             $('.did').text(stuff[0]);
             $('.did1').text(stuff[1]);
-            $('.dname').html(stuff[2]);
+            $('.dname').html(stuff[1]);
         });
 
          $('.modal-footer').on('click', '.delete', function() {
+            console.log($('.did').text());
             $.ajax({
                 type: 'post',
                 url: '/deleteItem',
                 data: {
                     '_token': $('input[name=_token]').val(),
-                    'fnomor': $('did').text()
+                    'fnomor': $('.did').text()
+                },
+                success: function(data) {
+                    setTimeout(function() {
+                        location.reload();
+                    },500);
+                }
+            });
+        });
+
+
+         $(document).on('click', '.request-modal', function() {
+            $('#footer_action_button').text(" Delete");
+            $('#footer_action_button').removeClass('glyphicon-check');
+            $('#footer_action_button').addClass('glyphicon-trash');
+            $('.actionBtn').removeClass('btn-success');
+            $('.actionBtn').addClass('btn-danger');
+            $('.actionBtn').removeClass('edit');
+            $('.actionBtn').addClass('request');
+            $('.request').text('Request');
+            $('.modal-title').text('Request');
+            $('.requestContent').show();
+            $('.deleteContent').hide();
+            $('.form-horizontal').hide();
+            var stuff = $(this).data('info').split(',');
+            $('.dname2').html(stuff[1]);
+            console.log($('.dname2').text());
+        });
+
+         $('.modal-footer').on('click', '.request', function() {
+            $.ajax({
+                type: 'post',
+                url: '/requestItem',
+                data: {
+                    '_token': $('input[name=_token]').val(),
+                    'fnik': $('.dname2').text()
                 },
                 success: function(data) {
                     setTimeout(function() {

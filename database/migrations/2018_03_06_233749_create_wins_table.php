@@ -20,6 +20,11 @@ class CreateWinsTable extends Migration
             $table->date('finish_date');
             $table->string('location');
             $table->string('academy');
+            $table->string('institution')->default('Oracle Inc');
+            $table->string('category')->default('National');
+            $table->string('internal')->default('YES');
+            $table->string('cfu_fu')->nullable();
+            $table->string('level')->nullable();
             $table->text('outline')->nullable();
             $table->string('telkom_main')->nullable();
             $table->string('job_family')->nullable();

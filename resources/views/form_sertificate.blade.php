@@ -4,6 +4,7 @@
 <link rel="stylesheet" href="{{ asset('css/lib/datatable/dataTables.bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
 
+
 @endpush
 @section('content')
 
@@ -30,19 +31,19 @@
                           <fieldset>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Name*</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_name" placeholder="Certificate Name" class="form-control" required="true"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_name" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Start Date*</label></div>
-                            <div class="col-12 col-md-9"><input type="date" id="text-input" name="start_date" class="form-control" required="true"></div>
+                            <div class="col col-md-3"><label for="text-input-start" class="form-control-label">Start Date*</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input-start" name="start_date" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Finish Date*</label></div>
-                            <div class="col-12 col-md-9"><input type="date" id="text-input" name="finish_date" class="form-control" required="true"></div>
+                            <div class="col col-md-3"><label for="text-input-finish" class="form-control-label">Finish Date*</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input-finish" name="finish_date" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Location*</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_location" placeholder="Certificate Location" class="form-control" required="true"></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_location" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Academy*</label></div>
@@ -56,6 +57,28 @@
                                 <option value="Enterprise">Enterprise</option>
                                 <option value="Business Enabler">Business Enabler</option>
                                 <option value="Leadership">Leadership</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Institution*</label></div>
+                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_institution" class="form-control" required="true"></div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Category*</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="cer_category" id="selectAcademy" class="form-control">
+                                <option value="National">National</option>
+                                <option value="International">International</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Internal*</label></div>
+                            <div class="col-12 col-md-9">
+                              <select name="cer_internal" id="selectAcademy" class="form-control">
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
                               </select>
                             </div>
                           </div>
@@ -85,8 +108,9 @@
                             <div class="col-12 col-md-9"><input type="file" id="input-multiple" name="cer_participant_excel" class="form-control-file"></div>
                           </div>
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                            <input type="button" name="previous" class="previous action-button" value="Previous" />
+                            
                             <input type="submit" name="next" class="next2 action-button" value="Next" />
+                            <input type="button" name="previous" class="previous action-button" value="Previous" />
                           </fieldset>
                         </form>
                     </div>
@@ -106,13 +130,30 @@
     <script src="{{ asset('js/lib/data-table/buttons.print.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/datatables-init.js') }}"></script>
+    
     <script src="{{ asset('js/form_script.js') }}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
     
     <script type="text/javascript">
         $(document).ready(function() {
           $('#bootstrap-data-table').DataTable();
+
+          var date_awal = $('input[name="start_date"]');
+          var date_akhir = $('input[name="finish_date"]');
+          date_awal.datepicker({
+              format: 'yyyy-mm-dd',
+              orientation: 'top right',
+              todayHighlight: true,
+              autoclose: true
+          });
+
+          date_akhir.datepicker({
+              format: 'yyyy-mm-dd',
+              orientation: 'top right',
+              todayHighlight: true,
+              autoclose: true
+          });
         } );
+        
     </script>
 
 @endpush

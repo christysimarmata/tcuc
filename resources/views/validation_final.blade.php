@@ -41,16 +41,26 @@
                                                     <p class="val_location">{{ $data_detail[3] }}</p>
                                                     <h5 class="text-sm-left">Academy</h5>
                                                     <p class="val_academy">{{ $data_detail[4] }}</p>
+                                                    <h5 class="text-sm-left">CFU/FU</h5>
+                                                    <p class="val_cfu">{{ $data_detail[5] }}</p>
+                                                    <h5 class="text-sm-left">Certification Level</h5>
+                                                    <p class="val_level">{{ $data_detail[6] }}</p>
                                                     <h5 class="text-sm-left">Released Date</h5>
-                                                    <p class="val_release">{{ $data_detail[5] }}</p>
+                                                    <p class="val_release">{{ $data_detail[7] }}</p>
                                                     <h5 class="text-sm-left">Outline Certification</h5>
-                                                    <p class="val_outline">{{ $data_detail[6] }}</p>
-                                                    <h5 class="text-sm-left">Expired</h5>
-                                                    <p class="val_expired">{{ $data_detail[7] }}</p>
+                                                    <p class="val_outline">{{ $data_detail[8] }}</p>
+                                                    @if($data_detail[9] == '2100/12/12')
+                                                        <h5 class="text-sm-left">Expired Date</h5>
+                                                        <p>All Time</p>
+                                                        <p class="val_expired" style="display: none;">2100/12/12</p>
+                                                    @else
+                                                        <h5 class="text-sm-left">Expired Date</h5>
+                                                        <p class="val_expired">{{ $data_detail[9] }}</p>
+                                                    @endif
                                                     <h5 class="text-sm-left">Telkom Main Program</h5>
-                                                    <p class="val_program">{{ $data_detail[8] }}</p>
+                                                    <p class="val_program">{{ $data_detail[10] }}</p>
                                                     <h5 class="text-sm-left">Job Family</h5>
-                                                    <p class="val_family">{{ $data_detail[9] }}</p>
+                                                    <p class="val_family">{{ $data_detail[11] }}</p>
                                                 </div>
                                             </div>  
                                         </div>
@@ -86,9 +96,9 @@
                                                         <td>{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         
-                                                            @if($have[$nomor-1] === 'ya')
+                                                            @if($details[$nomor-1]->file_name)
                                                                 <td>
-                                                                    {{$datas->nik}}.jpg    
+                                                                    {{ $details[$nomor-1]->file_name }}
                                                                 </td>
                                                             @else
                                                                 <td>
@@ -226,6 +236,8 @@
                     'finish' : document.getElementsByClassName('val_finish')[0].innerHTML,
                     'location' : document.getElementsByClassName('val_location')[0].innerHTML,
                     'academy' : document.getElementsByClassName('val_academy')[0].innerHTML,
+                    'cfu_fu' : document.getElementsByClassName('val_cfu')[0].innerHTML,
+                    'level' : document.getElementsByClassName('val_level')[0].innerHTML,
                     'released_date' : document.getElementsByClassName('val_release')[0].innerHTML,
                     'outline' : document.getElementsByClassName('val_outline')[0].innerHTML,
                     'expired_date' : document.getElementsByClassName('val_expired')[0].innerHTML,
@@ -260,12 +272,13 @@
                     'finish' : document.getElementsByClassName('val_finish')[0].innerHTML,
                     'location' : document.getElementsByClassName('val_location')[0].innerHTML,
                     'academy' : document.getElementsByClassName('val_academy')[0].innerHTML,
+                    'cfu_fu' : document.getElementsByClassName('val_cfu')[0].innerHTML,
+                    'level' : document.getElementsByClassName('val_level')[0].innerHTML,
                     'released_date' : document.getElementsByClassName('val_release')[0].innerHTML,
                     'outline' : document.getElementsByClassName('val_outline')[0].innerHTML,
                     'expired_date' : document.getElementsByClassName('val_expired')[0].innerHTML,
                     'main_program' : document.getElementsByClassName('val_program')[0].innerHTML,
                     'job_family' : document.getElementsByClassName('val_family')[0].innerHTML
-
                 },
                  success: function(response) {
                     setTimeout(function() {

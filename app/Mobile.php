@@ -21,6 +21,11 @@ class Mobile extends Model
 	    'finish_date',
 	    'location',
 	    'academy',
+	    'institution',
+	    'category',
+	    'internal',
+	    'cfu_fu',
+	    'level',
 	    'outline',
 	    'telkom_main',
 	    'job_family',
@@ -39,6 +44,20 @@ class Mobile extends Model
 		return DB::table('mobile')->where('participants','like','%'.$nik.',%')
 								->where('job_family',$job_family)
 								->get();
+	}
+
+	public static function getByProgramYears($start, $finish, $program) {
+		return DB::table('mobile')->whereYear('start_date','>=', $start)
+									->whereYear('finish_date', '<=', $finish)
+									->where('telkom_main', $program)
+									->count();
+	}
+
+	public static function getByFamilyYears($start, $finish, $family) {
+		return DB::table('mobile')->whereYear('start_date','>=', $start)
+									->whereYear('finish_date', '<=', $finish)
+									->where('job_family', $family)
+									->count();
 	}
 
 	public static function getByDate($start, $finish) {

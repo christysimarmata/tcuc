@@ -45,6 +45,7 @@
                         <th>Finish Date</th>
                         <th>Certification Location</th>
                         <th>Academy</th>
+                        <th>Presence</th>
                       </tr>
                     </thead>
                     <tbody>
@@ -58,6 +59,15 @@
                             <td>{{ $certificate->finish_date }}</td>
                         	<td>{{ $certificate->location }}</td>
                             <td>{{ $certificate->academy }}</td>
+                            @if($have[$certificate->name] === 'ya')
+                                <td>
+                                    <button class="btn btn-success"><a href="{{ URL::to('/') }}/storage/presence_upload/{{ $certificate->name }}.xlsx" style="color: white;" download> Download </a></button>
+                                </td>
+                            @else
+                                <td>
+                                    <button class="btn btn-danger" disabled=""> Download </button>
+                                </td>
+                            @endif
 	                       </tr>
                             @endforeach
            				@endforeach

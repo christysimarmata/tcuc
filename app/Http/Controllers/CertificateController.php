@@ -12,8 +12,16 @@ use App\Mobile;
 use App\Nits;
 use App\Wins;
 use App\Users;
-use App\Certificate;
 use App\CertificateTemp;
+use App\ConsumerDetail;
+use App\BusinessDetail;
+use App\DispDetail;
+use App\EnterpriseDetail;
+use App\LeadershipDetail;
+use App\MobileDetail;
+use App\NitsDetail;
+use App\WinsDetail;
+use App\CertificateTempDetail;
 use App\MainProgram;
 use App\JobFamily;
 use Storage;
@@ -51,13 +59,16 @@ class CertificateController extends Controller
             $data_baru[] = Input::post('finish_date');
             $data_baru[] = Input::post('cer_location');
             $data_baru[] = Input::post('cer_academy');
+            $data_baru[] = Input::post('cer_institution');
+            $data_baru[] = Input::post('cer_category');
+            $data_baru[] = Input::post('cer_internal');
 
             session(['detail' => $data_baru]);
             $participant_data = [];
 
             if($request->hasFile('cer_presence')) {
                 $presence = $request->file('cer_presence');
-                $filename = Input::post('cer_presence').'.'. $presence->getClientOriginalExtension();
+                $filename = Input::post('cer_name').'.'. $presence->getClientOriginalExtension();
                 $presence->storeAs('public/presence_upload',$filename);
             } 
 
@@ -67,9 +78,23 @@ class CertificateController extends Controller
                 $filename = Input::post('cer_name'). '.'. $avatar->getClientOriginalExtension();
                 $avatar->storeAs('public/participant_excel',$filename);
                 
-                $participant_data = Excel::load($avatar,function($reader){
+                $participantdata = Excel::load($avatar,function($reader){
 
                 })->get();
+
+                \Log::info($participantdata);
+
+                foreach ($participantdata as $datas) {
+                    if(empty(Users::getParticipantFirst($datas->nik))) {
+
+                        $participant_data[] = (object) array("nik"=>$datas->nik, "nama"=>"", "job"=>"", "division"=>"", "ubpp"=>$datas->ubpp, "status"=>'readonly');
+                    } else {
+                        $temp = (array) Users::getParticipantFirst($datas->nik); 
+                        $temp["ubpp"] = $datas->ubpp;
+                        $participant_data[] = (object) $temp;     
+                    }
+                
+                }
 
 
                 session(['peserta' => $participant_data]);
@@ -83,14 +108,19 @@ class CertificateController extends Controller
             
                 foreach ($data_participant as $datas) {
                     if(empty(Users::getParticipantFirst($datas))) {
-                        $participant_data[] = $datas;
+                        $participant_data[] = (object) array("nik"=>$datas, "nama"=>"", "job"=>"", "division"=>"", "ubpp"=>"", "status"=>'readonly');
                     } else {
-                        $participant_data[] = Users::getParticipantFirst($datas);
-                            
+                        $temp = (array) Users::getParticipantFirst($datas); 
+                        $temp["ubpp"] = "";
+                        
+                        $participant_data[] = (object) $temp;
+                        
                     }
                 
-                }  
+                } 
 
+                
+                \Log::info($participant_data);
                 session(['peserta' => $participant_data]);
                 return view('step_final')->with('participant_detail', collect(session('peserta')))
                                          ->with('data_detail', collect(session('detail')));
@@ -112,7 +142,10 @@ class CertificateController extends Controller
             $data_participant = explode(',', $participant_data);
             
                 foreach ($data_participant as $datas) {
-                        $participant[] = Users::getParticipantFirst($datas);
+                        $temp = (array) Users::getParticipantFirst($datas);
+                        $temp_ubpp = CertificateTempDetail::where('name', $name)->where('peserta', $datas)->first();
+                        $temp['ubpp'] = $temp_ubpp->ubpp;
+                        $participant[] = (object) $temp;
                     }
 
 
@@ -131,7 +164,10 @@ class CertificateController extends Controller
             $data_participant = explode(',', $participant_data);
             
                 foreach ($data_participant as $datas) {
-                        $participant[] = Users::getParticipantFirst($datas);
+                        $temp = (array) Users::getParticipantFirst($datas);
+                        $temp_ubpp = (array) CertificateTempDetail::where('name', $name)->where('peserta', $datas)->first();
+                        $temp['ubpp'] = $temp_ubpp['ubpp'];
+                        $participant[] = (object) $temp;
                     }
 
             return view('need_clarification_final')->with('data_detail', $data_baru[0])
@@ -181,13 +217,48 @@ class CertificateController extends Controller
             $academi = 'Leadership';
         } elseif(session('userAktif') === 'ldemobile') {
             $academi = 'Mobile';
-        } else {
+        } elseif(session('userAktif') === 'ldewins') {
             $academi = 'WINS';
+        } else {
+            $academi = 'ALL';
         }
 
+
         $all_certificate = [];
-        $all_certificate[] = CertificateTemp::getAllComplete($academi);
-        return view('complete_certification')->with('datas',$all_certificate);
+        if($academi === 'ALL') {
+            $all_certificate[] = CertificateTemp::getAllComplete('NITS');
+            $all_certificate[] = CertificateTemp::getAllComplete('Business Enabler');
+            $all_certificate[] = CertificateTemp::getAllComplete('Consumer');
+            $all_certificate[] = CertificateTemp::getAllComplete('DISP');
+            $all_certificate[] = CertificateTemp::getAllComplete('Enterprise');
+            $all_certificate[] = CertificateTemp::getAllComplete('Leadership');
+            $all_certificate[] = CertificateTemp::getAllComplete('Mobile');
+            $all_certificate[] = CertificateTemp::getAllComplete('WINS');
+        } else {
+           $all_certificate[] = CertificateTemp::getAllComplete($academi); 
+        }
+        
+
+        $all_presence = Storage::files('public/presence_upload');
+        
+        
+
+        $bool_cert = [];
+        foreach ($all_certificate as $dataa) {
+            foreach($dataa as $data) {
+                if(in_array('public/presence_upload/'.$data->name.'.xlsx',$all_presence)) {
+                    $bool_cert[$data->name] = 'ya';
+                } else {
+                    $bool_cert[$data->name] = 'tidak';
+                }
+            }
+            
+        }
+
+        \Log::info($bool_cert);
+        
+        return view('complete_certification')->with('datas',$all_certificate)
+                                             ->with('have', $bool_cert);
 
     }
 
@@ -291,6 +362,8 @@ class CertificateController extends Controller
 
     public static function formValidate() {
         $datas = session('locked');
+        $data = CertificateTemp::where('name', $datas[1])->get();
+        \Log::info($data);
         $list_participant = CertificateTemp::where('name',$datas[1])->first();
 
         $pluckedprogram = MainProgram::get()->pluck('name');
@@ -305,12 +378,14 @@ class CertificateController extends Controller
                         $participant_data[] = Users::getParticipantFirst($dataa);
                     }
 
-        \Log::info($participant_data);
 
-        return view('form_validation')->with('datas',$datas)
+        $details = CertificateTempDetail::where('name', $datas[1])->get();
+        
+        return view('form_validation')->with('datas',$data)
                                       ->with('mainprogram',$pluckedprogram)
                                       ->with('jobfamily',$pluckedfamily)
-                                      ->with('participant',$participant_data);
+                                      ->with('participant',$participant_data)
+                                      ->with('details',$details);
     }
 
     public static function uploadCertificate(Request $request) {
@@ -320,12 +395,25 @@ class CertificateController extends Controller
         $list_participant = CertificateTemp::where('name',$datas[1])->first();
         $data_participant = explode(',', $list_participant->participants);
 
+        if($request->hasFile('multiple_certificate')) {
+            $myCertificate = $request->file('multiple_certificate');
+            foreach($myCertificate as $certs) {
+                $filename = $certs->getClientOriginalName();
+                $certs->storeAs('public/'.$datas[1],$filename);
+            }
+        }
+
         foreach($data_participant as $dataa) {
             if($request->hasFile($dataa)) {
                 $certificate = $request->file($dataa);
                 $filename = $dataa.'.'. $certificate->getClientOriginalExtension();
                 $certificate->storeAs('public/'.$datas[1],$filename);
+                CertificateTempDetail::where('name', $datas[1])->where('peserta', $dataa)->update(['file_name' => $filename]);
             }
+
+            $temp_status = Input::post('status_'.$dataa);
+            \Log::info($temp_status);
+            CertificateTempDetail::where('name', $datas[1])->where('peserta', $dataa)->update(['participant_status' => $temp_status]);
 
             $participant_data[]  = Users::getParticipantFirst($dataa);
         }
@@ -336,6 +424,12 @@ class CertificateController extends Controller
         $all_data[] = Input::post('finish_date');
         $all_data[] = Input::post('cer_location');
         $all_data[] = Input::post('cer_academy');
+        $all_data[] = Input::post('cfu/fu');
+        if(Input::post('level-radios') === 'Others') {
+            $all_data[] = Input::post('cer_others');
+        } else {
+            $all_data[] = Input::post('level-radios');
+        }
         $all_data[] = Input::post('cer_released');
         $all_data[] = Input::post('cer_outline');
         if(Input::post('inline-radios') === 'date') {
@@ -344,6 +438,8 @@ class CertificateController extends Controller
             $end = Input::post('cer_released');
             $end = date('Y-m-d', strtotime('+'.Input::post('expired_years').' years'));
             $all_data[] = $end;
+        } elseif(Input::post('inline-radios') === 'all-time') {
+            $all_data[] = '2100/12/12';
         } else {
             $all_data[] = '';
         }
@@ -351,26 +447,13 @@ class CertificateController extends Controller
         $all_data[] = Input::post('job_family');
         
 
-
-
-        $all_certificate = Storage::files(Input::post('cer_name'));
+        $details = CertificateTempDetail::where('name', $datas[1])->get();
         
-
-        $bool_cert = [];
-        foreach ($data_participant as $dataa) {
-            if(in_array(Input::post('cer_name').'/'.$dataa.'.jpg',$all_certificate)) {
-                $bool_cert[] = 'ya';
-            } else {
-                $bool_cert[] = 'tidak';
-            }
-        }
-
-
-
-
+        \Log::info($details);
         return view('validation_final')->with('data_detail', $all_data)
                                        ->with('participant_detail', $participant_data)
-                                       ->with('have',$bool_cert);
+                                       ->with('details', $details);
+                                       
     }
 
 
@@ -387,16 +470,31 @@ class CertificateController extends Controller
 
     public function editItem2(Request $request) {
         $edited = ($request->fnik);
-        Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision, 'ubpp' => $request->fubpp]);
+        Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision]);
+        CertificateTempDetail::where('name', $request->fname)->where('peserta', $request->fnik)->update(['ubpp' => $request->fubpp]);
         
         return response()->json();
+    }
+
+    public function createItem2(Request $request) {
+        Users::insert(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision]);
+        
+        CertificateTempDetail::insert(['name' => $request->fname, 'peserta' => $request->fnik, 'ubpp' => $request->fubpp]);
+        $data = CertificateTemp::where('name', $request->fname)->get();
+        $participant = $data[0]->participants;
+
+        $participant = $participant.','.$request->fnik;
+
+        CertificateTemp::where('name', $request->fname)->update(['participants' => $participant]);
+
+       return response()->json(); 
     }
 
     public function deleteItem2(Request $request) {
         $deleted = ($request->fnomor) - 1;
         $name = ($request->fname);
 
-        \Log::info($name);
+        
 
         $data_baru = CertificateTemp::where('name', $name)->get();
         $participant_data = $data_baru[0]->participants;
@@ -408,13 +506,13 @@ class CertificateController extends Controller
         return response()->json();
     }
 
-     public function deleteItem(Request $request) {
-        $deleted = ($request->fnomor);
-     
+    public function deleteItem(Request $request) {
+        $deleted = ($request->fnomor) - 1;
         $datas = session('peserta');
         array_splice($datas,$deleted,1);
         session(['peserta' => $datas]); 
         session(['idx' => '2']);
+
         return response()->json();
 
     }
@@ -422,15 +520,43 @@ class CertificateController extends Controller
     public function editItem(Request $request) {
         $edited = ($request->fnomor) - 1;
         $datas = session('peserta');
-        $datas[$edited]->nik = $request->fnik;
-        $datas[$edited]->nama = $request->fnama;
-        $datas[$edited]->job = $request->fjob;
-        $datas[$edited]->division = $request->fdivision;
-        $datas[$edited]->ubpp = $request->fubpp;
+        
+            $datas[$edited]->nik = $request->fnik;
+            $datas[$edited]->nama = $request->fnama;
+            $datas[$edited]->job = $request->fjob;
+            $datas[$edited]->division = $request->fdivision;
+            $datas[$edited]->ubpp = $request->fubpp;
 
-        session(['peserta' => $datas]);
-        session(['idx' => '2']);
+            session(['peserta' => $datas]);
+            session(['idx' => '2']);
+
+
+            \Log::info(session('peserta'));
+            
+            
         return response()->json();
+    }
+
+    public function requestItem(Request $request) {
+        $requested = $request->fnik;
+
+        
+
+        if(Users::where('nik', $requested)->exists()) {
+            Users::where('nik', $requested)->update(['status'=>'requested']);
+        } else {
+            Users::insert(['nik'=>$requested, 'status'=>'requested']);
+        }
+
+        $datas = session('peserta');
+
+        foreach($datas as $data) {
+            if($data->nik === $requested) {
+                $data->status = 'requested';
+            }
+        } 
+        return response()->json();
+
     }
 
 
@@ -489,9 +615,6 @@ class CertificateController extends Controller
 
     }
 
-    
-
-   
 
      public function deleteItemClarification(Request $request) {
         $deleted = ($request->fnomor);
@@ -534,25 +657,38 @@ class CertificateController extends Controller
     }
 
     public function draftForm() {
+        $details = session('detail');
         $participants = session('peserta');
         $participant = '';
         foreach($participants as $data) {
             $participant = $participant . $data->nik . ',';
+            if(Users::where('nik', $data->nik)->exists()) {
+                Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+            } else {
+                Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division, 'status'=>'nofix']);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+            }
         }
         $participant = substr($participant,0,-1);
-        $details = session('detail');
         
-        CertificateTemp::insert(
+        
+        
+            CertificateTemp::insert(
             [
                 'name' => $details[0],
                 'start_date' => $details[1],
                 'finish_date' => $details[2],
                 'location' => $details[3],
                 'academy' => $details[4],
+                'institution' => $details[5],
+                'category' => $details[6],
+                'internal' => $details[7],
                 'participants' => $participant,
                 'status' => 'draftSSO'
             ]);
-
+  
+        
         return response()->json();
     }
 
@@ -581,7 +717,9 @@ class CertificateController extends Controller
 
 
     public function draftLDE(Request $request) {
-        CertificateTemp::where('name', $request->name)->update(['released_date' => $request->released_date,
+        CertificateTemp::where('name', $request->name)->update(['cfu_fu' => $request->cfu_fu,
+                                                                'level' => $request->level,
+                                                                'released_date' => $request->released_date,
                                                                 'outline' => $request->outline,
                                                                 'expired_at' => $request->expired_date,
                                                                 'telkom_main' => $request->main_program,
@@ -598,9 +736,19 @@ class CertificateController extends Controller
         $participant = '';
         foreach($participants as $data) {
             $participant = $participant . $data->nik . ',';
+            if(Users::where('nik', $data->nik)->exists()) {
+                Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
+
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+            } else {
+                Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division, 'status'=>'nofix']);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+            }
         }
         $participant = substr($participant,0,-1);
         $details = session('detail');
+        
+
         
         CertificateTemp::insert(
             [
@@ -609,6 +757,9 @@ class CertificateController extends Controller
                 'finish_date' => $details[2],
                 'location' => $details[3],
                 'academy' => $details[4],
+                'institution' => $details[5],
+                'category' => $details[6],
+                'internal' => $details[7],
                 'participants' => $participant,
                 'status' => 'validateLDE'
             ]);
@@ -619,7 +770,9 @@ class CertificateController extends Controller
     
 
     public function submitComplete(Request $request) {
-        CertificateTemp::where('name', $request->name)->update(['released_date' => $request->released_date,
+        CertificateTemp::where('name', $request->name)->update(['cfu_fu' => $request->cfu_fu,
+                                                                'level' => $request->level,
+                                                                'released_date' => $request->released_date,
                                                                 'outline' => $request->outline,
                                                                 'expired_at' => $request->expired_date,
                                                                 'telkom_main' => $request->main_program,
@@ -629,6 +782,8 @@ class CertificateController extends Controller
 
         $tes = CertificateTemp::where('name', $request->name)->first();
         $participant = $tes['participants'];
+
+        $temp_detail = CertificateTempDetail::where('name', $request->name)->get();
 
         $akademi;
         if($request->academy === 'NITS') {
@@ -646,6 +801,18 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+
+            foreach($temp_detail as $datas) {
+                NitsDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
+                
         } elseif($request->academy === 'WINS') {
             Wins::insert(
             ['name' => $request->name,
@@ -661,6 +828,17 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+
+            foreach($temp_detail as $datas) {
+                WinsDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         } elseif($request->academy === 'DISP') {
             Disp::insert(
             ['name' => $request->name,
@@ -676,6 +854,17 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+
+            foreach($temp_detail as $datas) {
+                DispDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         } elseif($request->academy === 'Business Enabler') {
             Business::insert(
             ['name' => $request->name,
@@ -691,6 +880,17 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+
+            foreach($temp_detail as $datas) {
+                BusinessDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         } elseif($request->academy === 'Consumer') {
             Consumer::insert(
             ['name' => $request->name,
@@ -706,6 +906,16 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+            foreach($temp_detail as $datas) {
+                ConsumerDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         } elseif($request->academy === 'Mobile') {
             Mobile::insert(
             ['name' => $request->name,
@@ -721,6 +931,16 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+            foreach($temp_detail as $datas) {
+                MobileDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         } elseif($request->academy === 'Leadership') {
             Leadership::insert(
             ['name' => $request->name,
@@ -736,6 +956,16 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+            foreach($temp_detail as $datas) {
+                LeadershipDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         } elseif($request->academy === 'Enterprise') {
             Enterprise::insert(
             ['name' => $request->name,
@@ -751,6 +981,16 @@ class CertificateController extends Controller
             'expired_at' => $request->expired_date,
             'status' => 'complete'
             ]);
+            foreach($temp_detail as $datas) {
+                EnterpriseDetail::insert(
+                [
+                    'name' => $datas->name,
+                    'peserta' => $datas->peserta,
+                    'participant_status' => $datas->participant_status,
+                    'file_name' => $datas->file_name,
+                    'ubpp' => $datas->ubpp
+                ]);
+            }
         }
         
         return response()->json();

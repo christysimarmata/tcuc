@@ -215,7 +215,7 @@
                 url: '/draftFormClarification',
                  success: function(response) {
                     setTimeout(function() {
-                        window.history.back();
+                        window.location = "../needclarification";
                     },500);
  
                  }
@@ -237,7 +237,7 @@
                 data: {'fname' : $('.val_name').html()},
                  success: function(data) {
                     setTimeout(function() {
-                        window.history.back();
+                        window.location = "../needclarification";
                     },200);
  
                  }

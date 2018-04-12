@@ -11,7 +11,7 @@ class Login extends Model
     public $timestamps = 'false';
 
     public static function validateLogin($nik, $password) {
-    	$user = DB::table('users')
+    	$user = DB::table('user_fix')
     		->where('nik', $nik)
     		->where('password', $password)
     		->value('id');

@@ -23,7 +23,6 @@ class Users extends Model
 	    'email',
 	    'phone_number',
 	    'job',
-	    'ubpp',
 	    'division',
 	    'created_at',
 	    'updated_at'];

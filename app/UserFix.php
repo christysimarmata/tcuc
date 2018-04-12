@@ -5,10 +5,10 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use DB;
 
-class UsersTemp extends Model
+class UserFix extends Model
 {
     //
-    protected $table = 'users_temp';
+    protected $table = 'user_fix';
 
 
 	public $timestamps = true;
@@ -23,7 +23,6 @@ class UsersTemp extends Model
 	    'email',
 	    'phone_number',
 	    'job',
-	    'ubpp',
 	    'division',
 	    'created_at',
 	    'updated_at'];

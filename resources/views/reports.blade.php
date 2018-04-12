@@ -23,12 +23,12 @@
                         <div class="card-body">
                         <form action="reports" method="post" >
                             <div class="form-group col-md-5">
-                                <label for="startDate" class="pr-1  form-control-label">Period </label>
-                                <input type="date" id="startDate" class="form-control" name="start_date">
+                                <label for="startDate" class="pr-1  form-control-label">Starting Years </label>
+                                <input type="date" id="startDate" class="form-control" name="start_date" >
                             </div>
                             <div class="form-group col-md-5">
-                                <label for="finishDate" class="px-1  form-control-label">To : </label>
-                                <input type="date" id="finishDate" class="form-control" name="finish_date">
+                                <label for="finishDate" class="pr-1  form-control-label">Until : </label>
+                                <input type="date" id="finishDate" class="form-control" name="finish_date" >
                             </div>
                             <input type="submit" value="Search" class="btn btn-primary" style="margin-top: 30px; margin-left: 20px;">
                             <div class="form-group col-md-4">

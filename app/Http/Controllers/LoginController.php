@@ -15,12 +15,36 @@ use App\Leadership;
 use App\Mobile;
 use App\Nits;
 use App\Wins;
+use App\ConsumerDetail;
+use App\BusinessDetail;
+use App\DispDetail;
+use App\EnterpriseDetail;
+use App\LeadershipDetail;
+use App\MobileDetail;
+use App\NitsDetail;
+use App\WinsDetail;
 use App\Users;
 use App\MainProgram;
 use App\JobFamily;
+use DB;
 
 class LoginController extends Controller
 {
+
+    public static function index() {
+        $data = DB::table('info')->get();
+        $address = $data[0]->address;
+        $phone_number = $data[0]->phone_number;
+        $email = $data[0]->email;
+
+
+        \Log::info($address);
+
+        return view('login')->with('address', $address)
+                            ->with('phone_number', $phone_number)
+                            ->with('email', $email);
+    }
+
     
     public function doLogin() {
     	$nik = Input::get('nik');
@@ -28,7 +52,7 @@ class LoginController extends Controller
             $result = Login::validateLogin($nik, $password);
         	if ($result == 'false') {
                 $err = new MessageBag(['failed' => 'Invalid Email and/or Password. Please try again!']);
-                return view('login')->withErrors($err);
+                return redirect('/');
         	} else {
                 $user = Login::getUser($result);
                 session(['userAktif' => $user->nik]);
@@ -137,7 +161,8 @@ class LoginController extends Controller
         ])
         ->options([]);
 
-
+        session(['listprogram' => $labelprogram]);
+        session(['listfamily' => $labelfamily]);
         session(['chartfamily' => $chartfamily]);
         session(['chartprogram' => $chartprogram]);
 
@@ -214,7 +239,11 @@ class LoginController extends Controller
             $data_nits = explode(',', $participant_nits);
             
             foreach($data_nits as $data) {
-                $par_nits[$nits->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = NitsDetail::where('name', $nits->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_nits[$nits->name][] = (object) $temp;
             }
 
         }
@@ -224,7 +253,13 @@ class LoginController extends Controller
             $data_consumer = explode(',', $participant_consumer);
 
             foreach($data_consumer as $data) {
-                $par_consumer[$consumer->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = ConsumerDetail::where('name', $consumer->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                 \Log::info($temp['ubpp']);
+                $temp['participant_status'] = $temp_detail['participant_status'];
+
+                $par_consumer[$consumer->name][] = (object) $temp;
             }
 
         }
@@ -234,7 +269,11 @@ class LoginController extends Controller
             $data_disp = explode(',', $participant_disp);
 
             foreach($data_disp as $data) {
-                $par_disp[$disp->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = DispDetail::where('name', $disp->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_disp[$disp->name][] = (object) $temp;
             }
 
         }
@@ -244,7 +283,11 @@ class LoginController extends Controller
             $data_wins = explode(',', $participant_wins);
 
             foreach($data_wins as $data) {
-                $par_wins[$wins->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = WinsDetail::where('name', $wins->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_wins[$wins->name][] = (object) $temp;
             }
 
         }
@@ -254,7 +297,11 @@ class LoginController extends Controller
             $data_mobile = explode(',', $participant_mobile);
 
             foreach($data_mobile as $data) {
-                $par_mobile[$mobile->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = MobileDetail::where('name', $mobile->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_mobile[$mobile->name][] = (object) $temp;
             }
 
         }
@@ -264,7 +311,11 @@ class LoginController extends Controller
             $data_business = explode(',', $participant_business);
 
             foreach($data_business as $data) {
-                $par_business[$business->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = BusinessDetail::where('name', $business->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_business[$business->name][] = (object) $temp;
             }
 
         }
@@ -274,7 +325,11 @@ class LoginController extends Controller
             $data_enterprise = explode(',', $participant_enterprise);
 
             foreach($data_enterprise as $data) {
-                $par_enterprise[$enterprise->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = EnterpriseDetail::where('name', $enterprise->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_enterprise[$enterprise->name][] = (object) $temp;
             }
 
         }
@@ -284,13 +339,16 @@ class LoginController extends Controller
             $data_leadership = explode(',', $participant_leadership);
 
             foreach($data_leadership as $data) {
-                $par_leadership[$leadership->name][] = Users::getParticipantFirst($data);
+                $temp = (array) Users::getParticipantFirst($data);
+                $temp_detail = LeadershipDetail::where('name', $leadership->name)->where('peserta', $data)->first();
+                $temp['ubpp'] = $temp_detail['ubpp'];
+                $temp['participant_status'] = $temp_detail['participant_status'];
+                $par_leadership[$leadership->name][] = (object) $temp;
             }
 
         }
 
 
-        \Log::info($par_nits);
         return view('allparticipant')->with('datanits', $all['nits'])
                                        ->with('dataconsumer', $all['consumer'])
                                        ->with('datadisp', $all['disp'])
@@ -314,6 +372,45 @@ class LoginController extends Controller
         
     }
 
+
+    public static function advanceSearch() {
+        $name = Input::get('fname');
+        $academy = Input::get('facademy');
+        $location = Input::get('flocation');
+        $start = Input::get('fstart');
+        $finish = Input::get('ffinish');
+        $program = Input::get('fprogram');
+        $family = Input::get('ffamily');
+
+
+        
+
+        $newclass = 'App\\'.$academy;
+        $all = $newclass::where('name', $name)->where('location', $location)->where('telkom_main', $program)->where('job_family', $family)->where('start_date', '>=', $start)->where('finish_date', '<=', $finish)->get();
+        
+
+        if(count($all) === 0) {
+            return redirect('dashboard')->with('status', 'No Certification Found!');
+        } else {
+            return redirect($academy.'cer/'.$name);
+        }
+    }
+
+
+    public static function basicSearch(Request $request) {
+        $input = $request->fsearch;
+
+        $result = [];
+        $result[] = DB::table('nits')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('consumer')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('disp')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('wins')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('mobile')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('business')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('enterprise')->where('participants', 'like', '%'.$input.'%');
+        $result[] = DB::table('leadership')->where('participants', 'like', '%'.$input.'%');
+        return response()->json();
+    }
 
 }
 

@@ -64,22 +64,31 @@
                                 <div class="card-body">
                 @foreach($datas as $data) 
                     @foreach($data as $dat)
-                                <div class="col-md-3">
-                                    <div class="card">
-                                        <div class="card-body">
-                                            <div class="mx-auto d-block">
-                                                <img class="mx-auto d-block" src="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{$user->nik}}.jpg" alt="Card image cap" style="width: 200px; height: 200px;">
-                                                
-                                                <h5 class="text-sm-center mt-2 mb-1"><a href="../{{$dat->academy}}cer/{{$dat->name}}"> {{ $dat->name }}</a></h5>
-                                                <center><div>{{ $dat->telkom_main }}</div></center>
-                                            </div>
-                                            <div class="card-text text-sm-center">
-                                                {{ $dat->expired_at }} <a href=""><i class="fa fa-download"></i></a>
+                        @foreach($filee as $file)
+                            @foreach($file as $fil)
+                                @if(($fil->name === $dat->name) && ($fil->peserta === $user->nik))
+                                    <div class="col-md-3">
+                                        <div class="card">
+                                            <div class="card-body">
+                                                <div class="mx-auto d-block">
+                                                    <img class="mx-auto d-block" src="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{ $fil->file_name }}" alt="Card image cap" style="width: 200px; height: 200px;">
+                                                    
+                                                    <h5 class="text-sm-center mt-2 mb-1"><a href="../{{$dat->academy}}cer/{{$dat->name}}"> {{ $dat->name }}</a></h5>
+                                                    <center><div>{{ $dat->telkom_main }}</div></center>
+                                                </div>
+                                                <div class="card-text text-sm-center">
+                                                    @if($dat->expired_at === '2100-12-12')
+                                                        All Time <a href="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{ $user->nik }}.jpg" download><i class="fa fa-download"></i></a>
+                                                    @else 
+                                                        {{ $dat->expired_at }} <a href="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{ $user->nik }}.jpg" download><i class="fa fa-download"></i></a>
+                                                    @endif
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                
+                                @endif
+                            @endforeach
+                        @endforeach
                     @endforeach
                 @endforeach
            

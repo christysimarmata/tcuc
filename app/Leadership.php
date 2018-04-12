@@ -21,6 +21,11 @@ class Leadership extends Model
 	    'finish_date',
 	    'location',
 	    'academy',
+	    'institution',
+	    'category',
+	    'internal',
+	    'cfu_fu',
+	    'level',
 	    'outline',
 	    'telkom_main',
 	    'job_family',
@@ -45,6 +50,20 @@ class Leadership extends Model
 		return DB::table('leadership')->where('start_date','>=', $start)
 								->where('finish_date', '<=', $finish)
 								->get();
+	}
+
+	public static function getByProgramYears($start, $finish, $program) {
+		return DB::table('leadership')->whereYear('start_date','>=', $start)
+									->whereYear('finish_date', '<=', $finish)
+									->where('telkom_main', $program)
+									->count();
+	}
+
+	public static function getByFamilyYears($start, $finish, $family) {
+		return DB::table('leadership')->whereYear('start_date','>=', $start)
+									->whereYear('finish_date', '<=', $finish)
+									->where('job_family', $family)
+									->count();
 	}
 
 	public static function getByProgram($start, $finish, $program) {

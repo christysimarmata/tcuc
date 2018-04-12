@@ -2,6 +2,12 @@
 
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/lib/datatable/dataTables.bootstrap.min.css') }}">
+<style type="text/css">
+    .topbutton {
+        float: right;
+        margin-left: 10px;
+    }
+</style>
 @endpush
 @section('content')
 
@@ -27,10 +33,25 @@
                                 <p>{{ $data->location}}</p>
                                 <h5 class="text-sm-left">Academy</h5>
                                 <p>{{ $data->academy}}</p>
+                                <h5 class="text-sm-left">Certification Institution</h5>
+                                <p>{{ $data->institution}}</p>
+                                <h5 class="text-sm-left">Category</h5>
+                                <p>{{ $data->category}}</p>
+                                <h5 class="text-sm-left">Internal</h5>
+                                <p>{{ $data->internal}}</p>
+                                <h5 class="text-sm-left">CFU/FU</h5>
+                                <p>{{ $data->cfu_fu}}</p>
+                                <h5 class="text-sm-left">Certification Level</h5>
+                                <p>{{ $data->level}}</p>
                                 <h5 class="text-sm-left">Certification Outline</h5>
                                 <p>{{ $data->outline}}</p>
-                                <h5 class="text-sm-left">Expired Date</h5>
-                                <p>{{ $data->expired_at}}</p>
+                                @if($data->expired_at == '2100-12-12')
+                                    <h5 class="text-sm-left">Expired Date</h5>
+                                    <p>All Time</p>
+                                @else
+                                    <h5 class="text-sm-left">Expired Date</h5>
+                                    <p>{{ $data->expired_at}}</p>
+                                @endif
                                 <h5 class="text-sm-left">Telkom Main Program</h5>
                                 <p>{{ $data->telkom_main}}</p>
                                 <h5 class="text-sm-left">Job Family</h5>
@@ -48,29 +69,37 @@
                             <strong class="card-title">Data Table</strong>
                         </div>
                         <div class="card-body">
-                  <table id="bootstrap-data-table" class="table table-striped table-bordered">
+                  <table id="bootstrap-data-table-export-2" class="table table-striped table-bordered">
                     <thead>
                       <tr>
                         <th>No</th>
+                        <th>Certification Name</th>
                         <th>NIK</th>
                         <th>Name</th>
+                        <th>UBPP</th>
+                        <th>Participant Status</th>
                         <th>Job Position</th>
                         <th>Division</th>
+                        <th>Email</th>
+                        <th>Phone Number</th>
                       </tr>
                     </thead>
                     <tbody>
                         @php ($nomor = 1)
-                    	@foreach($data_detail as $datas)
-							@foreach($datas as $data) 
-								<tr>
-	                       		<td>{{ $nomor++ }}</td>
-                        		<td><a href="../profile_detail/{{ $data->nik }}" >{{ $data->nik }}</a></td>
-                        		<td><a href="../profile_detail/{{ $data->nik }}" >{{ $data->nama }}</a></td>
-                        		<td>{{ $data->job }}</td>
-                        		<td>{{ $data->division }}</td>
-	                      		</tr>
-							@endforeach
-						@endforeach
+                        @foreach($data_detail as $datas)
+                                <tr>
+                                <td>{{ $nomor++ }}</td>
+                                <td>{{ $data->name }}</td>
+                                <td><a href="../profile_detail/{{ $datas->nik }}" >{{ $datas->nik }}</a></td>
+                                <td><a href="../profile_detail/{{ $datas->nik }}" >{{ $datas->nama }}</a></td>
+                                <td>{{ $datas->ubpp }} %</td>
+                                <td>{{ $datas->participant_status }}</td>
+                                <td>{{ $datas->job }}</td>
+                                <td>{{ $datas->division }}</td>
+                                <td>{{ $datas->email }}</td>
+                                <td>{{ $datas->phone_number }}</td>
+                                </tr>
+                        @endforeach
                     </tbody>
                   </table>
                         </div>

@@ -12,40 +12,26 @@
 */
 
 Route::post('login_action', 'LoginController@doLogin');
-// Route::get('dashboardsso', function () {
-//     return view('dashboard');
-// });
-// Route::get('dashboarduser', function () {
-//     return view('dashboard');
-// });
-// Route::get('dashboardpnc', function () {
-//     return view('dashboard');
-// });
-// Route::get('dashboardlde', function () {
-//     return view('dashboard');
-// });
-// Route::get('dashboardnonlde', function () {
-//     return view('dashboard');
-// });
-// Route::get('dashboardadmin', function () {
-//     return view('dashboard');
-// });
+
+Route::get('/', 'LoginController@index');
+
 
 Route::get('dashboard', function() {
 	return view('dashboard');
 });
-Route::get('login', function() {
-	return view('login');
-});
+
 
 Route::get('help', 'HelpController@showContact');
 
 Route::get('logout', function() {
 	session()->flush();
 
-	return redirect('login');
+	return redirect('/');
 });
 
+Route::get('login2', function() {
+	return view('login2');
+});
 
 Route::get('allcertification', 'LoginController@getAllCertification');
 
@@ -55,13 +41,27 @@ Route::get('allparticipant', 'LoginController@getAllParticipant');
 
 Route::post('allparticipant', 'LoginController@updateParticipant');
 
+Route::get('advancesearch', 'LoginController@advanceSearch');
+
+Route::post('basicsearch', 'LoginController@basicSearch');
 
 Route::get('profile', 'ProfileController@showProfile');
 
 Route::post('profile', 'ProfileController@updateAvatar');
 
+Route::get('settings', 'SettingsController@index');
+Route::post('changeinfo', 'SettingsController@changeinfo');
+Route::post('addprogram', 'SettingsController@addprogram');
+Route::post('deleteprogram', 'SettingsController@deleteprogram');
+Route::post('deletefamily', 'SettingsController@deletefamily');
+Route::post('addfamily', 'SettingsController@addfamily');
+Route::get('createuser', 'SettingsController@indexuser');
+Route::post('addusersingle', 'SettingsController@addusersingle');
+Route::post('addusermultiple', 'SettingsController@addusermultiple');
 
-
+Route::get('requestuser', 'SettingsController@requestUser');
+Route::post('createRequest', 'SettingsController@createRequest');
+Route::post('deleteRequest', 'SettingsController@deleteRequest');
 
 Route::get('mycertification', 'MyCertificationController@showCertification');
 
@@ -100,7 +100,6 @@ Route::get('profile_detail/{nik?}', 'ProfileController@showList');
 Route::get('certificationlist', 'CertificateController@showList' );
 Route::get('needclarification', 'CertificateController@showListClarification');
 Route::get('clarificationfinal/{name?}', 'CertificateController@clarificationfinal');
-// Route::post('detail', 'CertificateController@detailClarification');
 Route::get('createSertificate', 'CertificateController@createNew');
 
 Route::post('newcertificate','CertificateController@getParticipant');
@@ -109,7 +108,8 @@ Route::post('editItem', 'CertificateController@editItem');
 Route::post('deleteItem', 'CertificateController@deleteItem');
 Route::post('editItem2', 'CertificateController@editItem2');
 Route::post('deleteItem2', 'CertificateController@deleteItem2');
-
+Route::post('createItem2', 'CertificateController@createItem2');
+Route::post('requestItem', 'CertificateController@requestItem');
 
 Route::post('editClarification', 'CertificateController@editClarification');
 Route::post('deleteClarification', 'CertificateController@deleteClarification');

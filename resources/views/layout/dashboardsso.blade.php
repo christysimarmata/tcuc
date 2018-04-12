@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="{{ asset('css/normalize.css') }}">
     <link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 
-
+        <link rel="stylesheet" href="{{ asset('css/date_picker.css') }}">
     <link rel="stylesheet" href="{{ asset('css/themify-icons.css') }}">
     <link rel="stylesheet" href="{{ asset('css/flag-icon.min.css') }}">
     <link rel="stylesheet" href="{{ asset('css/cs-skin-elastic.css') }}">
@@ -72,10 +72,10 @@
                         <a href="../needclarification"> <i class="menu-icon fa fa-spinner"></i>Need Clarification</a>
                     </li>
                     <li>
-                        <a href="../help"> <i class="menu-icon fa fa-tasks"></i>Help</a>
+                        <a href="../help"> <i class="menu-icon fa fa-question"></i>Help</a>
                     </li>
                     <li>
-                        <a href="../logout"> <i class="menu-icon fa fa-fire"></i>Logout </a>
+                        <a href="../logout"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->
@@ -95,16 +95,7 @@
 
                 <div class="col-sm-7">
                     <a id="menuToggle" class="menutoggle pull-left"><i class="fa fa fa-tasks"></i></a>
-                    <div class="header-left">
-                        <button class="search-trigger"><i class="fa fa-search"></i></button>
-                        <div class="form-inline">
-                            <form class="search-form">
-                                <input class="form-control mr-sm-2" type="text" placeholder="Search ..." aria-label="Search">
-                                <button class="search-close" type="submit"><i class="fa fa-close"></i></button>
-                            </form>
-                        </div>
-
-                    </div>
+                    
                 </div>
 
                 <div class="col-sm-5">
@@ -136,7 +127,7 @@
     <script src="{{ asset('js/plugins.js') }}"></script>
     <script src="{{ asset('js/main.js') }}"></script>
     <script src="{{ asset('js/chartjs.min.js') }}"></script>
-
+    <script src="{{ asset('js/date_picker.js') }}"></script>
     <script src="{{ asset('js/dashboard.js') }}"></script>
     <script src="{{ asset('js/widgets.js') }}"></script>
 

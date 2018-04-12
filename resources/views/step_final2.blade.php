@@ -21,13 +21,7 @@
     <div class="col-lg-12">
                 <div class="card">
                     <div class="card-block">
-                        <form class="form-horizontal" id="msform">
-                            <ul id="progressbar">
-                            <li>Detail Sertificate</li>
-                            <li>Input Participant</li>
-                            <li class="active">Preview</li>
-                          </ul>
-                        </form>
+                    
                           <div class="col-md-12">
                                             <div class="card">
                                                 <div class="card-body">
@@ -57,6 +51,9 @@
                                             <div class="card-body">
                                                 
                                       <table id="bootstrap-data-table" class="table table-striped table-bordered ttotsave">
+                                        <button class="create-modal btn btn-info" data-toggle="modal" data-target="#myModal" style="width: 100px; float: right; margin-right: 12px;">
+                                            <span class="glyphicon glyphicon-plus"></span> Create
+                                        </button>
                                         <thead>
                                           <tr>
                                             <th>No</th>
@@ -78,7 +75,11 @@
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
                                                         <td>{{ $datas->division }}</td>
-                                                        <td>{{ $datas->ubpp }}</td>
+                                                        @if($datas->ubpp == '') 
+                                                            <td>{{ $datas->ubpp }} </td>
+                                                        @else
+                                                            <td>{{ $datas->ubpp }} %</td>
+                                                        @endif
                                                         <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
@@ -139,28 +140,28 @@
                         </div>
 
 
-                        <div class="row form-group">
+                        <div class="row form-group satu">
                             <label class="control-label col-sm-2" for="fnama">Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="fnama">
                             </div>
                         </div>
                         
-                        <div class="row form-group">
+                        <div class="row form-group dua">
                             <label class="control-label col-sm-2" for="fjob">Job:</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="fjob">
                             </div>
                         </div>
                         
-                        <div class="row form-group">
+                        <div class="row form-group tiga">
                             <label class="control-label col-sm-2" for="fdivision">Division</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="fdivision">
                             </div>
                         </div>
                         
-                        <div class="row form-group">
+                        <div class="row form-group empat">
                             <label class="control-label col-sm-2" for="fubpp">UBPP</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="fubpp">
@@ -283,9 +284,10 @@
         $('.modal-footer').on('click', '.edit', function() {
         $.ajax({
             type: 'post',
-            url: 'editItem2',
+            url: '/editItem2',
             data: {
                 '_token': $('input[name=_token]').val(),
+                'fname' : $('.val_name').html(),
                 'fnomor': $("#fnomor").val(),
                 'fnik' : $("#fnik").val(),
                 'fnama': $('#fnama').val(),
@@ -301,6 +303,52 @@
                  }
         });
     });       
+
+
+        $(document).on('click', '.create-modal', function() {
+            $('#footer_action_button').text(" Update");
+            $('#footer_action_button').addClass('glyphicon-check');
+            $('#footer_action_button').removeClass('glyphicon-trash');
+            $('.actionBtn').addClass('btn-success');
+            $('.actionBtn').removeClass('btn-danger');
+            $('.actionBtn').removeClass('delete');
+            $('.actionBtn').addClass('create');
+            $('.modal-title').text('Create');
+            $('.satu').hide();
+            $('.dua').hide();
+            $('.tiga').hide();
+            $('.empat').hide();
+            $('.deleteContent').hide();
+            $('.form-horizontal').show();
+
+        });
+
+
+        $('.modal-footer').on('click', '.create', function() {
+        $.ajax({
+            type: 'post',
+            url: '/createItem2',
+            data: {
+                '_token': $('input[name=_token]').val(),
+                'fname' : $('.val_name').html(),
+                'fnomor': $("#fnomor").val(),
+                'fnik' : $("#fnik").val(),
+                'fnama': '',
+                'fjob': '',
+                'fdivision': '',
+                'fubpp': ''            
+            },
+            success: function(data) {
+                    setTimeout(function() {
+                        location.reload();
+                    },500);
+ 
+                 }
+        });
+    });       
+
+
+
     
 
         $(document).on('click', '.delete-modal', function() {

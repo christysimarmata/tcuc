@@ -69,7 +69,7 @@ class ReportsController extends Controller
 				'backgroundColor'=>"#36A2EB"
         	],
         	[	
-        		'label'=>"Main Program 2",
+        		'label'=>"Main Program 3",
 				'data'=>$dataprogram[2],
 				'backgroundColor'=>"#58D68D"
         	]
@@ -111,6 +111,34 @@ class ReportsController extends Controller
         ->options([]);
 
         
+        $chartprogram->optionsRaw([
+        	'scales' => [
+		        'yAxes' => [
+		            	[
+		                'ticks' => [
+		                	'beginAtZero' => true
+		                ]
+		            ]
+		        ]
+		    ]
+
+        ]);
+
+        $chartfamily->optionsRaw([
+        	'scales' => [
+		        'yAxes' => [
+		            	[
+		                'ticks' => [
+		                	'beginAtZero' => true
+		                ]
+		            ]
+		        ]
+		    ]
+
+        ]);
+
+
+
         return view('reports')->with('mainprogram', $mainprogram)
         					  ->with('jobfamily', $jobfamily)
         					  ->with('chartprogram', $chartprogram)

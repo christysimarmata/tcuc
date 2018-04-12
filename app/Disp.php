@@ -21,6 +21,11 @@ class Disp extends Model
 	    'finish_date',
 	    'location',
 	    'academy',
+	    'institution',
+	    'category',
+	    'internal',
+	    'cfu_fu',
+	    'level',
 	    'outline',
 	    'telkom_main',
 	    'job_family',
@@ -33,6 +38,20 @@ class Disp extends Model
 
 	public static function getAllData() {
 		return DB::table('disp')->get();
+	}
+
+	public static function getByProgramYears($start, $finish, $program) {
+		return DB::table('disp')->whereYear('start_date','>=', $start)
+									->whereYear('finish_date', '<=', $finish)
+									->where('telkom_main', $program)
+									->count();
+	}
+
+	public static function getByFamilyYears($start, $finish, $family) {
+		return DB::table('disp')->whereYear('start_date','>=', $start)
+									->whereYear('finish_date', '<=', $finish)
+									->where('job_family', $family)
+									->count();
 	}
 
 	public static function getWhereThereIs($nik, $job_family) {

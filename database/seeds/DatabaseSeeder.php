@@ -22,5 +22,18 @@ class DatabaseSeeder extends Seeder
         $this->call(WinsSeeder::class);
         $this->call(JobFamilySeeder::class);
         $this->call(MainProgramSeeder::class);
+        $this->call(InfoSeeder::class);
+        $this->call(UserFixSeeder::class);
+        $this->call(CertificateTempSeeder::class);
+        $this->call(BusinessDetailSeeder::class);
+        $this->call(DispDetailSeeder::class);
+        $this->call(EnterpriseDetailSeeder::class);
+        $this->call(LeadershipDetailSeeder::class);
+        $this->call(MobileDetailSeeder::class);
+        $this->call(NitsDetailSeeder::class);
+        $this->call(ConsumerDetailSeeder::class);
+        $this->call(WinsDetailSeeder::class);
+        $this->call(CertificateTempDetailSeeder::class);
+
     }
 }

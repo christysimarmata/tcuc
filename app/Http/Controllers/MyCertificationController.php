@@ -11,6 +11,14 @@ use App\Leadership;
 use App\Mobile;
 use App\Nits;
 use App\Wins;
+use App\ConsumerDetail;
+use App\BusinessDetail;
+use App\DispDetail;
+use App\EnterpriseDetail;
+use App\LeadershipDetail;
+use App\MobileDetail;
+use App\NitsDetail;
+use App\WinsDetail;
 use App\Users;
 use App\JobFamily;
 use Storage;
@@ -25,38 +33,47 @@ class MyCertificationController extends Controller
     	$plucked = $jobfamily->pluck('name');
     	$plucked->all();
 
-
+        
     	$family = [];
+        $filee = [];
     	foreach($plucked as $plucks) {
     		if((Nits::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Nits::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = NitsDetail::getFileName(session('userAktif'), $plucks);
     		}
 		    if((Consumer::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Consumer::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = ConsumerDetail::getFileName(session('userAktif'), $plucks);
     		}
     		if((Disp::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Disp::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = DispDetail::getFileName(session('userAktif'), $plucks);
     		}
     		if((Wins::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Wins::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = WinsDetail::getFileName(session('userAktif'), $plucks);
     		}
     		if((Mobile::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Mobile::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = MobileDetail::getFileName(session('userAktif'), $plucks);
     		}
     		if((Enterprise::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Enterprise::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = EnterpriseDetail::getFileName(session('userAktif'), $plucks);
     		}
     		if((Business::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Business::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = BusinessDetail::getFileName(session('userAktif'), $plucks);
     		}
     		if((Leadership::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
     			$family[$plucks][] = Leadership::getWhereThereIs(session('userAktif'), $plucks);
+                $filee[] = LeadershipDetail::getFileName(session('userAktif'), $plucks);
     		}	
     	}
     	
 	    
-	    \Log::info($family);
-	    return view('my_certification')->with('family',$family);
+	    return view('my_certification')->with('family',$family)
+                                       ->with('filee', $filee); 
     }
     
 }

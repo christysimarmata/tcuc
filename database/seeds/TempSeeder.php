@@ -23,22 +23,12 @@ class TempSeeder extends Seeder
             'email' => 'sso123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'senior operator',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
 
         ));
 
-        $user = Users::create(array(
-        	'nik' => 'user123',
-            'nama' => 'Irwansyah',
-        	'password' => 'user123',
-        	'role' => 'user',
-            'email' => 'user123@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'User biasa',
-            'ubpp' => '90%',
-            'division' => 'Human development'
-        ));
 
         $lde1 = Users::create(array(
         	'nik' => 'ldenits',
@@ -48,8 +38,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde2 = Users::create(array(
@@ -60,8 +51,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde3 = Users::create(array(
@@ -72,8 +64,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde4 = Users::create(array(
@@ -84,8 +77,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde5 = Users::create(array(
@@ -96,8 +90,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde6 = Users::create(array(
@@ -108,8 +103,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde7 = Users::create(array(
@@ -120,8 +116,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $lde8 = Users::create(array(
@@ -132,8 +129,9 @@ class TempSeeder extends Seeder
             'email' => 'lde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $pnc = Users::create(array(
@@ -144,8 +142,9 @@ class TempSeeder extends Seeder
             'email' => 'pnc123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Penanggung jawab',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
 
         $nonlde = Users::create(array(
@@ -156,152 +155,421 @@ class TempSeeder extends Seeder
             'email' => 'nonlde123@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $user = Users::create(array(
+            'nik' => '651225',
+            'nama' => 'Lementina Manurung IR',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'lementina@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Staff Marketing',
+            
+            'division' => 'Business Development',
+            'status' => 'fix'
         ));
 
         $user1 = Users::create(array(
-            'nik' => 'user1',
-            'nama'=> 'Ahmad Fajar',
+            'nik' => '591825',
+            'nama' => 'Marthen Masak Dalipang',
             'password' => 'password',
             'role' => 'user',
-            'email' => 'user1123@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'email' => 'marthenmasak@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Marketing',
+            
+            'division' => 'Business Development',
+            'status' => 'fix'
         ));
 
         $user2 = Users::create(array(
-            'nik' => 'user2',
-            'nama'=> 'Ahmad Ridwan',
+            'nik' => '670288',
+            'nama' => 'Kurnia Waras Tjahjo',
             'password' => 'password',
-            'role' => 'sso',
-            'email' => 'user22@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Manager',
-            'ubpp' => '90%',
-            'division' => 'development'
+            'role' => 'user',
+            'email' => 'kurniawaras@gmail.com',
+            'phone_number' => '082334546804',
+            'job' => 'Staff Marketing',
+            
+            'division' => 'Business Development',
+            'status' => 'fix'
         ));
 
         $user3 = Users::create(array(
-            'nik' => 'user3',
-            'nama'=> 'Ridwan Fajar',
+            'nik' => '633056',
+            'nama' => 'M.Agustinus Sianturi',
             'password' => 'password',
             'role' => 'user',
-            'email' => 'qweqwe@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Teknis',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'email' => 'agustinussianturi@gmail.com',
+            'phone_number' => '0823673468321',
+            'job' => 'Staff Business',
+            
+            'division' => 'Business Development',
+            'status' => 'fix'
+        ));
+
+        $user3x = Users::create(array(
+            'nik' => '633092',
+            'nama' => 'Roy Sianturi',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'agustinussianturi@gmail.com',
+            'phone_number' => '0823673468321',
+            'job' => 'Staff Advertising',
+            
+            'division' => 'Business Program',
+            'status' => 'fix'
         ));
 
         $user4 = Users::create(array(
-            'nik' => 'user4',
-            'nama'=> 'Bang Toyib',
+            'nik' => '622290',
+            'nama' => 'M. Suhadi',
             'password' => 'password',
-            'role' => 'lde',
-            'email' => 'asdasdqw@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Janitor',
-            'ubpp' => '90%',
-            'division' => 'Human Resource'
+            'role' => 'user',
+            'email' => 'suhadi@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Business',
+            
+            'division' => 'Business Development',
+            'status' => 'fix'
         ));
 
         $user5 = Users::create(array(
-            'nik' => 'user5',
-            'nama'=> 'Ahmad Simanullang',
+            'nik' => '780026',
+            'nama' => 'Kusumo Aji Sri Haryoto',
             'password' => 'password',
-            'role' => 'pnc',
-            'email' => 'uadd1123@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'role' => 'user',
+            'email' => 'kusumoaji@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Marketing',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user6 = Users::create(array(
-            'nik' => 'user6',
-            'nama'=> 'Ahmad Ramadhan',
+            'nik' => '640188',
+            'nama' => 'Madiyo',
             'password' => 'password',
             'role' => 'user',
-            'email' => 'uqqq3@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'email' => 'madiyo@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Networking',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user7 = Users::create(array(
-            'nik' => 'user7',
-            'nama'=> 'Giot babe',
+            'nik' => '650456',
+            'nama' => 'Kusna Mulyana',
             'password' => 'password',
-            'role' => 'nonlde',
-            'email' => 'user1123@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Networking',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user8 = Users::create(array(
-            'nik' => 'user8',
-            'nama'=> 'Fajar Bintang',
+            'nik' => '690355',
+            'nama' => 'Lukman Dinar',
             'password' => 'password',
-            'role' => 'sso',
-            'email' => 'uss3@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'role' => 'user',
+            'email' => 'lukmandinar@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Networking',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user9 = Users::create(array(
-            'nik' => 'user9',
-            'nama'=> 'Fajar Jaya',
+            'nik' => '622355',
+            'nama' => 'Made Arawan',
             'password' => 'password',
-            'role' => 'lde',
-            'email' => 'uss3@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'role' => 'user',
+            'email' => 'madearawan@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Head Networking',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user10 = Users::create(array(
-            'nik' => 'user10',
-            'nama'=> 'Fajar nugroho',
+            'nik' => '601362',
+            'nama' => 'Laksono Pudji Prijanto',
             'password' => 'password',
             'role' => 'user',
-            'email' => 'uss3@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Networking',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user11 = Users::create(array(
-            'nik' => 'user11',
-            'nama'=> 'Febri Febrina',
+            'nik' => '640953',
+            'nama' => 'Marwoto',
             'password' => 'password',
             'role' => 'user',
-            'email' => 'uss3@gmail.com',
-            'phone_number' => '082367368604',
-            'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Resourcing',
+            
+            'division' => 'Leadership Program',
+            'status' => 'fix'
         ));
 
         $user12 = Users::create(array(
-            'nik' => 'user12',
+            'nik' => '651093',
+            'nama' => 'Listyo Dwi Haryono',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff Resourcing',
+            
+            'division' => 'Enterprise Service',
+            'status' => 'fix'
+        ));
+
+        $user13 = Users::create(array(
+            'nik' => '660404',
+            'nama' => 'M. Takdir IR',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Service Operator',
+            
+            'division' => 'Enterprise Service',
+            'status' => 'fix'
+        ));
+
+        $user14 = Users::create(array(
+            'nik' => '720565',
+            'nama' => 'Satria Kesuma Simbolon',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Service Operator',
+            
+            'division' => 'Enterprise Service',
+            'status' => 'fix'
+        ));
+
+        $user15 = Users::create(array(
+            'nik' => '730561',
+            'nama' => 'Latifah Hanum',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Service Operator',
+            
+            'division' => 'Enterprise Service',
+            'status' => 'fix'
+        ));
+
+        $user16 = Users::create(array(
+            'nik' => '601626',
+            'nama' => 'M.Najib',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Service Operator',
+            
+            'division' => 'Enterprise Service',
+            'status' => 'fix'
+        ));
+
+
+        $user17 = Users::create(array(
+            'nik' => '890006',
+            'nama' => 'Mariana',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff HRD',
+            
+            'division' => 'Human Resource',
+            'status' => 'fix'
+        ));
+
+        $user18 = Users::create(array(
+            'nik' => '850111',
+            'nama' => 'Lindah Imawati',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff HRD',
+            
+            'division' => 'Human Resource',
+            'status' => 'fix'
+        ));
+
+        $user19 = Users::create(array(
+            'nik' => '820022',
+            'nama' => 'Lely Diana',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff HRD',
+            
+            'division' => 'Human Resource',
+            'status' => 'fix'
+        ));
+
+
+        $user20 = Users::create(array(
+            'nik' => '810073',
+            'nama' => 'Lia Sovia Ekawati',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff HRD',
+            
+            'division' => 'Human Resource',
+            'status' => 'fix'
+        ));
+
+
+        $user21 = Users::create(array(
+            'nik' => '800045',
+            'nama' => 'Marlina',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff HRD',
+            
+            'division' => 'Human Resource',
+            'status' => 'fix'
+        ));
+
+        $user22 = Users::create(array(
+            'nik' => '880007',
+            'nama' => 'Lunel Candra',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'Staff HRD',
+            
+            'division' => 'Human Resource',
+            'status' => 'fix'
+        ));
+
+        $user23 = Users::create(array(
+            'nik' => '631183',
+            'nama' => 'Agus Gusriana',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'CCAN Fulfillment',
+            
+            'division' => 'Human Development',
+            'status' => 'fix'
+        ));
+
+
+        $user24 = Users::create(array(
+            'nik' => '830012',
+            'nama' => 'Asrul Salim',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'CCAN Fulfillment',
+            
+            'division' => 'Human Development',
+            'status' => 'fix'
+        ));
+
+
+        $user25 = Users::create(array(
+            'nik' => '633329',
+            'nama' => 'Dasep Priyadi',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'CCAN Fulfillment',
+            
+            'division' => 'Human Development',
+            'status' => 'fix'
+        ));
+
+
+        $user26 = Users::create(array(
+            'nik' => '730245',
+            'nama' => 'Dwi Agung Sulistyanta',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'CCAN Fulfillment',
+            
+            'division' => 'Human Development',
+            'status' => 'fix'
+        ));
+
+
+        $user27 = Users::create(array(
+            'nik' => '650481',
+            'nama' => 'Evi Mulyadi',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'CCAN Fulfillment',
+            
+            'division' => 'Human Development',
+            'status' => 'fix'
+        ));
+
+
+        $user28 = Users::create(array(
+            'nik' => '610215',
+            'nama' => 'I Putu Waliana Yasa',
+            'password' => 'password',
+            'role' => 'user',
+            'email' => 'mulyanakusna@gmail.com',
+            'phone_number' => '082367346804',
+            'job' => 'CCAN Fulfillment',
+            
+            'division' => 'Human Development',
+            'status' => 'fix'
+        ));
+
+
+        $admin = Users::create(array(
+            'nik' => 'admin123',
             'nama'=> 'Jaka Tarub',
             'password' => 'password',
-            'role' => 'sso',
+            'role' => 'admin',
             'email' => 'uss3@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
-            'ubpp' => '90%',
-            'division' => 'Human development'
+            
+            'division' => 'Human development',
+            'status' => 'fix'
         ));
     }
 }

@@ -27,9 +27,17 @@ $(".next1").click(function(){
 	$("input[required='true']").each(function(idx) {
             if($(this).val().trim() === "") {
                 isValid = false;
+                alert("Please fill all the field");
             }
             
     });
+
+    if($("#text-input-start").val() > $("#text-input-finish").val()) {
+    	console.log('asdasd');
+    	alert("End date must be greater than start date");
+    	isValid = false;
+    }
+
 	if(isValid) {
 		$("#progressbar li").eq($("fieldset").index(next_fs)).addClass("active");
 	
@@ -37,9 +45,6 @@ $(".next1").click(function(){
 	next_fs.show(); 
 	//hide the current fieldset with style
 	current_fs.hide();
-	} else{
-		alert("Please fill all the field");
-		location.reload();
 	}
 	
 	

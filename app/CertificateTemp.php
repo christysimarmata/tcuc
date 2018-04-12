@@ -21,6 +21,11 @@ class CertificateTemp extends Model
 	    'finish_date',
 	    'location',
 	    'academy',
+	    'institution',
+	    'category',
+	    'internal',
+	    'cfu_fu',
+	    'level',
 	    'outline',
 	    'telkom_main',
 	    'job_family',
@@ -28,6 +33,7 @@ class CertificateTemp extends Model
 	    'released_date',
 	    'expired_at',
 	    'status',
+	    'commend',
 	    'created_at',
 	    'updated_at'];
 

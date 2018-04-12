@@ -103,14 +103,14 @@
                         <div class="row form-group">
                             <label class="control-label col-sm-2" for="fnama">Start Date</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="fstart">
+                                <input type="date" class="form-control" id="fstart">
                             </div>
                         </div>
                         
                         <div class="row form-group">
                             <label class="control-label col-sm-2" for="fjob">Finish Date</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="ffinish">
+                                <input type="date" class="form-control" id="ffinish">
                             </div>
                         </div>
                         
@@ -208,7 +208,7 @@
             $('.deleteContent').hide();
             $('.form-horizontal').show();
             var stuff = $(this).data('info').split(',');
-            console.log(stuff);
+            console.log($('.namebefore').html());
             fillmodalData(stuff)
 
         });

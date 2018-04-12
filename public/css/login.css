@@ -1,0 +1,73 @@
+.bar-header {
+	width: 100%;
+	background-color: #0D3A6C;
+}
+
+.image-logo {
+	width: 15%;
+}
+
+.image-logo2 {
+	width: 50%;
+	margin-bottom: -20px;
+}
+
+.cognitium {
+	float: right;
+	font-size: 40px;
+	padding-top: 10px;
+	padding-right: 15px;
+}
+
+
+
+
+#login-form{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+  width: 400px;
+  padding: 10px 20px;
+  margin-top: 10px;
+  padding-bottom: 25px;
+  padding-left: 50px;
+  box-shadow: 2px 2px 4px 4px gray;
+}
+
+
+
+
+.group{ 
+  position:relative; 
+  margin-bottom:45px; 
+}
+
+#user-input{
+   margin-top:45px; 
+}
+
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+.location {
+	
+}
+
+.contact {
+	margin-left: 200px;
+	
+}
+
+.footer-login {
+  margin-top: -30px;
+	/*padding-top: 40px;*/
+	margin-left: 300px;
+}

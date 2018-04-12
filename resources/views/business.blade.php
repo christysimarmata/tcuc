@@ -50,10 +50,23 @@
                         <th>Start Date</th>
                         <th>Finish Date</th>
                         <th>Location</th>
+                        <th>Academy</th>
+                        <th>Certification Institution</th>
+                        <th>Category</th>
+                        <th>Internal</th>
+                        <th>CFU/FU</th>
+                        <th>Certification Level</th>
+                        <th>Outline</th>
+                        <th>Telkom Main</th>
+                        <th>Job Family</th>
+                        <th>Released Date</th>
+                        <th>Expired At</th>
+                        <th>Validity</th>
                       </tr>
                     </thead>
                     <tbody>
                         @php ($nomor = 1)
+                        @php ($today = date("Y-m-d"))
                     	@foreach($data as $dataNits)
 	                      	<tr>
 	                        <td>{{ $nomor++ }}</td>
@@ -61,6 +74,22 @@
                         	<td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
                         	<td>{{ $dataNits->location }}</td>
+                            <td>{{ $dataNits->academy }}</td>
+                            <td>{{ $dataNits->institution }}</td>
+                            <td>{{ $dataNits->category }}</td>
+                            <td>{{ $dataNits->internal }}</td>
+                            <td>{{ $dataNits->cfu_fu }}</td>
+                            <td>{{ $dataNits->level }}</td>
+                            <td>{{ $dataNits->outline }}</td>
+                            <td>{{ $dataNits->telkom_main }}</td>
+                            <td>{{ $dataNits->job_family }}</td>
+                            <td>{{ $dataNits->released_date }}</td>
+                            <td>{{ $dataNits->expired_at }}</td>
+                            @if($dataNits->expired_at > $today )
+                                <td><button class="btn btn-success" style="width: 100px;" disabled="">Valid</button></td>
+                            @else
+                                <td><button class="btn btn-danger" style="width: 100px;" disabled="">Not Valid</button></td>
+                            @endif
 	                      </tr>
            				@endforeach
                     </tbody>
