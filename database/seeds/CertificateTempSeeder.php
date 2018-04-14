@@ -16,8 +16,8 @@ class CertificateTempSeeder extends Seeder
 
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 2',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -33,8 +33,8 @@ class CertificateTempSeeder extends Seeder
 
         $bb1 = CertificateTemp::create(array(
         	'name' => 'TCIF Batch 2',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -50,8 +50,8 @@ class CertificateTempSeeder extends Seeder
 
         $bc1 = CertificateTemp::create(array(
         	'name' => 'TCBPM Batch 2',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -104,8 +104,8 @@ class CertificateTempSeeder extends Seeder
 
         $bf1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 2',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2014-07-23',
+	   	 	'finish_date' => '2014-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -122,8 +122,8 @@ class CertificateTempSeeder extends Seeder
 
         $bg1 = CertificateTemp::create(array(
         	'name' => 'BARJAS Batch 2',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2015-08-01',
+	   	 	'finish_date' => '2015-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -139,8 +139,8 @@ class CertificateTempSeeder extends Seeder
 
         $bh1 = CertificateTemp::create(array(
         	'name' => 'CCNP Batch 2',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2015-09-14',
+	   	 	'finish_date' => '2015-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -156,8 +156,8 @@ class CertificateTempSeeder extends Seeder
 
         $bi1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CISO Batch 2',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2018-10-24',
+	   	 	'finish_date' => '2018-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -166,7 +166,7 @@ class CertificateTempSeeder extends Seeder
 	    	'participants' => '670288,730245,633092,850111,601362',
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Advance',
-	    	'released_date' => '2017-10-01',
+	    	'released_date' => '2018-10-01',
 	    	'expired_at' => '2021-10-01',
 	    	'status' => 'complete'
         ));
@@ -191,8 +191,8 @@ class CertificateTempSeeder extends Seeder
 
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 3',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -243,8 +243,8 @@ class CertificateTempSeeder extends Seeder
 
         $bd1 = CertificateTemp::create(array(
         	'name' => 'Service Operation Batch 3',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2016-05-19',
+	   	 	'finish_date' => '2016-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -261,8 +261,8 @@ class CertificateTempSeeder extends Seeder
 
         $be1 = CertificateTemp::create(array(
         	'name' => 'TCOOA Batch 3',
-	   	 	'start_date' => '2017-06-09',
-	   	 	'finish_date' => '2017-06-15',
+	   	 	'start_date' => '2016-06-09',
+	   	 	'finish_date' => '2016-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -279,8 +279,8 @@ class CertificateTempSeeder extends Seeder
 
         $bf1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 3',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2015-07-23',
+	   	 	'finish_date' => '2015-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -297,8 +297,8 @@ class CertificateTempSeeder extends Seeder
 
         $bg1 = CertificateTemp::create(array(
         	'name' => 'BARJAS Batch 3',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2013-08-01',
+	   	 	'finish_date' => '2013-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -331,8 +331,8 @@ class CertificateTempSeeder extends Seeder
 
         $bi1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CISO Batch 3',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2014-10-24',
+	   	 	'finish_date' => '2014-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -366,8 +366,8 @@ class CertificateTempSeeder extends Seeder
 
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 4',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2013-03-04',
+	   	 	'finish_date' => '2013-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -383,8 +383,8 @@ class CertificateTempSeeder extends Seeder
 
         $bb1 = CertificateTemp::create(array(
         	'name' => 'TCIF Batch 4',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2014-02-17',
+	   	 	'finish_date' => '2014-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -436,8 +436,8 @@ class CertificateTempSeeder extends Seeder
 
         $be1 = CertificateTemp::create(array(
         	'name' => 'TCOOA Batch 4',
-	   	 	'start_date' => '2017-06-09',
-	   	 	'finish_date' => '2017-06-15',
+	   	 	'start_date' => '2015-06-09',
+	   	 	'finish_date' => '2015-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -454,8 +454,8 @@ class CertificateTempSeeder extends Seeder
 
         $bf1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 4',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2015-07-23',
+	   	 	'finish_date' => '2015-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -472,8 +472,8 @@ class CertificateTempSeeder extends Seeder
 
         $bg1 = CertificateTemp::create(array(
         	'name' => 'BARJAS Batch 4',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2016-08-01',
+	   	 	'finish_date' => '2016-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -489,8 +489,8 @@ class CertificateTempSeeder extends Seeder
 
         $bh1 = CertificateTemp::create(array(
         	'name' => 'CCNP Batch 4',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2016-09-14',
+	   	 	'finish_date' => '2016-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -541,8 +541,8 @@ class CertificateTempSeeder extends Seeder
 
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 5',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2013-03-04',
+	   	 	'finish_date' => '2013-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -558,8 +558,8 @@ class CertificateTempSeeder extends Seeder
 
         $bb1 = CertificateTemp::create(array(
         	'name' => 'TCIF Batch 5',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2014-02-17',
+	   	 	'finish_date' => '2014-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -575,8 +575,8 @@ class CertificateTempSeeder extends Seeder
 
         $bc1 = CertificateTemp::create(array(
         	'name' => 'TCBPM Batch 5',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -593,8 +593,8 @@ class CertificateTempSeeder extends Seeder
 
         $bd1 = CertificateTemp::create(array(
         	'name' => 'Service Operation Batch 5',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2015-05-19',
+	   	 	'finish_date' => '2015-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -647,8 +647,8 @@ class CertificateTempSeeder extends Seeder
 
         $bg1 = CertificateTemp::create(array(
         	'name' => 'BARJAS Batch 5',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2013-08-01',
+	   	 	'finish_date' => '2013-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -664,8 +664,8 @@ class CertificateTempSeeder extends Seeder
 
         $bh1 = CertificateTemp::create(array(
         	'name' => 'CCNP Batch 5',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2015-09-14',
+	   	 	'finish_date' => '2015-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -699,8 +699,8 @@ class CertificateTempSeeder extends Seeder
 
         $bj1 = CertificateTemp::create(array(
         	'name' => 'TCGT Batch 5',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2016-11-23',
+	   	 	'finish_date' => '2016-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -713,11 +713,11 @@ class CertificateTempSeeder extends Seeder
 	    	'expired_at' => '2022-12-15',
 	    	'status' => 'complete'
         ));
-        
+
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 6',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -733,8 +733,8 @@ class CertificateTempSeeder extends Seeder
 
         $bb1 = CertificateTemp::create(array(
         	'name' => 'TCIF Batch 6',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -750,8 +750,8 @@ class CertificateTempSeeder extends Seeder
 
         $bc1 = CertificateTemp::create(array(
         	'name' => 'TCBPM Batch 6',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -786,7 +786,7 @@ class CertificateTempSeeder extends Seeder
 
         $be1 = CertificateTemp::create(array(
         	'name' => 'TCOOA Batch 6',
-	   	 	'start_date' => '2017-06-09',
+	   	 	'start_date' => '2015-06-09',
 	   	 	'finish_date' => '2017-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'Leadership',
@@ -804,7 +804,7 @@ class CertificateTempSeeder extends Seeder
 
         $bf1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 6',
-	   	 	'start_date' => '2017-07-23',
+	   	 	'start_date' => '2016-07-23',
 	   	 	'finish_date' => '2017-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Leadership',
@@ -822,8 +822,8 @@ class CertificateTempSeeder extends Seeder
 
         $bg1 = CertificateTemp::create(array(
         	'name' => 'BARJAS Batch 6',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2013-08-01',
+	   	 	'finish_date' => '2014-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -874,8 +874,8 @@ class CertificateTempSeeder extends Seeder
 
         $bj1 = CertificateTemp::create(array(
         	'name' => 'TCGT Batch 6',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2015-11-23',
+	   	 	'finish_date' => '2016-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -891,8 +891,8 @@ class CertificateTempSeeder extends Seeder
 
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 7',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2013-03-04',
+	   	 	'finish_date' => '2013-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -908,8 +908,8 @@ class CertificateTempSeeder extends Seeder
 
         $bb1 = CertificateTemp::create(array(
         	'name' => 'TCIF Batch 7',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -925,8 +925,8 @@ class CertificateTempSeeder extends Seeder
 
         $bc1 = CertificateTemp::create(array(
         	'name' => 'TCBPM Batch 7',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -943,8 +943,8 @@ class CertificateTempSeeder extends Seeder
 
         $bd1 = CertificateTemp::create(array(
         	'name' => 'Service Operation Batch 7',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2013-05-19',
+	   	 	'finish_date' => '2013-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -979,8 +979,8 @@ class CertificateTempSeeder extends Seeder
 
         $bf1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 7',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2014-07-23',
+	   	 	'finish_date' => '2014-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1014,8 +1014,8 @@ class CertificateTempSeeder extends Seeder
 
         $bh1 = CertificateTemp::create(array(
         	'name' => 'CCNP Batch 7',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2015-09-14',
+	   	 	'finish_date' => '2015-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1049,8 +1049,8 @@ class CertificateTempSeeder extends Seeder
 
         $bj1 = CertificateTemp::create(array(
         	'name' => 'TCGT Batch 7',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2016-11-23',
+	   	 	'finish_date' => '2016-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1063,7 +1063,7 @@ class CertificateTempSeeder extends Seeder
 	    	'expired_at' => '2022-12-15',
 	    	'status' => 'complete'
         ));
-
+        
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 1',
 	   	 	'start_date' => '2017-03-04',
@@ -1238,11 +1238,11 @@ class CertificateTempSeeder extends Seeder
 	    	'expired_at' => '2022-12-15',
 	    	'status' => 'complete'
         ));
-
+        
         $ba1 = CertificateTemp::create(array(
         	'name' => 'CSAM Batch 8',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2015-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1258,8 +1258,8 @@ class CertificateTempSeeder extends Seeder
 
         $bb1 = CertificateTemp::create(array(
         	'name' => 'TCIF Batch 8',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2014-02-17',
+	   	 	'finish_date' => '2016-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1275,8 +1275,8 @@ class CertificateTempSeeder extends Seeder
 
         $bc1 = CertificateTemp::create(array(
         	'name' => 'TCBPM Batch 8',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2013-04-24',
+	   	 	'finish_date' => '2013-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1329,8 +1329,8 @@ class CertificateTempSeeder extends Seeder
 
         $bf1 = CertificateTemp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 8',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2015-07-23',
+	   	 	'finish_date' => '2015-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -1347,7 +1347,7 @@ class CertificateTempSeeder extends Seeder
 
         $bg1 = CertificateTemp::create(array(
         	'name' => 'BARJAS Batch 8',
-	   	 	'start_date' => '2017-08-01',
+	   	 	'start_date' => '2013-08-01',
 	   	 	'finish_date' => '2017-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'WINS',
@@ -1399,7 +1399,7 @@ class CertificateTempSeeder extends Seeder
 
         $bj1 = CertificateTemp::create(array(
         	'name' => 'TCGT Batch 8',
-	   	 	'start_date' => '2017-11-23',
+	   	 	'start_date' => '2016-11-23',
 	   	 	'finish_date' => '2017-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'WINS',
@@ -1413,6 +1413,7 @@ class CertificateTempSeeder extends Seeder
 	    	'expired_at' => '2022-12-15',
 	    	'status' => 'complete'
         ));
+
 
     }
 }

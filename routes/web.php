@@ -149,4 +149,4 @@ Route::post('submitComplete', 'CertificateController@submitComplete');
 
 
 Route::get('reports', 'ReportsController@showReports');
-Route::post('reports', 'ReportsController@updateReports');
+Route::get('updatereports', 'ReportsController@updateReports');

@@ -17,8 +17,8 @@ class LeadershipSeeder extends Seeder
 
         $ba1 = Leadership::create(array(
         	'name' => 'CSAM Batch 6',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -34,8 +34,8 @@ class LeadershipSeeder extends Seeder
 
         $bb1 = Leadership::create(array(
         	'name' => 'TCIF Batch 6',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -51,8 +51,8 @@ class LeadershipSeeder extends Seeder
 
         $bc1 = Leadership::create(array(
         	'name' => 'TCBPM Batch 6',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -87,7 +87,7 @@ class LeadershipSeeder extends Seeder
 
         $be1 = Leadership::create(array(
         	'name' => 'TCOOA Batch 6',
-	   	 	'start_date' => '2017-06-09',
+	   	 	'start_date' => '2015-06-09',
 	   	 	'finish_date' => '2017-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'Leadership',
@@ -105,7 +105,7 @@ class LeadershipSeeder extends Seeder
 
         $bf1 = Leadership::create(array(
         	'name' => 'Sertifikasi CMPM Batch 6',
-	   	 	'start_date' => '2017-07-23',
+	   	 	'start_date' => '2016-07-23',
 	   	 	'finish_date' => '2017-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Leadership',
@@ -123,8 +123,8 @@ class LeadershipSeeder extends Seeder
 
         $bg1 = Leadership::create(array(
         	'name' => 'BARJAS Batch 6',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2013-08-01',
+	   	 	'finish_date' => '2014-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -175,8 +175,8 @@ class LeadershipSeeder extends Seeder
 
         $bj1 = Leadership::create(array(
         	'name' => 'TCGT Batch 6',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2015-11-23',
+	   	 	'finish_date' => '2016-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

@@ -17,8 +17,8 @@ class ConsumerSeeder extends Seeder
 
         $ba1 = Consumer::create(array(
         	'name' => 'CSAM Batch 3',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -69,8 +69,8 @@ class ConsumerSeeder extends Seeder
 
         $bd1 = Consumer::create(array(
         	'name' => 'Service Operation Batch 3',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2016-05-19',
+	   	 	'finish_date' => '2016-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -87,8 +87,8 @@ class ConsumerSeeder extends Seeder
 
         $be1 = Consumer::create(array(
         	'name' => 'TCOOA Batch 3',
-	   	 	'start_date' => '2017-06-09',
-	   	 	'finish_date' => '2017-06-15',
+	   	 	'start_date' => '2016-06-09',
+	   	 	'finish_date' => '2016-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -105,8 +105,8 @@ class ConsumerSeeder extends Seeder
 
         $bf1 = Consumer::create(array(
         	'name' => 'Sertifikasi CMPM Batch 3',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2015-07-23',
+	   	 	'finish_date' => '2015-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -123,8 +123,8 @@ class ConsumerSeeder extends Seeder
 
         $bg1 = Consumer::create(array(
         	'name' => 'BARJAS Batch 3',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2013-08-01',
+	   	 	'finish_date' => '2013-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -157,8 +157,8 @@ class ConsumerSeeder extends Seeder
 
         $bi1 = Consumer::create(array(
         	'name' => 'Sertifikasi CISO Batch 3',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2014-10-24',
+	   	 	'finish_date' => '2014-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

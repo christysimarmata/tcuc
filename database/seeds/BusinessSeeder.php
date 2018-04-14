@@ -17,8 +17,8 @@ class BusinessSeeder extends Seeder
 
         $ba1 = Business::create(array(
         	'name' => 'CSAM Batch 2',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -34,8 +34,8 @@ class BusinessSeeder extends Seeder
 
         $bb1 = Business::create(array(
         	'name' => 'TCIF Batch 2',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -51,8 +51,8 @@ class BusinessSeeder extends Seeder
 
         $bc1 = Business::create(array(
         	'name' => 'TCBPM Batch 2',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -105,8 +105,8 @@ class BusinessSeeder extends Seeder
 
         $bf1 = Business::create(array(
         	'name' => 'Sertifikasi CMPM Batch 2',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2014-07-23',
+	   	 	'finish_date' => '2014-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -123,8 +123,8 @@ class BusinessSeeder extends Seeder
 
         $bg1 = Business::create(array(
         	'name' => 'BARJAS Batch 2',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2015-08-01',
+	   	 	'finish_date' => '2015-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -140,8 +140,8 @@ class BusinessSeeder extends Seeder
 
         $bh1 = Business::create(array(
         	'name' => 'CCNP Batch 2',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2015-09-14',
+	   	 	'finish_date' => '2015-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -157,8 +157,8 @@ class BusinessSeeder extends Seeder
 
         $bi1 = Business::create(array(
         	'name' => 'Sertifikasi CISO Batch 2',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2018-10-24',
+	   	 	'finish_date' => '2018-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -167,7 +167,7 @@ class BusinessSeeder extends Seeder
 	    	'participants' => '670288,730245,633092,850111,601362',
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Advance',
-	    	'released_date' => '2017-10-01',
+	    	'released_date' => '2018-10-01',
 	    	'expired_at' => '2021-10-01',
 	    	'status' => 'complete'
         ));

@@ -17,8 +17,8 @@ class WinsSeeder extends Seeder
 
         $ba1 = Wins::create(array(
         	'name' => 'CSAM Batch 8',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2015-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -34,8 +34,8 @@ class WinsSeeder extends Seeder
 
         $bb1 = Wins::create(array(
         	'name' => 'TCIF Batch 8',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2014-02-17',
+	   	 	'finish_date' => '2016-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -51,8 +51,8 @@ class WinsSeeder extends Seeder
 
         $bc1 = Wins::create(array(
         	'name' => 'TCBPM Batch 8',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2013-04-24',
+	   	 	'finish_date' => '2013-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -105,8 +105,8 @@ class WinsSeeder extends Seeder
 
         $bf1 = Wins::create(array(
         	'name' => 'Sertifikasi CMPM Batch 8',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2015-07-23',
+	   	 	'finish_date' => '2015-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -123,7 +123,7 @@ class WinsSeeder extends Seeder
 
         $bg1 = Wins::create(array(
         	'name' => 'BARJAS Batch 8',
-	   	 	'start_date' => '2017-08-01',
+	   	 	'start_date' => '2013-08-01',
 	   	 	'finish_date' => '2017-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'WINS',
@@ -175,7 +175,7 @@ class WinsSeeder extends Seeder
 
         $bj1 = Wins::create(array(
         	'name' => 'TCGT Batch 8',
-	   	 	'start_date' => '2017-11-23',
+	   	 	'start_date' => '2016-11-23',
 	   	 	'finish_date' => '2017-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'WINS',

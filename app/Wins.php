@@ -66,15 +66,15 @@ class Wins extends Model
 	}
 
 	public static function getByProgram($start, $finish, $program) {
-		return DB::table('wins')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('wins')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('telkom_main', $program)
 								->count();
 	}
 
 	public static function getByFamily($start, $finish,$family) {
-		return DB::table('wins')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('wins')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('job_family', $family)
 								->count();
 	}
@@ -99,10 +99,11 @@ class Wins extends Model
 	}
 
 	public static function getByMonthFamily($start, $finish, $family, $month) {
-		return DB::table('wins')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('wins')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('job_family', $family)
-								->where('start_date','like','%-'.$month.'-%')
+								->whereMonth('start_date', '<=', $month)
+								->whereMonth('finish_date', '>=', $month)
 								->count();
 	}
 }

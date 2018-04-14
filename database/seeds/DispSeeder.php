@@ -17,8 +17,8 @@ class DispSeeder extends Seeder
 
         $ba1 = Disp::create(array(
         	'name' => 'CSAM Batch 4',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2013-03-04',
+	   	 	'finish_date' => '2013-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -34,8 +34,8 @@ class DispSeeder extends Seeder
 
         $bb1 = Disp::create(array(
         	'name' => 'TCIF Batch 4',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2014-02-17',
+	   	 	'finish_date' => '2014-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -87,8 +87,8 @@ class DispSeeder extends Seeder
 
         $be1 = Disp::create(array(
         	'name' => 'TCOOA Batch 4',
-	   	 	'start_date' => '2017-06-09',
-	   	 	'finish_date' => '2017-06-15',
+	   	 	'start_date' => '2015-06-09',
+	   	 	'finish_date' => '2015-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -105,8 +105,8 @@ class DispSeeder extends Seeder
 
         $bf1 = Disp::create(array(
         	'name' => 'Sertifikasi CMPM Batch 4',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2015-07-23',
+	   	 	'finish_date' => '2015-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -123,8 +123,8 @@ class DispSeeder extends Seeder
 
         $bg1 = Disp::create(array(
         	'name' => 'BARJAS Batch 4',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2016-08-01',
+	   	 	'finish_date' => '2016-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -140,8 +140,8 @@ class DispSeeder extends Seeder
 
         $bh1 = Disp::create(array(
         	'name' => 'CCNP Batch 4',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2016-09-14',
+	   	 	'finish_date' => '2016-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

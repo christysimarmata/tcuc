@@ -17,8 +17,8 @@ class MobileSeeder extends Seeder
 
         $ba1 = Mobile::create(array(
         	'name' => 'CSAM Batch 7',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2013-03-04',
+	   	 	'finish_date' => '2013-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -34,8 +34,8 @@ class MobileSeeder extends Seeder
 
         $bb1 = Mobile::create(array(
         	'name' => 'TCIF Batch 7',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -51,8 +51,8 @@ class MobileSeeder extends Seeder
 
         $bc1 = Mobile::create(array(
         	'name' => 'TCBPM Batch 7',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -69,8 +69,8 @@ class MobileSeeder extends Seeder
 
         $bd1 = Mobile::create(array(
         	'name' => 'Service Operation Batch 7',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2013-05-19',
+	   	 	'finish_date' => '2013-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -105,8 +105,8 @@ class MobileSeeder extends Seeder
 
         $bf1 = Mobile::create(array(
         	'name' => 'Sertifikasi CMPM Batch 7',
-	   	 	'start_date' => '2017-07-23',
-	   	 	'finish_date' => '2017-07-28',
+	   	 	'start_date' => '2014-07-23',
+	   	 	'finish_date' => '2014-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -140,8 +140,8 @@ class MobileSeeder extends Seeder
 
         $bh1 = Mobile::create(array(
         	'name' => 'CCNP Batch 7',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2015-09-14',
+	   	 	'finish_date' => '2015-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -175,8 +175,8 @@ class MobileSeeder extends Seeder
 
         $bj1 = Mobile::create(array(
         	'name' => 'TCGT Batch 7',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2016-11-23',
+	   	 	'finish_date' => '2016-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

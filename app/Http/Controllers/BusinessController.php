@@ -45,7 +45,7 @@ class BusinessController extends Controller
             $temp['participant_status'] = $temp_detail['participant_status'];
             $participant_data[] = (object) $temp;
         }
-        return view('nits_detail')->with('data_detail', $participant_data)
+        return view('business_detail')->with('data_detail', $participant_data)
                                   ->with('data', $data);
     }
 }

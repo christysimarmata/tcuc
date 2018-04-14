@@ -79,37 +79,36 @@ class Nits extends Model
 	}				
 
 	public static function getByProgram($start, $finish, $program) {
-		return DB::table('nits')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('nits')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('telkom_main', $program)
 								->count();
 	}
 
 	public static function getByFamily($start, $finish,$family) {
-		return DB::table('nits')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('nits')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('job_family', $family)
 								->count();
 	}
 
 	public static function getByMonthProgram($start, $finish, $program, $month) {
-		return DB::table('nits')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('nits')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('telkom_main', $program)
-								->where('start_date','like','%-'.$month.'-%')
+								->whereMonth('start_date', '<=', $month)
+								->whereMonth('finish_date', '>=', $month)
 								->count();
 	}
 
 	public static function getByMonthFamily($start, $finish, $family, $month) {
-		return DB::table('nits')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+		return DB::table('nits')->whereYear('start_date','>=', $start)
+								->whereYear('finish_date', '<=', $start + $finish)
 								->where('job_family', $family)
-								->where('start_date','like','%-'.$month.'-%')
+								->whereMonth('start_date', '<=', $month)
+								->whereMonth('finish_date', '>=', $month)
 								->count();
 	}
-	// public static function getByProgramMonth($program,$month) {
-	// 	return DB::table('nits')->where('telkom_main','$program')->where()->get();
-	// }
 
 
 }

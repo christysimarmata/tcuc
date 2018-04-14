@@ -17,8 +17,8 @@ class EnterpriseSeeder extends Seeder
 
         $ba1 = Enterprise::create(array(
         	'name' => 'CSAM Batch 5',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2013-03-04',
+	   	 	'finish_date' => '2013-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -34,8 +34,8 @@ class EnterpriseSeeder extends Seeder
 
         $bb1 = Enterprise::create(array(
         	'name' => 'TCIF Batch 5',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2014-02-17',
+	   	 	'finish_date' => '2014-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -51,8 +51,8 @@ class EnterpriseSeeder extends Seeder
 
         $bc1 = Enterprise::create(array(
         	'name' => 'TCBPM Batch 5',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -69,8 +69,8 @@ class EnterpriseSeeder extends Seeder
 
         $bd1 = Enterprise::create(array(
         	'name' => 'Service Operation Batch 5',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2015-05-19',
+	   	 	'finish_date' => '2015-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -123,8 +123,8 @@ class EnterpriseSeeder extends Seeder
 
         $bg1 = Enterprise::create(array(
         	'name' => 'BARJAS Batch 5',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2013-08-01',
+	   	 	'finish_date' => '2013-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -140,8 +140,8 @@ class EnterpriseSeeder extends Seeder
 
         $bh1 = Enterprise::create(array(
         	'name' => 'CCNP Batch 5',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2015-09-14',
+	   	 	'finish_date' => '2015-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -175,8 +175,8 @@ class EnterpriseSeeder extends Seeder
 
         $bj1 = Enterprise::create(array(
         	'name' => 'TCGT Batch 5',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2016-11-23',
+	   	 	'finish_date' => '2016-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

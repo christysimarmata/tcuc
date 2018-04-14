@@ -69,7 +69,7 @@
                         @foreach($data as $dataNits)
                             <tr>
                             <td>{{ $nomor++ }}</td>
-                            <td><a href="Business Enablercer/{{ $dataNits->name }}" >{{ $dataNits->name }}</td>
+                            <td><a href="Leadershipcer/{{ $dataNits->name }}" >{{ $dataNits->name }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
                             <td>{{ $dataNits->location }}</td>
