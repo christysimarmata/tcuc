@@ -147,15 +147,104 @@ class TempSeeder extends Seeder
             'status' => 'fix'
         ));
 
-        $nonlde = Users::create(array(
-        	'nik' => 'nonlde123',
+        $nonlde1 = Users::create(array(
+        	'nik' => 'nonldenits',
             'nama'=> 'Selena Gomez',
-        	'password' => 'nonlde123',
+        	'password' => 'password',
         	'role' => 'nonlde',
-            'email' => 'nonlde123@gmail.com',
+            'email' => 'nonldenits@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde2 = Users::create(array(
+            'nik' => 'nonldedisp',
+            'nama'=> 'Blake Lively',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldedisp@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde3 = Users::create(array(
+            'nik' => 'nonldebusiness',
+            'nama'=> 'Rama',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldebusiness@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde4 = Users::create(array(
+            'nik' => 'nonldeconsumer',
+            'nama'=> 'Roulette',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldeconsumer@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde5 = Users::create(array(
+            'nik' => 'nonldeenterprise',
+            'nama'=> 'Danny Sinaga',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldeenterprise@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde6 = Users::create(array(
+            'nik' => 'nonldeleadership',
+            'nama'=> 'Erik Cantona',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldeleadership@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde7 = Users::create(array(
+            'nik' => 'nonldemobile',
+            'nama'=> 'Selena Gomez',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldemobile@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            'division' => 'Human development',
+            'status' => 'fix'
+        ));
+
+        $nonlde8 = Users::create(array(
+            'nik' => 'nonldewins',
+            'nama'=> 'Febri Febriyanti',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldewins@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
             'division' => 'Human development',
             'status' => 'fix'
         ));

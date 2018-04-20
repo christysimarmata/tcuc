@@ -47,13 +47,14 @@
                                 <th>No</th> 
                                 <th>NIK</th>
                                 <th>Name</th>
+                                <th>Certification Name</th>
                                 <th>Participant Status</th>
                                 <th>UBPP</th>
                                 <th>Job Position</th>
                                 <th>Division</th>
                                 <th>Email</th>
                                 <th>Phone Number</th>
-                                <th>Certification Name</th>
+                             
                                 <th>Start Date</th>
                                 <th>Finish Date</th> 
                                 <th>Location</th>  
@@ -76,20 +77,21 @@
                                     @foreach($parnits[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                       
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
@@ -107,20 +109,21 @@
                                     @foreach($parconsumer[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
@@ -138,20 +141,21 @@
                                     @foreach($pardisp[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
@@ -169,20 +173,21 @@
                                     @foreach($parwins[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
@@ -200,20 +205,21 @@
                                     @foreach($parmobile[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
@@ -231,20 +237,21 @@
                                     @foreach($parenterprise[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
@@ -262,24 +269,26 @@
                                     @foreach($parbusiness[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
+                                        
+                                        <td>{{ $nits->start_date }}</td>
+                                        <td>{{ $nits->finish_date }}</td>
+                                        <td>{{ $nits->location }}</td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>
                                         <td>{{ $nits->institution }}</td>
                                         <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->outline }}</td>
                                         <td>{{ $nits->telkom_main }}</td>
                                         <td>{{ $nits->job_family }}</td>
@@ -292,20 +301,21 @@
                                     @foreach($parleadership[$nits->name] as $pnits)
                                     <tr>
                                         <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" >{{ $pnits->nama }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}">{{ $nits->name }}</a></td>
+                                        
                                         
                                         <td>{{ $nits->start_date }}</td>
                                         <td>{{ $nits->finish_date }}</td>
                                         <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer">{{ $nits->academy }}</a></td>
+                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
                                         <td>{{ $nits->internal }}</td>
                                         <td>{{ $nits->category }}</td>
                                         <td>{{ $nits->cfu_fu }}</td>

@@ -3,6 +3,7 @@
 @push('styles')
 <link rel="stylesheet" href="{{ asset('css/lib/datatable/dataTables.bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
+<link rel="stylesheet" href="{{ asset('css/date_picker.css') }}">
 
 
 @endpush
@@ -18,7 +19,6 @@
             </div>
     </div>
 
-
             <div class="col-lg-12">
                 <div class="card">
                     <div class="card-body card-block">
@@ -30,25 +30,26 @@
                           </ul>
                           <fieldset>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Name*</label></div>
+                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Name<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_name" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input-start" class="form-control-label">Start Date*</label></div>
+                            <div class="col col-md-3"><label for="text-input-start" class="form-control-label">Start Date<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input-start" name="start_date" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input-finish" class="form-control-label">Finish Date*</label></div>
+                            <div class="col col-md-3"><label for="text-input-finish" class="form-control-label">Finish Date<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input-finish" name="finish_date" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Location*</label></div>
+                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Location<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_location" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Academy*</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Academy<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9">
-                              <select name="cer_academy" id="selectAcademy" class="form-control">
+                              <select name="cer_academy" id="selectAcademy" class="form-control" required="">
+                                <option value="pilih">-- Pilih --</option>
                                 <option value="NITS">NITS</option>
                                 <option value="Consumer">Consumer</option>
                                 <option value="DISP">Disp</option>
@@ -61,31 +62,34 @@
                             </div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Institution*</label></div>
+                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Certificate Institution<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_institution" class="form-control" required="true"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Category*</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Category<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9">
-                              <select name="cer_category" id="selectAcademy" class="form-control">
+                              <select name="cer_category" id="selectCategory" class="form-control">
+                                <option value="pilih">-- Pilih --</option>
                                 <option value="National">National</option>
                                 <option value="International">International</option>
                               </select>
                             </div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Internal*</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Internal<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9">
-                              <select name="cer_internal" id="selectAcademy" class="form-control">
+                              <select name="cer_internal" id="selectInternal" class="form-control" required="">
+                                <option value="pilih">-- Pilih --</option>
                                 <option value="YES">YES</option>
                                 <option value="NO">NO</option>
                               </select>
                             </div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Input Peserta</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Input Peserta<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9">
                               <select name="select" id="selectInput" class="form-control">
+                                <option value="pilih">-- Pilih --</option>
                                 <option value="manual">Manual Input</option>
                                 <option value="multiple">Excel (Multiple Input)</option>
                               </select>
@@ -100,11 +104,11 @@
                            <fieldset>
                             <button type="button" id="button-template" class="btn btn-outline-success" style="margin-bottom: 20px; color: white;"><a href="documents/template.xlsx" download>Download Template</a></button>
                             <div class="row form-group">
-                            <div class="col col-md-3"><label for="input-manual" id="label-input-1" class="form-control-label hidden">List Participant*</label></div>
+                            <div class="col col-md-3"><label for="input-manual" id="label-input-1" class="form-control-label hidden">List Participant<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="input-manual" name="cer_participant" placeholder="nik1,nik2,nik3,..." class="form-control"></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="input-multiple" id="label-input-2" class="form-control-label hidden">List Participant Upload</label></div>
+                            <div class="col col-md-3"><label for="input-multiple" id="label-input-2" class="form-control-label hidden">List Participant Upload<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="file" id="input-multiple" name="cer_participant_excel" class="form-control-file"></div>
                           </div>
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
@@ -130,7 +134,7 @@
     <script src="{{ asset('js/lib/data-table/buttons.print.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/buttons.colVis.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/datatables-init.js') }}"></script>
-    
+    <script src="{{ asset('js/date_picker.js') }}"></script>
     <script src="{{ asset('js/form_script.js') }}"></script>
     
     <script type="text/javascript">

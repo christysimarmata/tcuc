@@ -4,6 +4,12 @@
 @endpush
 @section('content')
 
+    @if (session('status'))
+        <div class="alert alert-success">
+            {{ session('status') }}
+        </div>
+    @endif
+
 	<div class="breadcrumbs">
             <div class="col-sm-4">
                 <div class="page-header float-left">
@@ -50,6 +56,8 @@
                     			<p>{{ $user->job}}</p>
                     			<h5 class="text-sm-left">Division</h5>
                     			<p>{{ $user->division}}</p>
+                                <hr>
+                                <button type="button" class="btn btn-success" style="float: right;"><a href="changepassword" style="color: white;"><i class="fa fa-key"></i>&nbsp; Change Password</a></button>
                     		</div>
                     	</div>	
                     </div>

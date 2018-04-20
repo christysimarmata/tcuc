@@ -80,7 +80,7 @@
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
                                                         <td>{{ $datas->division }}</td>
-                                                        <td>{{ $datas->ubpp }}</td>
+                                                        <td>{{ $datas->ubpp }} %</td>
                                                         <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>

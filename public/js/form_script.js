@@ -25,12 +25,27 @@ $(".next1").click(function(){
 	}
 	var isValid = true;
 	$("input[required='true']").each(function(idx) {
-            if($(this).val().trim() === "") {
+            if($(this).val().trim() == "") {
                 isValid = false;
-                alert("Please fill all the field");
             }
             
     });
+
+    if(document.getElementById('selectAcademy').value == 'pilih') {            
+                isValid = false;                 
+    };
+
+    if(document.getElementById('selectCategory').value == 'pilih') {            
+                isValid = false;                 
+    };
+
+    if(document.getElementById('selectInternal').value == 'pilih') {            
+                isValid = false;                 
+    };
+
+    if(document.getElementById('selectInput').value == 'pilih') {            
+                isValid = false;                 
+    };
 
     if($("#text-input-start").val() > $("#text-input-finish").val()) {
     	console.log('asdasd');
@@ -45,6 +60,8 @@ $(".next1").click(function(){
 	next_fs.show(); 
 	//hide the current fieldset with style
 	current_fs.hide();
+	} else {
+		 alert("All (*) column must be filled");    
 	}
 	
 	

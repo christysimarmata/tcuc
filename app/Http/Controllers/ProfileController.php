@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Profile;
 use App\Login;
 use App\Users;
+use App\UserFix;
 use Illuminate\Support\Facades\Input;
 use App\JobFamily;
 use App\Consumer;
@@ -45,13 +46,42 @@ class ProfileController extends Controller
           $filename = $user->nik. '.'. $avatar->getClientOriginalExtension();
           Image::make($avatar)->resize(167,158)->save(public_path('images/uploads/'.$filename));
 
-          $user = Users::find(session('idUserAktif'));
-          $user->avatar = $filename;
-          $user->save();
+          $user1 = UserFix::find(session('idUserAktif'));
+          $user2 = Users::find(session('idUserAktif'));
+          $user1->avatar = $filename;
+          $user2->avatar = $filename;
+          $user1->save();
+          $user2->save();
           session(['avatarUserAktif' => $filename]);
         }
 
-        return view('profile')->with('user', $user);
+        return view('profile')->with('user', $user1);
+    }
+
+    public function changepassword() {
+      return view('changepassword');
+    }
+
+    public function updatepassword() {
+      $old = Input::post('oldpassword');
+      $new = Input::post('newpassword');
+      $confirm = Input::post('confirmpassword');
+
+      $temp = UserFix::where('nik', session('userAktif'))->get();
+      $temp_old = $temp[0]->password;
+
+      if($old == $temp_old) {
+        if($new == $confirm) {
+          UserFix::where('nik', session('userAktif'))->update(['password' => $new]);
+          Users::where('nik', session('userAktif'))->update(['password' => $new]);
+          return redirect('profile')->with('status', 'Password changed !');
+        } else {
+          return redirect('changepassword')->with('status', 'New password doesnt match !');
+        }
+      } else {
+          return redirect('changepassword')->with('status', 'Old Password wrong !');
+      }
+
     }
 
     public static function showList($nik) {

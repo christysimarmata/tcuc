@@ -32,17 +32,22 @@ class LoginController extends Controller
 {
 
     public static function index() {
-        $data = DB::table('info')->get();
-        $address = $data[0]->address;
-        $phone_number = $data[0]->phone_number;
-        $email = $data[0]->email;
+        if(session('userAktif')) {
+            return redirect('dashboard');
+        } else {
+            $data = DB::table('info')->get();
+            $address = $data[0]->address;
+            $phone_number = $data[0]->phone_number;
+            $email = $data[0]->email;
 
 
-        \Log::info($address);
+            \Log::info($address);
 
-        return view('login')->with('address', $address)
-                            ->with('phone_number', $phone_number)
-                            ->with('email', $email);
+            return view('login')->with('address', $address)
+                                ->with('phone_number', $phone_number)
+                                ->with('email', $email); 
+        }
+        
     }
 
     
@@ -134,7 +139,7 @@ class LoginController extends Controller
         }
 
         $chartprogram = app()->chartjs
-        ->name('JobFamily')
+        ->name('MainProgram')
         ->type('pie')
         ->size(['width' => 600, 'height' => 300])
         ->labels($labelprogram)
@@ -148,8 +153,8 @@ class LoginController extends Controller
         ->options([]);
 
         $chartfamily = app()->chartjs
-        ->name('MainProgram')
-        ->type('pie')
+        ->name('JobFamily')
+        ->type('bar')
         ->size(['width' => 600, 'height' => 300])
         ->labels($labelfamily)
         ->datasets([
@@ -160,6 +165,44 @@ class LoginController extends Controller
             ]
         ])
         ->options([]);
+
+
+
+        $chartprogram->optionsRaw([
+            'title' => [
+                'display' => true,
+                'text' => 'Telkom Main Program',
+                'fontSize' => 16
+            ],
+            'legend' => [
+                'display' => true,
+                'position' => 'bottom',
+                'labels' => [
+                    'padding' => 12
+                ]   
+            ]
+
+        ]);
+
+        $chartfamily->optionsRaw([
+            'scales' => [
+                'yAxes' => [
+                        [
+                        'ticks' => [
+                            'beginAtZero' => true
+                        ]
+                    ]
+                ]
+            ],
+            'legend' => [
+                'display' => false,
+            ],
+            'title' => [
+                'display' => true,
+                'text' => 'Job Family',
+                'fontSize' => 16
+            ]
+        ]);
 
         session(['listprogram' => $labelprogram]);
         session(['listfamily' => $labelfamily]);
@@ -374,25 +417,40 @@ class LoginController extends Controller
 
 
     public static function advanceSearch() {
-        $name = Input::get('fname');
-        $academy = Input::get('facademy');
-        $location = Input::get('flocation');
-        $start = Input::get('fstart');
-        $finish = Input::get('ffinish');
-        $program = Input::get('fprogram');
-        $family = Input::get('ffamily');
+        $all = [];
+        if(isset($_GET['filter'])) {
+            $name = Input::get('fname');
+            $academy = Input::get('facademy');
+            $location = Input::get('flocation');
+            $program = Input::get('fprogram');
+            $family = Input::get('ffamily');
 
-
-        
-
-        $newclass = 'App\\'.$academy;
-        $all = $newclass::where('name', $name)->where('location', $location)->where('telkom_main', $program)->where('job_family', $family)->where('start_date', '>=', $start)->where('finish_date', '<=', $finish)->get();
-        
-
-        if(count($all) === 0) {
-            return redirect('dashboard')->with('status', 'No Certification Found!');
-        } else {
-            return redirect($academy.'cer/'.$name);
+          
+            if($academy != "") {
+                $newclass = 'App\\'.$academy;
+                $all[] = $newclass::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+            } else {
+               
+                $all[] = Nits::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Business::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Consumer::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Disp::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Enterprise::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Mobile::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Leadership::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+                $all[] = Wins::where('name', 'like', '%'.$name.'%')->where('location', 'like', '%'.$location.'%')->where('telkom_main', 'like', '%'.$program.'%')->where('job_family', 'like', '%'.$family.'%')->get();
+            }
+            
+            
+            
+            if(count($all) === 0) {
+                return redirect('dashboard')->with('status', 'No Certification Found!');
+            }else {
+                return view('resultsearch')->with('data', $all);
+            }
+        }
+        else {
+            return redirect('dashboard');
         }
     }
 

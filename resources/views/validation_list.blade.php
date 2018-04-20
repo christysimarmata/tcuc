@@ -59,7 +59,7 @@
                         	<td>{{ $certificate->location }}</td>
                             <td>
                                 <button class="edit-modal btn btn-info" data-info="{{$nomor}},{{$certificate->name}},{{$certificate->start_date}},{{$certificate->finish_date}},{{$certificate->location}},{{$certificate->academy}}">Edit </button>
-                                <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$certificate->name}}">Delete </button>
+                                <button class="delete-modal btn btn-danger" title="Need Clarification to SSO" data-toggle="modal" data-target="#myModal" data-info="{{$certificate->name}}"><i class="fa fa-refresh"></i></button>
                             </td>
 	                       </tr>
                             @endforeach
@@ -88,12 +88,15 @@
                 </div>
                 <div class="modal-body">
                     <form class="form-horizontal" role="form">
-                            {{ csrf_field() }}
+                        <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fill Commend</label></div>
+                            <div class="col-12 col-md-9">
+                              <textarea id="text-input" name="commend" class="form-control" rows="7"></textarea></div>
+                        </div>
                     </form>
-                    <div class="deleteContent">
-                        Are you Sure you want to delete <span class="dname"></span> ? 
-                    </div>
+                    
                     <div class="modal-footer">
+                        <span class="dname" style="display: none;"></span>
                         <button type="button" class="btn actionBtn" data-dismiss="modal">
                             <span id="footer_action_button" class='glyphicon'> </span>
                         </button>
@@ -153,19 +156,18 @@
 
     <script>
         $(document).on('click', '.delete-modal', function() {
-            console.log('asdasd');
-            $('#footer_action_button').text(" Delete");
-            $('#footer_action_button').removeClass('glyphicon-check');
-            $('#footer_action_button').addClass('glyphicon-trash');
-            $('.actionBtn').removeClass('btn-success');
-            $('.actionBtn').addClass('btn-danger');
-            $('.actionBtn').removeClass('edit');
-            $('.actionBtn').addClass('delete');
-            $('.modal-title').text('Delete');
-            $('.deleteContent').show();
-            $('.form-horizontal').hide();
-            var stuff = $(this).data('info').split(',');
-            $('.dname').html(stuff[1]);
+            $('#footer_action_button').text(" Send");
+                $('#footer_action_button').addClass('glyphicon-check');
+                $('#footer_action_button').removeClass('glyphicon-trash');
+                $('.actionBtn').addClass('btn-success');
+                $('.actionBtn').removeClass('btn-danger');
+                $('.actionBtn').removeClass('delete');
+                $('.actionBtn').addClass('delete');
+                $('.modal-title').text('Commend');
+                $('.form-horizontal').show();
+                var stuff = $(this).data('info');
+                console.log(stuff);
+                $('.dname').html(stuff);
         });
 
          $('.modal-footer').on('click', '.delete', function() {
@@ -175,7 +177,8 @@
                 url: '/deleteValidation',
                 data: {
                     '_token': $('input[name=_token]').val(),
-                    'fnama': $('.dname').html()
+                    'fnama': $('.dname').html(),
+                    'fcommend': $('#text-input').val() 
                 },
                 success: function(data) {
                     setTimeout(function() {

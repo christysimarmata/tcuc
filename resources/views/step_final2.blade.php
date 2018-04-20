@@ -35,6 +35,12 @@
                                                     <p>{{ $data_detail[0]->location }}</p>
                                                     <h5 class="text-sm-left">Academy</h5>
                                                     <p>{{ $data_detail[0]->academy }}</p>
+                                                    <h5 class="text-sm-left">Certification Institution</h5>
+                                                    <p>{{ $data_detail[0]->institution }}</p>
+                                                    <h5 class="text-sm-left">Category</h5>
+                                                    <p>{{ $data_detail[0]->category }}</p>
+                                                    <h5 class="text-sm-left">Internal Certification</h5>
+                                                    <p>{{ $data_detail[0]->internal }}</p>
                                                 </div>
                                             </div>  
                                         </div>
@@ -243,6 +249,9 @@
                         window.location = "../certificationlist";
                     },500);
  
+                 },
+                 error: function(response) {
+                    window.alert("Please fill all the field");
                  }
             })
         })

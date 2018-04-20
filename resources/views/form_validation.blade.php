@@ -52,38 +52,221 @@
                             </div>
                           </div>
                           <div class="row form-group">
-                              <div class="col col-md-3"><label for="select" class=" form-control-label">CFU/FU</label></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Certification Institution</label></div>
+                            <div class="col-12 col-md-9">
+                              <input readonly="" type="text" id="text-input" name="cer_institution" placeholder="{{ $datas[0]->institution }}" value="{{ $datas[0]->institution }}" class="form-control" >
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Category</label></div>
+                            <div class="col-12 col-md-9">
+                              <input readonly="" type="text" id="text-input" name="cer_category" placeholder="{{ $datas[0]->category }}" value="{{ $datas[0]->category }}" class="form-control" >
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Internal</label></div>
+                            <div class="col-12 col-md-9">
+                              <input readonly="" type="text" id="text-input" name="cer_internal" placeholder="{{ $datas[0]->internal }}" value="{{ $datas[0]->internal }}" class="form-control" >
+                            </div>
+                          </div>
+                          <div class="row form-group">
+                              <div class="col col-md-3"><label for="select" class=" form-control-label">CFU/FU<span style="color: red;">*</span></label></div>
                               <div class="col-12 col-md-9">
-                                <select name="cfu/fu" id="select" class="form-control">
-                                  <option value="CEO OFFICE">CEO OFFICE</option>
-                                  <option value="CFU CONSUMER">CFU CONSUMER</option>
-                                  <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
-                                  <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
-                                  <option value="CFU MOBILE">CFU MOBILE</option>
-                                  <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
-                                  <option value="FU FINANCE">FU FINANCE</option>
-                                  <option value="FU HCM">FU HCM</option>
-                                  <option value="FU ISP">FU ISP</option>
-                                  <option value="FU NITS">FU NITS</option>
+                                <select name="cfu/fu" id="selectcfufu" class="form-control">
+                                  @if($datas[0]->cfu_fu == 'FU NITS')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS" selected="">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'FU ISP')
+                                    <option value="">-- Pilih --</option> 
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP" selected="">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'FU HCM')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM" selected="">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'FU FINANCE')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE" selected="">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'CFU WHOLESALE & INTERNAL')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL" selected="">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'CFU MOBILE')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE" selected="">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'CFU ENTERPRISE')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE" selected="">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'CFU DIGITAL SERVICE')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE" selected="">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'CFU CONSUMER')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER" selected="">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @else
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
+                                  @endif 
                                 </select>
                               </div>
                             </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Certification Level</label></div>
+                            <div class="col col-md-3"><label class=" form-control-label">Certification Level<span style="color: red;">*</span></label></div>
                               <div class="col col-md-9">
                                 <div class="form-check-inline form-check">
-                                  <label for="level-radio1" class="form-check-label ">
-                                    <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
-                                  </label>
-                                  <label for="level-radio2" class="form-check-label ">
-                                    <input type="radio" id="level-radio2" name="level-radios" class="form-check-input" value="Intermediate"style="margin-left: 15px;">Intermediate
-                                  </label>
-                                  <label for="level-radio3" class="form-check-label ">
-                                    <input type="radio" id="level-radio3" name="level-radios" class="form-check-input" value="Advance"style="margin-left: 15px;">Advance
-                                  </label>
-                                  <label for="level-radio4" class="form-check-label ">
-                                    <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
-                                  </label>  
+                                  @if($datas[0]->level == 'Basic')
+                                    <label for="level-radio1" class="form-check-label ">
+                                      <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic" checked="">Basic
+                                    </label>
+                                    <label for="level-radio2" class="form-check-label ">
+                                      <input type="radio" id="level-radio2" name="level-radios" class="form-check-input" value="Intermediate"style="margin-left: 15px;">Intermediate
+                                    </label>
+                                    <label for="level-radio3" class="form-check-label ">
+                                      <input type="radio" id="level-radio3" name="level-radios" class="form-check-input" value="Advance"style="margin-left: 15px;">Advance
+                                    </label>
+                                    <label for="level-radio4" class="form-check-label ">
+                                      <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
+                                    </label>
+                                  @elseif($datas[0]->level == 'Intermediate')
+                                    <label for="level-radio1" class="form-check-label ">
+                                      <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
+                                    </label>
+                                    <label for="level-radio2" class="form-check-label ">
+                                      <input type="radio" id="level-radio2" name="level-radios" class="form-check-input" value="Intermediate" checked="" style="margin-left: 15px;">Intermediate
+                                    </label>
+                                    <label for="level-radio3" class="form-check-label ">
+                                      <input type="radio" id="level-radio3" name="level-radios" class="form-check-input" value="Advance"style="margin-left: 15px;">Advance
+                                    </label>
+                                    <label for="level-radio4" class="form-check-label ">
+                                      <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
+                                    </label>
+                                  @elseif($datas[0]->level == 'Advance')
+                                    <label for="level-radio1" class="form-check-label ">
+                                      <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
+                                    </label>
+                                    <label for="level-radio2" class="form-check-label ">
+                                      <input type="radio" id="level-radio2" name="level-radios" class="form-check-input" value="Intermediate" style="margin-left: 15px;">Intermediate
+                                    </label>
+                                    <label for="level-radio3" class="form-check-label ">
+                                      <input type="radio" id="level-radio3" name="level-radios" class="form-check-input" value="Advance" checked="" style="margin-left: 15px;">Advance
+                                    </label>
+                                    <label for="level-radio4" class="form-check-label ">
+                                      <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
+                                    </label>
+                                  @elseif($datas[0]->level == '')
+                                    <label for="level-radio1" class="form-check-label ">
+                                      <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
+                                    </label>
+                                    <label for="level-radio2" class="form-check-label ">
+                                      <input type="radio" id="level-radio2" name="level-radios" class="form-check-input" value="Intermediate" style="margin-left: 15px;">Intermediate
+                                    </label>
+                                    <label for="level-radio3" class="form-check-label ">
+                                      <input type="radio" id="level-radio3" name="level-radios" class="form-check-input" value="Advance"style="margin-left: 15px;">Advance
+                                    </label>
+                                    <label for="level-radio4" class="form-check-label ">
+                                      <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"  style="margin-left: 15px;">Others
+                                    </label>
+                                  @else
+                                    <label for="level-radio1" class="form-check-label ">
+                                      <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
+                                    </label>
+                                    <label for="level-radio2" class="form-check-label ">
+                                      <input type="radio" id="level-radio2" name="level-radios" class="form-check-input" value="Intermediate" style="margin-left: 15px;">Intermediate
+                                    </label>
+                                    <label for="level-radio3" class="form-check-label ">
+                                      <input type="radio" id="level-radio3" name="level-radios" class="form-check-input" value="Advance"style="margin-left: 15px;">Advance
+                                    </label>
+                                    <label for="level-radio4" class="form-check-label ">
+                                      <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others" checked="" style="margin-left: 15px;">Others
+                                    </label>
+                                  @endif
                                 </div>
                               </div>
                             </div> 
@@ -92,17 +275,18 @@
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" class="form-control" ></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Released Date*</label></div>
+                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Released Date<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_released" placeholder="{{ $datas[0]->released_date }}" value="{{ $datas[0]->released_date }}" class="form-control" ></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Outline Certification</label></div>
+                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Outline Certification<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><textarea id="text-input" name="cer_outline" class="form-control" rows="7">{{ $datas[0]->outline }}</textarea></div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Telkom Main Program</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Telkom Main Program<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9">
-                              <select name="main_program" id="select" class="form-control">
+                              <select name="main_program" id="selectmainprogram" class="form-control">
+                                <option value="">-- Pilih --</option>   
                                 @foreach($mainprogram as $program)
                                   @if($program == $datas[0]->telkom_main)
                                     <option value="{{ $program }}" selected="">{{ $program }}</option>
@@ -114,9 +298,10 @@
                             </div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label for="select" class=" form-control-label">Job Family</label></div>
+                            <div class="col col-md-3"><label for="select" class=" form-control-label">Job Family<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9">
-                              <select name="job_family" id="select" class="form-control">
+                              <select name="job_family" id="selectjobfamily" class="form-control">
+                                <option value="">-- Pilih --</option>
                                 @foreach($jobfamily as $family)
                                   @if($family == $datas[0]->job_family)
                                     <option value="{{ $family }}" selected="">{{ $family }}</option>
@@ -128,7 +313,7 @@
                             </div>
                           </div>
                           <div class="row form-group">
-                            <div class="col col-md-3"><label class=" form-control-label">Expired Date</label></div>
+                            <div class="col col-md-3"><label class=" form-control-label">Expired Date<span style="color: red;">*</span></label></div>
                               <div class="col col-md-9">
                                 <div class="form-check-inline form-check">
                                   <label for="inline-radio1" class="form-check-label ">
@@ -206,11 +391,35 @@
                                                       </td>
                                                     @endif
                                                     <td>
+                                                    @if($details[$nomor-1]->participant_status == 'Attendee')
                                                       <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
+                                                        <option value="">-- Pilih --</option>
+                                                        <option value="Attendee" selected="">Attendee</option>
+                                                        <option value="Certified">Certified</option>
+                                                        <option value="Qualified">Qualified</option>
+                                                      </select>
+                                                    @elseif($details[$nomor-1]->participant_status == 'Certified')
+                                                      <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
+                                                        <option value="">-- Pilih --</option>
+                                                        <option value="Attendee">Attendee</option>
+                                                        <option value="Certified" selected="">Certified</option>
+                                                        <option value="Qualified">Qualified</option>
+                                                      </select>
+                                                    @elseif($details[$nomor-1]->participant_status == 'Qualified')
+                                                      <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
+                                                        <option value="">-- Pilih --</option>
+                                                        <option value="Attendee">Attendee</option>
+                                                        <option value="Certified">Certified</option>
+                                                        <option value="Qualified" selected="">Qualified</option>
+                                                      </select>
+                                                    @else
+                                                      <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
+                                                        <option value="">-- Pilih --</option>
                                                         <option value="Attendee">Attendee</option>
                                                         <option value="Certified">Certified</option>
                                                         <option value="Qualified">Qualified</option>
                                                       </select>
+                                                    @endif
                                                     </td>
                                                    </tr>
                                                

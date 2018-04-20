@@ -31,6 +31,7 @@ class CreateCertificateTempTable extends Migration
             $table->text('participants')->nullable();
             $table->date('released_date')->nullable();
             $table->date('expired_at')->nullable();
+            $table->string('filename')->nullable();
             $table->string('status')->default('draftSSO');
             $table->text('commend')->nullable();
             $table->timestamps();

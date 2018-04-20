@@ -43,9 +43,9 @@ Route::post('allparticipant', 'LoginController@updateParticipant');
 
 Route::get('advancesearch', 'LoginController@advanceSearch');
 
-Route::post('basicsearch', 'LoginController@basicSearch');
-
 Route::get('profile', 'ProfileController@showProfile');
+Route::get('changepassword', 'ProfileController@changepassword');
+Route::post('updatepassword', 'ProfileController@updatepassword');
 
 Route::post('profile', 'ProfileController@updateAvatar');
 
@@ -58,6 +58,7 @@ Route::post('addfamily', 'SettingsController@addfamily');
 Route::get('createuser', 'SettingsController@indexuser');
 Route::post('addusersingle', 'SettingsController@addusersingle');
 Route::post('addusermultiple', 'SettingsController@addusermultiple');
+Route::post('addcertificatemultiple', 'SettingsController@addcertificatemultiple');
 
 Route::get('requestuser', 'SettingsController@requestUser');
 Route::post('createRequest', 'SettingsController@createRequest');

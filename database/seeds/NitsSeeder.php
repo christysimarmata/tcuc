@@ -17,8 +17,8 @@ class NitsSeeder extends Seeder
 
         $ba1 = Nits::create(array(
         	'name' => 'CSAM Batch 1',
-	   	 	'start_date' => '2017-03-04',
-	   	 	'finish_date' => '2017-03-07',
+	   	 	'start_date' => '2014-03-04',
+	   	 	'finish_date' => '2014-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -29,13 +29,14 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-01-01',
 	    	'expired_at' => '2022-12-12',
+	    	'filename' => 'CSAM Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
         $bb1 = Nits::create(array(
         	'name' => 'TCIF Batch 1',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2015-02-17',
+	   	 	'finish_date' => '2015-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -46,13 +47,14 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-02-01',
 	    	'expired_at' => '2021-02-01',
+	    	'filename' => 'TCIF Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
         $bc1 = Nits::create(array(
         	'name' => 'TCBPM Batch 1',
-	   	 	'start_date' => '2017-04-24',
-	   	 	'finish_date' => '2017-04-27',
+	   	 	'start_date' => '2016-04-24',
+	   	 	'finish_date' => '2016-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -63,6 +65,7 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-04-01',
 	    	'expired_at' => '2020-02-01',
+	    	'filename' => 'TCBPM Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -81,6 +84,7 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-06-01',
 	    	'expired_at' => '2100-12-12',
+	    	'filename' => 'Service Operation Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -99,6 +103,7 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-07-01',
 	    	'expired_at' => '2020-07-01',
+	    	'filename' => 'TCOOA Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -117,6 +122,7 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-08-01',
 	    	'expired_at' => '2021-08-01',
+	    	'filename' => 'Sertifikasi CMPM Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -135,6 +141,7 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-09-01',
 	    	'expired_at' => '2100-12-12',
+	    	'filename' => 'BARJAS Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -152,13 +159,14 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-09-20',
 	    	'expired_at' => '2020-09-20',
+	    	'filename' => 'CCNP Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
         $bi1 = Nits::create(array(
         	'name' => 'Sertifikasi CISO Batch 1',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2015-10-24',
+	   	 	'finish_date' => '2015-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -169,14 +177,15 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-10-01',
 	    	'expired_at' => '2021-10-01',
+	    	'filename' => 'Sertifikasi CISO Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
 
 
         $bj1 = Nits::create(array(
         	'name' => 'TCGT Batch 1',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2014-11-23',
+	   	 	'finish_date' => '2014-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -187,6 +196,7 @@ class NitsSeeder extends Seeder
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-12-15',
 	    	'expired_at' => '2022-12-15',
+	    	'filename' => 'TCGT Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
         

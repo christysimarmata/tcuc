@@ -40,6 +40,28 @@
             <div class="col-md-9 col-lg-9">        
                 <div class="card">
                     <div class="card-header">
+                        Create Multiple Certificate
+                    </div>
+                        <form method="post" action="addcertificatemultiple" class="form-horizontal" enctype="multipart/form-data" role="form">
+                                <button type="button" id="button-template" class="btn btn-success" style="margin-bottom: 20px;"><a href="documents/templateCertificate.xlsx" style="color: white;" download>Download Template</a></button>
+                                <div class="row form-group">
+                                    <label class="control-label col-sm-2">List Certificate (Excel)</label>
+                                    <div class="col-sm-10">
+                                        <input type="file" id="input-multiple" name="certificate_excel" class="form-control" required="">
+                                    </div>
+                                </div>                    
+                            
+                            <div class="modal-footer">
+                                <input type="submit" class="btn btn-primary" value="Submit"></button>
+                            </div>
+                            {{ csrf_field() }}
+                        </form>
+                </div>
+            </div> 
+
+            <div class="col-md-9 col-lg-9">        
+                <div class="card">
+                    <div class="card-header">
                         Create Multiple User
                     </div>
                         <form method="post" action="addusermultiple" class="form-horizontal" enctype="multipart/form-data" role="form">
@@ -47,7 +69,7 @@
                                 <div class="row form-group">
                                     <label class="control-label col-sm-2">List User (Excel)</label>
                                     <div class="col-sm-10">
-                                        <input type="file" id="input-multiple" name="participant_excel" class="form-control-file" required="">
+                                        <input type="file" id="input-multiple" name="participant_excel" class="form-control" required="">
                                     </div>
                                 </div>                    
                             

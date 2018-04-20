@@ -91,8 +91,8 @@
                                 <tr>
                                 <td>{{ $nomor++ }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td><a href="../profile_detail/{{ $datas->nik }}" >{{ $datas->nik }}</a></td>
-                                <td><a href="../profile_detail/{{ $datas->nik }}" >{{ $datas->nama }}</a></td>
+                                <td><a href="../profile_detail/{{ $datas->nik }}" style="color: black;">{{ $datas->nik }}</a></td>
+                                <td><a href="../profile_detail/{{ $datas->nik }}" style="color: black;">{{ $datas->nama }}</a></td>
                                 <td>{{ $datas->ubpp }} %</td>
                                 <td>{{ $datas->participant_status }}</td>
                                 <td>{{ $datas->job }}</td>

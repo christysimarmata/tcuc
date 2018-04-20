@@ -29,6 +29,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-01-01',
 	    	'expired_at' => '2022-12-12',
+	    	'filename' => 'CSAM Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -46,6 +47,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-02-01',
 	    	'expired_at' => '2021-02-01',
+	    	'filename' => 'TCIF Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -63,6 +65,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-04-01',
 	    	'expired_at' => '2020-02-01',
+	    	'filename' => 'TCBPM Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -81,6 +84,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-06-01',
 	    	'expired_at' => '2100-12-12',
+	    	'filename' => 'Service Operation Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -99,6 +103,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-07-01',
 	    	'expired_at' => '2020-07-01',
+	    	'filename' => 'TCOOA Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -117,6 +122,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-08-01',
 	    	'expired_at' => '2021-08-01',
+	    	'filename' => 'Sertifikasi CMPM Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -135,6 +141,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-09-01',
 	    	'expired_at' => '2100-12-12',
+	    	'filename' => 'BARJAS Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -152,6 +159,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-09-20',
 	    	'expired_at' => '2020-09-20',
+	    	'filename' => 'CCNP Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -169,6 +177,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-10-01',
 	    	'expired_at' => '2021-10-01',
+	    	'filename' => 'Sertifikasi CISO Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
 
@@ -187,6 +196,7 @@ class LeadershipSeeder extends Seeder
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-12-15',
 	    	'expired_at' => '2022-12-15',
+	    	'filename' => 'TCGT Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
     }

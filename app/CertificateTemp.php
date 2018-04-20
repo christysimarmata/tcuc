@@ -32,6 +32,7 @@ class CertificateTemp extends Model
 	    'participants',
 	    'released_date',
 	    'expired_at',
+	    'filename',
 	    'status',
 	    'commend',
 	    'created_at',

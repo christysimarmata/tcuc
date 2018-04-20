@@ -15,7 +15,16 @@ use App\Leadership;
 use App\Mobile;
 use App\Nits;
 use App\Wins;
+use App\ConsumerDetail;
+use App\BusinessDetail;
+use App\DispDetail;
+use App\EnterpriseDetail;
+use App\LeadershipDetail;
+use App\MobileDetail;
+use App\NitsDetail;
+use App\WinsDetail;
 use App\Users;
+use App\UserFix;
 use App\MainProgram;
 use App\JobFamily;
 use Excel;
@@ -95,8 +104,17 @@ class SettingsController extends Controller
         $job = Input::post('fjob');
         $division = Input::post('fdivision');
 
-        Users::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+        if(UserFix::where('nik', $nik)->exists()) {
+            Users::where('nik', $nik)->update(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division, 'status' => 'fix']);
 
+            UserFix::where('nik', $nik)->update(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+        } else {
+            Users::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+
+            UserFix::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+
+        }
+        
         return redirect('createuser')->with('status', 'User Added !');
 
     }
@@ -110,10 +128,94 @@ class SettingsController extends Controller
                 $datas = collect($participant_data);
                 
                 foreach($datas as $data) {
-                    Users::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
+                    if(UserFix::where('nik', $data->nik)->exists()) {
+                    Users::where('nik', $data->nik)->update(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division, 'status' => 'fix']);
+
+                    UserFix::where('nik', $data->nik)->update(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
+                    } else {
+                        Users::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
+
+                        UserFix::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
+                    }
                 } 
 
         return redirect('createuser')->with('status', 'User Added !');
+
+    }
+
+    public static function addcertificatemultiple(Request $request) {
+                $avatar = $request->file('certificate_excel');     
+                $participant_data = Excel::load($avatar,function($reader){
+
+                })->get();       
+
+                $datas = collect($participant_data);
+                $x = 0;
+                while($x < count($datas)) {
+
+                    $temp = $datas[$x]->certification_name;
+                    $y = $x;
+                    $list_participant = [];
+
+                    $bool = '1';
+                    while($y < count($datas) && $bool == '1') {
+                        if($datas[$y]->certification_name == $temp) {
+                            $list_participant[] = $datas[$y]->nik;
+                            if(Users::where('nik', $datas[$y])->exists()) {
+                                Users::where('nik', $datas[$y])->update(['nama' => $datas[$y]->name, 'role' => 'user', 'email' => $datas[$y]->email, 'phone_number' => $datas[$y]->phone_number, 'job' => $datas[$y]->job_position, 'division' => $datas[$y]->division]);
+                            } else {
+                                Users::insert(['nik' => $datas[$y]->nik, 'nama' => $datas[$y]->name, 'role' => 'user', 'password' => 'password', 'email' => $datas[$y]->email, 'phone_number' => $datas[$y]->phone_number, 'job' => $datas[$y]->job_position, 'division' => $datas[$y]->division, 'status' => 'readonly']);
+                            }
+
+
+                            if($datas[$x]->academy == 'NITS') {
+                                NitsDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'Business Enabler') {
+                                BusinessDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'Consumer') {
+                                ConsumerDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'DISP') {
+                                DispDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'Enterprise') {
+                                EnterpriseDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'Leadership') {
+                                LeadershipDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'Mobile') {
+                                MobileDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            } elseif($datas[$x]->academy == 'WINS') {
+                                WinsDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                            }
+                            
+                            $y++;
+                        } else {
+                            $bool = '0';
+                        }
+   
+                    }
+                    $participantdata = implode(',', $list_participant);
+                    
+                    if($datas[$x]->academy == 'NITS') {
+                        Nits::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'Business Enabler') {
+                        Business::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'Consumer') {
+                        Consumer::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'DISP') {
+                        Disp::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'Enterprise') {
+                        Enterprise::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'Leadership') {
+                        Leadership::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'Mobile') {
+                        Mobile::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    } elseif($datas[$x]->academy == 'WINS') {
+                        Wins::insert(['name' => $datas[$x]->certification_name, 'start_date' => $datas[$x]->start_date, 'finish_date' => $datas[$x]->finish_date, 'location' => $datas[$x]->location, 'academy' => $datas[$x]->academy, 'institution' => $datas[$x]->certification_institution, 'category' => $datas[$x]->category, 'internal' => $datas[$x]->internal, 'cfu_fu' => $datas[$x]->cfufu, 'level' => $datas[$x]->certification_level, 'outline' => $datas[$x]->outline, 'telkom_main' => $datas[$x]->telkom_main, 'job_family' => $datas[$x]->job_family, 'participants' => $participantdata, 'released_date' => $datas[$x]->released_date, 'expired_at' => $datas[$x]->expired_at, 'status' => 'complete']);
+                    }
+                    $x = $y;
+                }
+                
+
+        return redirect('createuser')->with('status', 'Certificate Added !');
 
     }
 

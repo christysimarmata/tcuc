@@ -16,7 +16,7 @@ class CreateNitsDetailTable extends Migration
         Schema::create('nits_detail', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->string('job_family');
+            $table->string('job_family')->nullable();
             $table->string('peserta')->nullable();
             $table->string('participant_status')->nullable();
             $table->string('file_name')->nullable();

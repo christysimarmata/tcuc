@@ -288,6 +288,10 @@
                         window.location = "certificationlist";
                     },500);
  
+                 },
+                 error: function(response) {
+                    window.alert('Fill all the field');
+                    
                  }
             })
         })

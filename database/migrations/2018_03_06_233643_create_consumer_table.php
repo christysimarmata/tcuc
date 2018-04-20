@@ -31,6 +31,7 @@ class CreateConsumerTable extends Migration
             $table->text('participants')->nullable();
             $table->date('released_date')->nullable();
             $table->date('expired_at')->nullable();
+            $table->string('filename')->nullable();
             $table->string('status')->nullable();
             $table->timestamps();
         });

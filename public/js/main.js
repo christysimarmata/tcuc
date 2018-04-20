@@ -15,6 +15,8 @@ jQuery(document).ready(function($) {
 		$('body').toggleClass('open');
 	});
 
+	
+
 	$('.search-trigger').on('click', function(event) {
 		event.preventDefault();
 		event.stopPropagation();

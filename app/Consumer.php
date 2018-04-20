@@ -32,6 +32,7 @@ class Consumer extends Model
 	    'participants',
 	    'released_date',
 	    'expired_at',
+	    'filename',
 	    'status',
 	    'created_at',
 	    'updated_at'];

@@ -129,11 +129,6 @@
         lengthMenu: [[10, 25, 50, -1], [10, 25, 50, "All"]],
         columnDefs: [
         	{
-        		"targets": [ 3 ],
-                "visible": false,
-                "searchable": true
-        	},
-        	{
         		"targets": [ 4 ],
                 "visible": false,
                 "searchable": true
@@ -148,13 +143,18 @@
                 "visible": false,
                 "searchable": true
         	},
+        	{
+        		"targets": [ 7 ],
+                "visible": false,
+                "searchable": true
+        	},
             {
-                "targets": [ 7 ],
+                "targets": [ 8 ],
                 "visible": false,
                 "searchable": true
             },
         	{
-        		"targets": [ 8 ],
+        		"targets": [ 9 ],
                 "visible": false,
                 "searchable": true
         	},

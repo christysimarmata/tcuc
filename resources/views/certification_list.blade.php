@@ -50,7 +50,7 @@
                         	<td>{{ $certificate->location }}</td>
                             <td>{{ $certificate->academy }}</td>
                             <td>
-                                <button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$certificate->name}},{{$certificate->start_date}},{{$certificate->finish_date}},{{$certificate->location}},{{$certificate->academy}}">
+                                <button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$certificate->name}},{{$certificate->start_date}},{{$certificate->finish_date}},{{$certificate->location}},{{$certificate->academy}},{{$certificate->institution}},{{$certificate->category}},{{$certificate->internal}}">
                                     <span class="glyphicon glyphicon-edit"></span> Edit<span class="namebefore" style="display: none;">{{$certificate->name}}</span>
                                 </button>
                                 <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
@@ -124,7 +124,43 @@
                         <div class="row form-group">
                             <label class="control-label col-sm-2" for="fubpp">Academy</label>
                             <div class="col-sm-10">
-                                <input type="text" class="form-control" id="facademy">
+                                <select name="cer_academy" id="facademy" class="form-control">
+                                <option value="NITS">NITS</option>
+                                <option value="Consumer">Consumer</option>
+                                <option value="DISP">Disp</option>
+                                <option value="WINS">Wins</option>
+                                <option value="Mobile">Mobile</option>
+                                <option value="Enterprise">Enterprise</option>
+                                <option value="Business Enabler">Business Enabler</option>
+                                <option value="Leadership">Leadership</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="control-label col-sm-2" for="fubpp">Institution</label>
+                            <div class="col-sm-10">
+                                <input type="text" class="form-control" id="finstitution">
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="control-label col-sm-2" for="fubpp">Category</label>
+                            <div class="col-sm-10">
+                                <select name="cer_category" id="fcategory" class="form-control">
+                                <option value="National">National</option>
+                                <option value="International">International</option>
+                              </select>
+                            </div>
+                        </div>
+
+                        <div class="row form-group">
+                            <label class="control-label col-sm-2" for="fubpp">Internal</label>
+                            <div class="col-sm-10">
+                                <select name="cer_internal" id="finternal" class="form-control" required="">
+                                <option value="YES">YES</option>
+                                <option value="NO">NO</option>
+                              </select>
                             </div>
                         </div>
                             {{ csrf_field() }}
@@ -221,6 +257,9 @@
             $('#ffinish').val(details[3]);
             $('#flocation').val(details[4]);
             $('#facademy').val(details[5]);
+            $('#finstitution').val(details[6]);
+            $('#fcategory').val(details[7]);
+            $('#finternal').val(details[8]);
         }
 
 
@@ -236,7 +275,10 @@
                 'fstart' : $("#fstart").val(),
                 'ffinish': $('#ffinish').val(),
                 'flocation': $('#flocation').val(),
-                'facademy': $('#facademy').val()            
+                'facademy': $('#facademy').val(),
+                'finstitution': $('#finstitution').val(),
+                'fcategory': $('#fcategory').val(),
+                'finternal': $('#finternal').val()
             },
             success: function(data) {
                     setTimeout(function() {

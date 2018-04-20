@@ -59,9 +59,9 @@
                             <td>{{ $certificate->finish_date }}</td>
                         	<td>{{ $certificate->location }}</td>
                             <td>{{ $certificate->academy }}</td>
-                            @if($have[$certificate->name] === 'ya')
+                            @if($certificate->filename != '')
                                 <td>
-                                    <button class="btn btn-success"><a href="{{ URL::to('/') }}/storage/presence_upload/{{ $certificate->name }}.xlsx" style="color: white;" download> Download </a></button>
+                                    <button class="btn btn-success"><a href="{{ URL::to('/') }}/storage/presence_upload/{{ $certificate->filename }}" style="color: white;" download> Download </a></button>
                                 </td>
                             @else
                                 <td>

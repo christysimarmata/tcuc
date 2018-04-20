@@ -37,8 +37,8 @@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#main-menu" aria-controls="main-menu" aria-expanded="false" aria-label="Toggle navigation">
                     <i class="fa fa-bars"></i>
                 </button>
-                <a class="navbar-brand" href="./"><img src="{{ asset('images/logo.png') }}" alt="Logo"></a>
-                <a class="navbar-brand hidden" href="./"><img src="{{ asset('images/logo2.png') }}" alt="Logo"></a>
+                <a class="navbar-brand" href="./"><img src="{{ asset('images/logosidebar.png') }}" alt="Logo"></a>
+                <a class="navbar-brand hidden" href="./"><img src="{{ asset('images/logotelkom2.png') }}" alt="Logo"></a>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -69,7 +69,7 @@
                         <a href="../requestuser"> <i class="menu-icon fa fa-user"></i>Requested User</a>
                     </li>
                     <li>
-                        <a href="../createuser"> <i class="menu-icon fa fa-users"></i>Create User</a>
+                        <a href="../createuser"> <i class="menu-icon fa fa-users"></i>Create User & Certificate</a>
                     </li>
                     <li>
                         <a href="../settings"> <i class="menu-icon fa fa-cog"></i>Settings</a>

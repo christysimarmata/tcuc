@@ -41,26 +41,32 @@
                                                     <p class="val_location">{{ $data_detail[3] }}</p>
                                                     <h5 class="text-sm-left">Academy</h5>
                                                     <p class="val_academy">{{ $data_detail[4] }}</p>
+                                                    <h5 class="text-sm-left">Certification Institution</h5>
+                                                    <p class="val_institution">{{ $data_detail[5] }}</p>
+                                                    <h5 class="text-sm-left">Category</h5>
+                                                    <p class="val_category">{{ $data_detail[6] }}</p>
+                                                    <h5 class="text-sm-left">Internal</h5>
+                                                    <p class="val_internal">{{ $data_detail[7] }}</p>
                                                     <h5 class="text-sm-left">CFU/FU</h5>
-                                                    <p class="val_cfu">{{ $data_detail[5] }}</p>
+                                                    <p class="val_cfu">{{ $data_detail[8] }}</p>
                                                     <h5 class="text-sm-left">Certification Level</h5>
-                                                    <p class="val_level">{{ $data_detail[6] }}</p>
+                                                    <p class="val_level">{{ $data_detail[9] }}</p>
                                                     <h5 class="text-sm-left">Released Date</h5>
-                                                    <p class="val_release">{{ $data_detail[7] }}</p>
+                                                    <p class="val_release">{{ $data_detail[10] }}</p>
                                                     <h5 class="text-sm-left">Outline Certification</h5>
-                                                    <p class="val_outline">{{ $data_detail[8] }}</p>
-                                                    @if($data_detail[9] == '2100/12/12')
+                                                    <p class="val_outline">{{ $data_detail[11] }}</p>
+                                                    @if($data_detail[12] == '2100/12/12')
                                                         <h5 class="text-sm-left">Expired Date</h5>
                                                         <p>All Time</p>
                                                         <p class="val_expired" style="display: none;">2100/12/12</p>
                                                     @else
                                                         <h5 class="text-sm-left">Expired Date</h5>
-                                                        <p class="val_expired">{{ $data_detail[9] }}</p>
+                                                        <p class="val_expired">{{ $data_detail[12] }}</p>
                                                     @endif
                                                     <h5 class="text-sm-left">Telkom Main Program</h5>
-                                                    <p class="val_program">{{ $data_detail[10] }}</p>
+                                                    <p class="val_program">{{ $data_detail[13] }}</p>
                                                     <h5 class="text-sm-left">Job Family</h5>
-                                                    <p class="val_family">{{ $data_detail[11] }}</p>
+                                                    <p class="val_family">{{ $data_detail[14] }}</p>
                                                 </div>
                                             </div>  
                                         </div>
@@ -74,7 +80,7 @@
                                             <div class="card-header">
 
                                                 <strong class="card-title">Data Table</strong>
-                                                <button class="commend-modal btn btn-info" data-info="{{ $data_detail[0] }}" data-toggle="modal" data-target="#myModal" style="float: right;">Validate</button>
+                                                <button class="commend-modal btn btn-info" data-info="{{ $data_detail[0] }}" data-toggle="modal" data-target="#myModal" style="float: right;">Need Clarification</button>
                                             </div>
                                             <div class="card-body">
                                                 
@@ -86,6 +92,7 @@
                                             <th>NIK</th>
                                             <th>Name</th>
                                             <th>Certificate</th>
+                                            <th>Status</th>
                                           </tr>
                                         </thead>
                                         <tbody>
@@ -104,7 +111,10 @@
                                                                 <td>
                                                                     -    
                                                                 </td>
-                                                            @endif                                             
+                                                            @endif
+                                                        <td>
+                                                            {{ $details[$nomor-1]->participant_status }}
+                                                        </td>                                             
                                                         </tr>
                                             @endforeach
                                         </tbody>
@@ -236,6 +246,9 @@
                     'finish' : document.getElementsByClassName('val_finish')[0].innerHTML,
                     'location' : document.getElementsByClassName('val_location')[0].innerHTML,
                     'academy' : document.getElementsByClassName('val_academy')[0].innerHTML,
+                    'institution' : document.getElementsByClassName('val_institution')[0].innerHTML,
+                    'category' : document.getElementsByClassName('val_category')[0].innerHTML,
+                    'internal' : document.getElementsByClassName('val_internal')[0].innerHTML,
                     'cfu_fu' : document.getElementsByClassName('val_cfu')[0].innerHTML,
                     'level' : document.getElementsByClassName('val_level')[0].innerHTML,
                     'released_date' : document.getElementsByClassName('val_release')[0].innerHTML,
@@ -272,6 +285,9 @@
                     'finish' : document.getElementsByClassName('val_finish')[0].innerHTML,
                     'location' : document.getElementsByClassName('val_location')[0].innerHTML,
                     'academy' : document.getElementsByClassName('val_academy')[0].innerHTML,
+                    'institution' : document.getElementsByClassName('val_institution')[0].innerHTML,
+                    'category' : document.getElementsByClassName('val_category')[0].innerHTML,
+                    'internal' : document.getElementsByClassName('val_internal')[0].innerHTML,
                     'cfu_fu' : document.getElementsByClassName('val_cfu')[0].innerHTML,
                     'level' : document.getElementsByClassName('val_level')[0].innerHTML,
                     'released_date' : document.getElementsByClassName('val_release')[0].innerHTML,
@@ -285,6 +301,9 @@
                         window.location = "validate";
                     },500);
  
+                 },
+                 error: function(response) {
+                    window.alert('Please filled all the field');
                  }
             })
         })

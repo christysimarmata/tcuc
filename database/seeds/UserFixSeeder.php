@@ -145,15 +145,104 @@ class UserFixSeeder extends Seeder
             
         ));
 
-        $nonlde = UserFix::create(array(
-            'nik' => 'nonlde123',
+        $nonlde1 = UserFix::create(array(
+            'nik' => 'nonldenits',
             'nama'=> 'Selena Gomez',
-            'password' => 'nonlde123',
+            'password' => 'password',
             'role' => 'nonlde',
-            'email' => 'nonlde123@gmail.com',
+            'email' => 'nonldenits@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
+            'division' => 'Human development'
+            
+        ));
+
+        $nonlde2 = UserFix::create(array(
+            'nik' => 'nonldedisp',
+            'nama'=> 'Blake Lively',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldedisp@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development'
+            
+        ));
+
+        $nonlde3 = UserFix::create(array(
+            'nik' => 'nonldebusiness',
+            'nama'=> 'Rama',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldebusiness@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development'
+            
+        ));
+
+        $nonlde4 = UserFix::create(array(
+            'nik' => 'nonldeconsumer',
+            'nama'=> 'Roulette',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldeconsumer@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development'
+           
+        ));
+
+        $nonlde5 = UserFix::create(array(
+            'nik' => 'nonldeenterprise',
+            'nama'=> 'Danny Sinaga',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldeenterprise@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development'
+            
+        ));
+
+        $nonlde6 = UserFix::create(array(
+            'nik' => 'nonldeleadership',
+            'nama'=> 'Erik Cantona',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldeleadership@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            
+            'division' => 'Human development'
+            
+        ));
+
+        $nonlde7 = UserFix::create(array(
+            'nik' => 'nonldemobile',
+            'nama'=> 'Selena Gomez',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldemobile@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
+            'division' => 'Human development'
+            
+        ));
+
+        $nonlde8 = UserFix::create(array(
+            'nik' => 'nonldewins',
+            'nama'=> 'Febri Febriyanti',
+            'password' => 'password',
+            'role' => 'nonlde',
+            'email' => 'nonldewins@gmail.com',
+            'phone_number' => '082367368604',
+            'job' => 'Non Manager',
             'division' => 'Human development'
             
         ));
