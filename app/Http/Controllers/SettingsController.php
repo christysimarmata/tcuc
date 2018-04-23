@@ -27,6 +27,7 @@ use App\Users;
 use App\UserFix;
 use App\MainProgram;
 use App\JobFamily;
+use App\Help;
 use Excel;
 use Storage;
 use DB;
@@ -220,7 +221,7 @@ class SettingsController extends Controller
     }
 
     public static function requestUser() {
-        $data = Users::where('status', 'requested')->get();
+        $data = Users::where('status', 'readonly')->get();
 
         return view('request_user')->with('datas', $data);
     }
@@ -237,9 +238,27 @@ class SettingsController extends Controller
 
     public static function deleteRequest(Request $request) {
         $edited = ($request->fnik);
-        Users::where('nik', $edited)->update(['status' => 'readonly']);
+        Users::where('nik', $edited)->update(['status' => 'fix']);
 
         return response()->json();
+    }
+
+    public static function edithelp() {
+        $datas = Help::getAllData();
+
+        return view('edit_help')->with('datas', $datas);
+    }
+
+    public static function changeHelp(Request $request) {
+        $academy = $request->facademy;
+        $nik = $request->fnik;
+
+        if(UserFix::where('nik', $nik)->exists()) {
+            Help::where('academy', $academy)->update(['nik' => $nik]);
+            return response()->json();
+        } else {
+            die(header("HTTP/1.0 404 Not Found"));
+        }
     }
 }
 

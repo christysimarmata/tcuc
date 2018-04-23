@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateEnterpriseDetailTable extends Migration
+class CreateHelpTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,10 @@ class CreateEnterpriseDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('enterprise_detail', function (Blueprint $table) {
+        Schema::create('help', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name');
-            $table->string('job_family')->nullable();
-            $table->string('peserta')->nullable();
-            $table->string('participant_status')->nullable();
-            $table->string('file_name')->nullable();
+            $table->string('academy');
+            $table->string('nik');
             $table->timestamps();
         });
     }
@@ -31,6 +28,6 @@ class CreateEnterpriseDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('enterprise_detail');
+        Schema::dropIfExists('help');
     }
 }

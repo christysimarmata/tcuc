@@ -4,6 +4,18 @@
 <link rel="stylesheet" href="{{ asset('css/lib/datatable/dataTables.bootstrap.min.css') }}">
 <link rel="stylesheet" href="{{ asset('css/form_style.css') }}">
 <link rel="stylesheet" href="{{ asset('css/date_picker.css') }}">
+
+<style type="text/css">
+.changefile {
+    display: none;
+}
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+}
+</style>
 @endpush
 
 @section('content')
@@ -181,6 +193,18 @@
                                     <option value="FU HCM">FU HCM</option>
                                     <option value="FU ISP">FU ISP</option>
                                     <option value="FU NITS">FU NITS</option>
+                                  @elseif($datas[0]->cfu_fu == 'CEO OFFICE')
+                                    <option value="">-- Pilih --</option>
+                                    <option value="CEO OFFICE" selected="">CEO OFFICE</option>
+                                    <option value="CFU CONSUMER">CFU CONSUMER</option>
+                                    <option value="CFU DIGITAL SERVICE">CFU DIGITAL SERVICE</option>
+                                    <option value="CFU ENTERPRISE">CFU ENTERPRISE</option>
+                                    <option value="CFU MOBILE">CFU MOBILE</option>
+                                    <option value="CFU WHOLESALE & INTERNAL">CFU WHOLESALE & INTERNAL</option>
+                                    <option value="FU FINANCE">FU FINANCE</option>
+                                    <option value="FU HCM">FU HCM</option>
+                                    <option value="FU ISP">FU ISP</option>
+                                    <option value="FU NITS">FU NITS</option>
                                   @else
                                     <option value="">-- Pilih --</option>
                                     <option value="CEO OFFICE">CEO OFFICE</option>
@@ -214,6 +238,13 @@
                                     <label for="level-radio4" class="form-check-label ">
                                       <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
                                     </label>
+                                    </div>
+                                        </div>
+                                      </div> 
+                                    <div class="row form-group hidden" id="input-other">
+                                      <div class="col col-md-3"><label for="text-input" class="form-control-label">Others</label></div>
+                                      <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" class="form-control" ></div>
+                                    </div>
                                   @elseif($datas[0]->level == 'Intermediate')
                                     <label for="level-radio1" class="form-check-label ">
                                       <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
@@ -227,6 +258,13 @@
                                     <label for="level-radio4" class="form-check-label ">
                                       <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
                                     </label>
+                                     </div>
+                                          </div>
+                                        </div> 
+                                      <div class="row form-group hidden" id="input-other">
+                                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Others</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" class="form-control" ></div>
+                                      </div>
                                   @elseif($datas[0]->level == 'Advance')
                                     <label for="level-radio1" class="form-check-label ">
                                       <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
@@ -240,6 +278,13 @@
                                     <label for="level-radio4" class="form-check-label ">
                                       <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"style="margin-left: 15px;">Others
                                     </label>
+                                     </div>
+                                          </div>
+                                        </div> 
+                                      <div class="row form-group hidden" id="input-other">
+                                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Others</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" class="form-control" ></div>
+                                      </div>
                                   @elseif($datas[0]->level == '')
                                     <label for="level-radio1" class="form-check-label ">
                                       <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
@@ -253,6 +298,13 @@
                                     <label for="level-radio4" class="form-check-label ">
                                       <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others"  style="margin-left: 15px;">Others
                                     </label>
+                                     </div>
+                                          </div>
+                                        </div> 
+                                      <div class="row form-group hidden" id="input-other">
+                                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Others</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" class="form-control" ></div>
+                                      </div>
                                   @else
                                     <label for="level-radio1" class="form-check-label ">
                                       <input type="radio" id="level-radio1" name="level-radios" class="form-check-input" value="Basic">Basic
@@ -266,14 +318,15 @@
                                     <label for="level-radio4" class="form-check-label ">
                                       <input type="radio" id="level-radio4" name="level-radios" class="form-check-input" value="Others" checked="" style="margin-left: 15px;">Others
                                     </label>
+                                     </div>
+                                          </div>
+                                        </div> 
+                                      <div class="row form-group" id="input-other">
+                                        <div class="col col-md-3"><label for="text-input" class="form-control-label">Others</label></div>
+                                        <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" placeholder="{{ $datas[0]->level }}" value="{{ $datas[0]->level }}" class="form-control" ></div>
+                                      </div>
                                   @endif
-                                </div>
-                              </div>
-                            </div> 
-                          <div class="row form-group hidden" id="input-other">
-                            <div class="col col-md-3"><label for="text-input" class="form-control-label">Others</label></div>
-                            <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_others" class="form-control" ></div>
-                          </div>
+                                
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="text-input" class="form-control-label">Released Date<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="text-input" name="cer_released" placeholder="{{ $datas[0]->released_date }}" value="{{ $datas[0]->released_date }}" class="form-control" ></div>
@@ -312,6 +365,40 @@
                               </select>
                             </div>
                           </div>
+                          @if($datas[0]->expired_at != '')
+                          <div class="row form-group">
+                            <div class="col col-md-3"><label class=" form-control-label">Expired Date<span style="color: red;">*</span></label></div>
+                              <div class="col col-md-9">
+                                <div class="form-check-inline form-check">
+                                  <label for="inline-radio1" class="form-check-label ">
+                                    <input type="radio" id="inline-radio1" name="inline-radios" class="form-check-input" value="date" checked="">Date
+                                  </label>
+                                  <label for="inline-radio2" class="form-check-label ">
+                                    <input type="radio" id="inline-radio2" name="inline-radios" class="form-check-input" value="year"style="margin-left: 15px;">Year
+                                  </label>
+                                  <label for="inline-radio3" class="form-check-label ">
+                                    <input type="radio" id="inline-radio3" name="inline-radios" class="form-check-input" value="all-time"style="margin-left: 15px;">All Time
+                                  </label>
+                                </div>
+                              </div>
+                            </div>
+                            <div class="row form-group" id="pickdate">
+                              <div class="col col-md-3"><label for="text-input" class="form-control-label">Pick Date</label></div>
+                              <div class="col-12 col-md-9"><input type="text" id="text-input" name="expired_date" class="form-control" placeholder="{{ $datas[0]->expired_at }}" value="{{ $datas[0]->expired_at }}"></div>
+                            </div>
+                            <div class="row form-group hidden" id="pickyear">
+                              <div class="col col-md-3"><label for="select" class=" form-control-label">Pick Year</label></div>
+                              <div class="col-12 col-md-9">
+                                <select name="expired_years" id="select" class="form-control">
+                                  <option value="1">1 years</option>
+                                  <option value="2">2 years</option>
+                                  <option value="3">3 years</option>
+                                  <option value="4">4 years</option>
+                                  <option value="5">5 years</option>
+                                </select>
+                              </div>
+                            </div>
+                          @else
                           <div class="row form-group">
                             <div class="col col-md-3"><label class=" form-control-label">Expired Date<span style="color: red;">*</span></label></div>
                               <div class="col col-md-9">
@@ -325,7 +412,6 @@
                                   <label for="inline-radio3" class="form-check-label ">
                                     <input type="radio" id="inline-radio3" name="inline-radios" class="form-check-input" value="all-time"style="margin-left: 15px;">All Time
                                   </label>
-                                  
                                 </div>
                               </div>
                             </div>
@@ -345,6 +431,8 @@
                                 </select>
                               </div>
                             </div>
+                          @endif
+                        
                             <input type="button" name="next" class="input_file action-button" value="Next" />
                           </fieldset>
                             <div class="content mt-3 step_2" id="step-2">
@@ -384,6 +472,10 @@
                                                     @if($details[$nomor-1]->file_name)
                                                       <td>  
                                                       {{ $details[$nomor-1]->file_name }}
+                                                      <label for="file-certificate{{ $items->nik }}" class="custom-file-upload" style="float: right;">
+                                                          <i class="fa fa-cloud-upload"></i> Change
+                                                      </label>
+                                                      <input type="file" id="file-certificate{{ $items->nik }}" name="{{ $items->nik }}" class="form-control-file changefile">
                                                       </td>
                                                     @else
                                                       <td>  
@@ -395,29 +487,29 @@
                                                       <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
                                                         <option value="">-- Pilih --</option>
                                                         <option value="Attendee" selected="">Attendee</option>
-                                                        <option value="Certified">Certified</option>
-                                                        <option value="Qualified">Qualified</option>
-                                                      </select>
-                                                    @elseif($details[$nomor-1]->participant_status == 'Certified')
-                                                      <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
-                                                        <option value="">-- Pilih --</option>
-                                                        <option value="Attendee">Attendee</option>
-                                                        <option value="Certified" selected="">Certified</option>
-                                                        <option value="Qualified">Qualified</option>
+                                                        <option value="Certified">Qualified</option>
+                                                        <option value="Qualified">Certified</option>
                                                       </select>
                                                     @elseif($details[$nomor-1]->participant_status == 'Qualified')
                                                       <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
                                                         <option value="">-- Pilih --</option>
                                                         <option value="Attendee">Attendee</option>
-                                                        <option value="Certified">Certified</option>
-                                                        <option value="Qualified" selected="">Qualified</option>
+                                                        <option value="Certified" selected="">Qualified</option>
+                                                        <option value="Qualified">Certified</option>
+                                                      </select>
+                                                    @elseif($details[$nomor-1]->participant_status == 'Certified')
+                                                      <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
+                                                        <option value="">-- Pilih --</option>
+                                                        <option value="Attendee">Attendee</option>
+                                                        <option value="Certified">Qualified</option>
+                                                        <option value="Qualified" selected="">Certified</option>
                                                       </select>
                                                     @else
                                                       <select name="status_{{ $items->nik }}" class="form-control" style="font-size: 18px;">
                                                         <option value="">-- Pilih --</option>
                                                         <option value="Attendee">Attendee</option>
-                                                        <option value="Certified">Certified</option>
-                                                        <option value="Qualified">Qualified</option>
+                                                        <option value="Certified">Qualified</option>
+                                                        <option value="Qualified">Certified</option>
                                                       </select>
                                                     @endif
                                                     </td>

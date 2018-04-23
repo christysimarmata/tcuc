@@ -49,7 +49,6 @@
                                 <th>Name</th>
                                 <th>Certification Name</th>
                                 <th>Participant Status</th>
-                                <th>UBPP</th>
                                 <th>Job Position</th>
                                 <th>Division</th>
                                 <th>Email</th>
@@ -81,7 +80,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -113,7 +111,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -145,7 +142,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -177,7 +173,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -209,7 +204,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -241,7 +235,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -273,7 +266,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>
@@ -305,7 +297,6 @@
                                         <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->ubpp }}</td>
                                         <td>{{ $pnits->job }}</td>
                                         <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->email }}</td>

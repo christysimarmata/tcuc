@@ -21,7 +21,6 @@ class ConsumerDetail extends Model
 	    'peserta',
 	    'participant_status',
 	    'file_name',
-	    'ubpp',
 	    'created_at',
 	    'updated_at'];
 

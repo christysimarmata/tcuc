@@ -13,6 +13,14 @@
 /* Bootstrap */
 
 @import url(../css/animate.css);
+
+.avatar-sidebar {
+  border:2px solid white;
+  border-radius: 50%;
+  text-align: center;
+  margin-top: 20px;
+}
+
 .gaugejs-wrap {
   position: relative;
   margin: 0 auto; }
@@ -2237,5 +2245,9 @@ header .form-inline {
           padding: 0; }
         .right-panel .content #bootstrap-data-table_wrapper .table td, .right-panel .content #bootstrap-data-table_wrapper .table th {
           padding: 5px; } }
+
+
+
+
 
 /*# sourceMappingURL=style.css.map */

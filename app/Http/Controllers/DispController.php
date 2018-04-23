@@ -42,7 +42,6 @@ class DispController extends Controller
             $temp = (array) Users::getParticipantFirst($datas);
 
             $temp_detail = DispDetail::where('name', $name)->where('peserta', $datas)->first();
-            $temp['ubpp'] = $temp_detail['ubpp'];
             $temp['participant_status'] = $temp_detail['participant_status'];
             $participant_data[] = (object) $temp;
         }

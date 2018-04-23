@@ -151,7 +151,7 @@
                 <div class="modal-body">
                     <form class="form-horizontal" role="form">
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fill Commend</label></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fill Comment</label></div>
                             <div class="col-12 col-md-9">
                               <textarea id="text-input" name="commend" class="form-control" rows="7"></textarea></div>
                         </div>
@@ -220,8 +220,22 @@
                 url: '/commendtoSSO',
                 data: {
                     '_token': $('input[name=_token]').val(),
-                    'fnama': $('.dname').html(),
-                    'fcommend': $('#text-input').val()       
+                    'comment': $('#text-input').val(),
+                    'name' : document.getElementsByClassName('val_name')[0].innerHTML,
+                    'start' : document.getElementsByClassName('val_start')[0].innerHTML,
+                    'finish' : document.getElementsByClassName('val_finish')[0].innerHTML,
+                    'location' : document.getElementsByClassName('val_location')[0].innerHTML,
+                    'academy' : document.getElementsByClassName('val_academy')[0].innerHTML,
+                    'institution' : document.getElementsByClassName('val_institution')[0].innerHTML,
+                    'category' : document.getElementsByClassName('val_category')[0].innerHTML,
+                    'internal' : document.getElementsByClassName('val_internal')[0].innerHTML,
+                    'cfu_fu' : document.getElementsByClassName('val_cfu')[0].innerHTML,
+                    'level' : document.getElementsByClassName('val_level')[0].innerHTML,
+                    'released_date' : document.getElementsByClassName('val_release')[0].innerHTML,
+                    'outline' : document.getElementsByClassName('val_outline')[0].innerHTML,
+                    'expired_date' : document.getElementsByClassName('val_expired')[0].innerHTML,
+                    'main_program' : document.getElementsByClassName('val_program')[0].innerHTML,
+                    'job_family' : document.getElementsByClassName('val_family')[0].innerHTML       
                 },
                 success: function(data) {
                         setTimeout(function() {

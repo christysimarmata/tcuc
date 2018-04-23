@@ -89,7 +89,7 @@
                 <div class="modal-body">
                     <form class="form-horizontal" role="form">
                         <div class="row form-group">
-                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fill Commend</label></div>
+                            <div class="col col-md-3"><label for="text-input" class=" form-control-label">Fill Comment</label></div>
                             <div class="col-12 col-md-9">
                               <textarea id="text-input" name="commend" class="form-control" rows="7"></textarea></div>
                         </div>

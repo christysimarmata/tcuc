@@ -20,7 +20,6 @@ class CreateLeadershipDetailTable extends Migration
             $table->string('peserta')->nullable();
             $table->string('participant_status')->nullable();
             $table->string('file_name')->nullable();
-            $table->integer('ubpp')->nullable();
             $table->timestamps();
         });
     }

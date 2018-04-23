@@ -67,33 +67,42 @@
                                             <th>Name</th>
                                             <th>Job Position</th>
                                             <th>Division</th>
-                                            <th>UBPP</th>
                                             <th>Actions</th>
                                           </tr>
                                         </thead>
                                         <tbody>
                                             @php ($nomor = 0)
                                             @foreach($participant_detail as $datas)
-                                                @if(data_get($datas,'nik'))
+                                                @if($datas->status == 'fix')
                                                         <tr class="datas{{ ++$nomor }}">
                                                         <td>{{ $nomor }}</td>
                                                         <td>{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
                                                         <td>{{ $datas->division }}</td>
-                                                        @if($datas->ubpp == '') 
-                                                            <td>{{ $datas->ubpp }} </td>
-                                                        @else
-                                                            <td>{{ $datas->ubpp }} %</td>
-                                                        @endif
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
-        
+                                                        </td>                                              
+                                                        </tr>
+                                                @else
+                                                        <tr class="datas{{ ++$nomor }}">
+                                                        <td>{{ $nomor }}</td>
+                                                        <td style="color:red;">{{ $datas->nik }}</td>
+                                                        <td>{{ $datas->nama }}</td>
+                                                        <td>{{ $datas->job }}</td>
+                                                        <td>{{ $datas->division }}</td>
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
+            <span class="glyphicon glyphicon-edit"></span> Edit
+        </button>
+        <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
+            <span class="glyphicon glyphicon-trash"></span> Delete
+        </button>
                                                         </td>                                              
                                                         </tr>
                                                 @endif
@@ -167,13 +176,7 @@
                             </div>
                         </div>
                         
-                        <div class="row form-group empat">
-                            <label class="control-label col-sm-2" for="fubpp">UBPP</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="fubpp">
-                            </div>
-                        </div>
-                            {{ csrf_field() }}
+                        {{ csrf_field() }}
                     </form>
                     <div class="deleteContent">
                         Are you Sure you want to delete <span class="dname"></span> ? <span
@@ -286,7 +289,6 @@
             $('#fnama').val(details[2]);
             $('#fjob').val(details[3]);
             $('#fdivision').val(details[4]);
-            $('#fubpp').val(details[5]);
         }
 
 
@@ -301,8 +303,7 @@
                 'fnik' : $("#fnik").val(),
                 'fnama': $('#fnama').val(),
                 'fjob': $('#fjob').val(),
-                'fdivision': $('#fdivision').val(),
-                'fubpp': $('#fubpp').val()            
+                'fdivision': $('#fdivision').val()          
             },
             success: function(data) {
                     setTimeout(function() {
@@ -344,8 +345,7 @@
                 'fnik' : $("#fnik").val(),
                 'fnama': '',
                 'fjob': '',
-                'fdivision': '',
-                'fubpp': ''            
+                'fdivision': ''         
             },
             success: function(data) {
                     setTimeout(function() {

@@ -83,7 +83,9 @@
                                 <option value="YES">YES</option>
                                 <option value="NO">NO</option>
                               </select>
+                              <span style="color: #7A7978; font-size: 11px; font-style: italic;">*Opsi YES hanya untuk sertifikasi yang dibiayai oleh Telkom Group</span>
                             </div>
+
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="select" class=" form-control-label">Input Peserta<span style="color: red;">*</span></label></div>
@@ -102,7 +104,7 @@
                             <input type="button" name="next" class="next1 action-button" value="Next" />
                           </fieldset>
                            <fieldset>
-                            <button type="button" id="button-template" class="btn btn-outline-success" style="margin-bottom: 20px; color: white;"><a href="documents/template.xlsx" download>Download Template</a></button>
+                            <button type="button" id="button-template" class="btn btn-success" style="margin-bottom: 20px; color: white;"><a href="documents/template.xlsx" style="color: white;" download>Download Template</a></button>
                             <div class="row form-group">
                             <div class="col col-md-3"><label for="input-manual" id="label-input-1" class="form-control-label hidden">List Participant<span style="color: red;">*</span></label></div>
                             <div class="col-12 col-md-9"><input type="text" id="input-manual" name="cer_participant" placeholder="nik1,nik2,nik3,..." class="form-control"></div>

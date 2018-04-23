@@ -92,11 +92,9 @@ class CertificateController extends Controller
                 foreach ($participantdata as $datas) {
                     if(empty(Users::getParticipantFirst($datas->nik))) {
 
-                        $participant_data[] = (object) array("nik"=>$datas->nik, "nama"=>"", "job"=>"", "division"=>"", "ubpp"=>$datas->ubpp, "status"=>'readonly');
+                        $participant_data[] = (object) array("nik"=>$datas->nik, "nama"=>"", "job"=>"", "division"=>"", "status"=>'readonly');
                     } else {
-                        $temp = (array) Users::getParticipantFirst($datas->nik); 
-                        $temp["ubpp"] = $datas->ubpp;
-                        $participant_data[] = (object) $temp;     
+                        $participant_data[] = Users::getParticipantFirst($datas->nik);     
                     }
                 
                 }
@@ -105,20 +103,16 @@ class CertificateController extends Controller
                 session(['peserta' => $participant_data]);
                 return view('step_final')->with('participant_detail', collect(session('peserta')))
                                          ->with('data_detail', collect(session('detail')));
-
-
             } 
             else {
                 $data_participant = explode(',', Input::post('cer_participant'));
             
                 foreach ($data_participant as $datas) {
                     if(empty(Users::getParticipantFirst($datas))) {
-                        $participant_data[] = (object) array("nik"=>$datas, "nama"=>"", "job"=>"", "division"=>"", "ubpp"=>"", "status"=>'readonly');
+                        $participant_data[] = (object) array("nik"=>$datas, "nama"=>"", "job"=>"", "division"=>"", "status"=>'readonly');
                     } else {
-                        $temp = (array) Users::getParticipantFirst($datas); 
-                        $temp["ubpp"] = "";
                         
-                        $participant_data[] = (object) $temp;
+                        $participant_data[] = Users::getParticipantFirst($datas);
                         
                     }
                 
@@ -147,16 +141,13 @@ class CertificateController extends Controller
             $data_participant = explode(',', $participant_data);
             
                 foreach ($data_participant as $datas) {
-                        $temp = (array) Users::getParticipantFirst($datas);
-                        $temp_ubpp = CertificateTempDetail::where('name', $name)->where('peserta', $datas)->first();
-                        $temp['ubpp'] = $temp_ubpp->ubpp;
-                        $participant[] = (object) $temp;
+                        $participant[] = Users::getParticipantFirst($datas);
                     }
 
 
-
+            \Log::info($participant);
             return view('step_final2')->with('data_detail', $data_baru)
-                                                   ->with('participant_detail', $participant);
+                                      ->with('participant_detail', $participant);
     }
 
     public static function clarificationfinal($name) {
@@ -466,14 +457,22 @@ class CertificateController extends Controller
 
 
     public function commendtoSSO(Request $request) {
-        $nama = $request->fnama;
-        $commend = $request->fcommend;
+        $nama = $request->name;
+        $commend = $request->comment;
         
+        CertificateTemp::where('name', $request->name)->update(['cfu_fu' => $request->cfu_fu,
+                                                                'level' => $request->level,
+                                                                'released_date' => $request->released_date,
+                                                                'outline' => $request->outline,
+                                                                'expired_at' => $request->expired_date,
+                                                                'telkom_main' => $request->main_program,
+                                                                'job_family' => $request->job_family
+                                                                ]);
+
+        CertificateTempDetail::where('name', $request->name)->update(['job_family' => $request->job_family]);
 
         CertificateTemp::where('name', $nama)->update(['commend' => $commend, 'status' => 'needclarification']);
         return response()->json();
-
-
     }
 
     public function editItem2(Request $request) {
@@ -584,13 +583,16 @@ class CertificateController extends Controller
         $finish_date = $request->ffinish;
         $location = $request->flocation;
         $academy = $request->facademy;
+        $institution = $request->finstitution;
+        $category = $request->fcategory;
+        $internal = $request->finternal;
         $namebefore = $request->fnamebefore;
 
   
 
 
         CertificateTemp::where('name', $namebefore)->update(
-            ['name' => $name, 'start_date' => $start_date, 'finish_date' => $finish_date, 'location' => $location, 'academy' => $academy]
+            ['name' => $name, 'start_date' => $start_date, 'finish_date' => $finish_date, 'location' => $location, 'academy' => $academy, 'institution' => $institution, 'category' => $category, 'internal' => $internal]
         );
 
         return response()->json();
@@ -689,10 +691,10 @@ class CertificateController extends Controller
             $participant = $participant . $data->nik . ',';
             if(Users::where('nik', $data->nik)->exists()) {
                 Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
-                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
             } else {
                 Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division, 'status'=>'readonly']);
-                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
             }
         }
         $participant = substr($participant,0,-1);
@@ -746,10 +748,6 @@ class CertificateController extends Controller
 
         foreach($datas as $data) {
             
-            if($data->ubpp == '') {
-                $cansubmit = 0;
-            }
-            
             $temp_user = Users::where('nik', $data->peserta)->get();
             
             if($temp_user[0]->nama == '' || $temp_user[0]->job == '' || $temp_user[0]->division == '') {
@@ -796,7 +794,7 @@ class CertificateController extends Controller
         $details = session('detail');
         $cansubmit = 1;
         foreach($participants as $data) {
-            if($data->nik == '' || $data->job == '' || $data->division == '' || $data->nama == '' || $data->ubpp == '') {
+            if($data->nik == '' || $data->job == '' || $data->division == '' || $data->nama == '') {
                 $cansubmit = 0;
             }
         }
@@ -809,16 +807,30 @@ class CertificateController extends Controller
                 if(Users::where('nik', $data->nik)->exists()) {
                     Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
 
-                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
                 } else {
                     Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division, 'status'=>'readonly']);
-                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik ,'ubpp' => $data->ubpp]);
+                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
                 }
             }
             $participant = substr($participant,0,-1);
             
-                       
-            CertificateTemp::insert(
+            if(count($details) == 8) {
+                CertificateTemp::insert(
+                [
+                    'name' => $details[0],
+                    'start_date' => $details[1],
+                    'finish_date' => $details[2],
+                    'location' => $details[3],
+                    'academy' => $details[4],
+                    'institution' => $details[5],
+                    'category' => $details[6],
+                    'internal' => $details[7],
+                    'participants' => $participant,
+                    'status' => 'validateLDE'
+                ]);    
+            } else {
+                CertificateTemp::insert(
                 [
                     'name' => $details[0],
                     'start_date' => $details[1],
@@ -832,7 +844,7 @@ class CertificateController extends Controller
                     'participants' => $participant,
                     'status' => 'validateLDE'
                 ]);
-
+            }    
             return response()->json();
         } else {
             die(header("HTTP/1.0 404 Not Found"));

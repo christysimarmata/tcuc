@@ -74,11 +74,11 @@
         <div class="footer-login col-lg-12">
             <div class="col-lg-1"></div>
             <div class="col-lg-3 location">
-                <h1 class="title">Location</h1>
+                <h2 class="title">Location</h2>
                 <h5><i class="fa fa-map-marker inborder"></i> {{ $address }} </h5>
             </div>
             <div class="col-lg-4 contact">
-                <h1 class="title">Contact</h1>
+                <h2 class="title">Contact</h2>
                 <h5><i class="fa fa-phone inborder"></i> {{ $phone_number }} </h5>
                 <h5><i class="fa fa-envelope inborder"></i> {{ $email }} </h5>
             </div>

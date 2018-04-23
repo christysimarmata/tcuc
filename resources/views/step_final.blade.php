@@ -70,7 +70,6 @@
                                             <th>Name</th>
                                             <th>Job Position</th>
                                             <th>Division</th>
-                                            <th>UBPP</th>
                                             <th>Actions</th>
                                           </tr>
                                         </thead>
@@ -84,16 +83,11 @@
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
                                                         <td>{{ $datas->division }}</td>
-                                                        @if($datas->ubpp)
-                                                            <td>{{ $datas->ubpp }} %</td>
-                                                        @else
-                                                            <td>{{ $datas->ubpp }}</td>
-                                                        @endif
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}" style="width: 80px;">
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}" style="width: 80px;">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}" style="width: 80px;">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}" style="width: 80px;">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
         
@@ -102,34 +96,20 @@
                                                 @else
                                                         <tr>
                                                         <td>{{ ++$nomor }}</td>
-                                                        <td>{{ $datas->nik }}</td>
+                                                        <td style="color: red;">{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
                                                         <td>{{ $datas->division }}</td>
-                                                        @if($datas->ubpp)
-                                                            <td>{{ $datas->ubpp }} %</td>
-                                                        @else
-                                                            <td>{{ $datas->ubpp }}</td>
-                                                        @endif
                                                         <td>
                                                             <button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal"
-                                                                data-info="{{$nomor}},{{ $datas->nik }},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}" style="width: 80px;">
+                                                                data-info="{{$nomor}},{{ $datas->nik }},{{$datas->nama}},{{$datas->job}},{{$datas->division}}" style="width: 80px;">
                                                                 <span class="glyphicon glyphicon-edit"></span> Edit
                                                             </button>
                                                             <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
                                                             data-info="{{$nomor}},{{ $datas->nik }}" style="width: 80px;">
                                                                 <span class="glyphicon glyphicon-trash"></span> Delete
                                                             </button>
-                                                            @if( $datas->status === 'readonly' )
-                                                                <button class="request-modal btn btn-secondary" data-toggle="modal" data-target="#myModal"
-                                                                data-info="{{$nomor}},{{ $datas->nik }}" style="width: 90px;">
-                                                                    <span class="glyphicon glyphicon-trash"></span> Request
-                                                                </button>
-                                                            @else 
-                                                                <button class="request-modal btn btn-secondary" style="width: 90px;" disabled="">
-                                                                    <span class="glyphicon glyphicon-trash"></span>Request
-                                                                </button>
-                                                            @endif
+                                                            
                                                         </td>                                                    
                                                         </tr>
                                                 @endif
@@ -206,12 +186,6 @@
                             </div>
                         </div>
                         
-                        <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fubpp">UBPP</label>
-                            <div class="col-sm-10">
-                                <input type="number" class="form-control" id="fubpp">
-                            </div>
-                        </div>
                             {{ csrf_field() }}
                     </form>
                     <div class="deleteContent">
@@ -327,7 +301,6 @@
             $('#fnama').val(details[2]);
             $('#fjob').val(details[3]);
             $('#fdivision').val(details[4]);
-            $('#fubpp').val(details[5]);
         }
 
 
@@ -341,8 +314,7 @@
                 'fnik' : $("#fnik").val(),
                 'fnama': $('#fnama').val(),
                 'fjob': $('#fjob').val(),
-                'fdivision': $('#fdivision').val(),
-                'fubpp': $('#fubpp').val()            
+                'fdivision': $('#fdivision').val()     
             },
             success: function(data) {
                     setTimeout(function() {
@@ -390,40 +362,7 @@
         });
 
 
-         $(document).on('click', '.request-modal', function() {
-            $('#footer_action_button').text(" Delete");
-            $('#footer_action_button').removeClass('glyphicon-check');
-            $('#footer_action_button').addClass('glyphicon-trash');
-            $('.actionBtn').removeClass('btn-success');
-            $('.actionBtn').addClass('btn-danger');
-            $('.actionBtn').removeClass('edit');
-            $('.actionBtn').addClass('request');
-            $('.request').text('Request');
-            $('.modal-title').text('Request');
-            $('.requestContent').show();
-            $('.deleteContent').hide();
-            $('.form-horizontal').hide();
-            var stuff = $(this).data('info').split(',');
-            $('.dname2').html(stuff[1]);
-            console.log($('.dname2').text());
-        });
-
-         $('.modal-footer').on('click', '.request', function() {
-            $.ajax({
-                type: 'post',
-                url: '/requestItem',
-                data: {
-                    '_token': $('input[name=_token]').val(),
-                    'fnik': $('.dname2').text()
-                },
-                success: function(data) {
-                    setTimeout(function() {
-                        location.reload();
-                    },500);
-                }
-            });
-        });
-
+        
 
 
     </script>

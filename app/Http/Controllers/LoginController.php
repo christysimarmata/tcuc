@@ -62,6 +62,8 @@ class LoginController extends Controller
                 $user = Login::getUser($result);
                 session(['userAktif' => $user->nik]);
         		session(['idUserAktif' => $result]);
+                session(['nama' => $user->nama]);
+                session(['email' => $user->email]);
                 session(['roleUserAktif' => $user->role]);
                 session(['avatarUserAktif' => $user->avatar]);
                 session(['idx' => '1']);
@@ -284,7 +286,6 @@ class LoginController extends Controller
             foreach($data_nits as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = NitsDetail::where('name', $nits->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_nits[$nits->name][] = (object) $temp;
             }
@@ -298,8 +299,6 @@ class LoginController extends Controller
             foreach($data_consumer as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = ConsumerDetail::where('name', $consumer->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
-                 \Log::info($temp['ubpp']);
                 $temp['participant_status'] = $temp_detail['participant_status'];
 
                 $par_consumer[$consumer->name][] = (object) $temp;
@@ -314,7 +313,6 @@ class LoginController extends Controller
             foreach($data_disp as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = DispDetail::where('name', $disp->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_disp[$disp->name][] = (object) $temp;
             }
@@ -328,7 +326,6 @@ class LoginController extends Controller
             foreach($data_wins as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = WinsDetail::where('name', $wins->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_wins[$wins->name][] = (object) $temp;
             }
@@ -342,7 +339,6 @@ class LoginController extends Controller
             foreach($data_mobile as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = MobileDetail::where('name', $mobile->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_mobile[$mobile->name][] = (object) $temp;
             }
@@ -356,7 +352,6 @@ class LoginController extends Controller
             foreach($data_business as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = BusinessDetail::where('name', $business->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_business[$business->name][] = (object) $temp;
             }
@@ -370,7 +365,6 @@ class LoginController extends Controller
             foreach($data_enterprise as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = EnterpriseDetail::where('name', $enterprise->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_enterprise[$enterprise->name][] = (object) $temp;
             }
@@ -384,7 +378,6 @@ class LoginController extends Controller
             foreach($data_leadership as $data) {
                 $temp = (array) Users::getParticipantFirst($data);
                 $temp_detail = LeadershipDetail::where('name', $leadership->name)->where('peserta', $data)->first();
-                $temp['ubpp'] = $temp_detail['ubpp'];
                 $temp['participant_status'] = $temp_detail['participant_status'];
                 $par_leadership[$leadership->name][] = (object) $temp;
             }

@@ -44,7 +44,7 @@
                             @foreach($data as $certificate)
 	                      	<tr>
 	                        <td>{{ ++$nomor }}</td>
-                        	<td><a href="createnewfinal/{{ $certificate->name }}" >{{ $certificate->name }}</a></td>
+                        	<td><a href="createnewfinal/{{ $certificate->name }}" style="color: black;">{{ $certificate->name }}</a></td>
                         	<td>{{ $certificate->start_date }}</td>
                             <td>{{ $certificate->finish_date }}</td>
                         	<td>{{ $certificate->location }}</td>
@@ -93,7 +93,7 @@
                         </div>
 
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fnik">Name</label>
+                            <label class="control-label col-sm-2" for="fname">Name</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="fname">
                             </div>
@@ -101,28 +101,28 @@
 
 
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fnama">Start Date</label>
+                            <label class="control-label col-sm-2" for="fstart">Start Date</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="fstart">
                             </div>
                         </div>
                         
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fjob">Finish Date</label>
+                            <label class="control-label col-sm-2" for="ffinish">Finish Date</label>
                             <div class="col-sm-10">
                                 <input type="date" class="form-control" id="ffinish">
                             </div>
                         </div>
                         
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fdivision">Location</label>
+                            <label class="control-label col-sm-2" for="flocation">Location</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="flocation">
                             </div>
                         </div>
                         
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fubpp">Academy</label>
+                            <label class="control-label col-sm-2" for="facademy">Academy</label>
                             <div class="col-sm-10">
                                 <select name="cer_academy" id="facademy" class="form-control">
                                 <option value="NITS">NITS</option>
@@ -138,14 +138,14 @@
                         </div>
 
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fubpp">Institution</label>
+                            <label class="control-label col-sm-2" for="finstitution">Institution</label>
                             <div class="col-sm-10">
                                 <input type="text" class="form-control" id="finstitution">
                             </div>
                         </div>
 
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fubpp">Category</label>
+                            <label class="control-label col-sm-2" for="fcategory">Category</label>
                             <div class="col-sm-10">
                                 <select name="cer_category" id="fcategory" class="form-control">
                                 <option value="National">National</option>
@@ -155,7 +155,7 @@
                         </div>
 
                         <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fubpp">Internal</label>
+                            <label class="control-label col-sm-2" for="finternal">Internal</label>
                             <div class="col-sm-10">
                                 <select name="cer_internal" id="finternal" class="form-control" required="">
                                 <option value="YES">YES</option>

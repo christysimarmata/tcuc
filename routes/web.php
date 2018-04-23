@@ -22,6 +22,7 @@ Route::get('dashboard', function() {
 
 
 Route::get('help', 'HelpController@showContact');
+Route::post('changeHelp', 'SettingsController@changeHelp');
 
 Route::get('logout', function() {
 	session()->flush();
@@ -59,6 +60,7 @@ Route::get('createuser', 'SettingsController@indexuser');
 Route::post('addusersingle', 'SettingsController@addusersingle');
 Route::post('addusermultiple', 'SettingsController@addusermultiple');
 Route::post('addcertificatemultiple', 'SettingsController@addcertificatemultiple');
+Route::get('edithelp', 'SettingsController@edithelp');
 
 Route::get('requestuser', 'SettingsController@requestUser');
 Route::post('createRequest', 'SettingsController@createRequest');

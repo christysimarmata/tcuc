@@ -20,7 +20,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '651225',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '651225.jpg','ubpp' => '90'
+	    	'file_name' => '651225.jpg',
 	    	
         ));
 
@@ -30,7 +30,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '591825',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '591825.jpg','ubpp' => '90'
+	    	'file_name' => '591825.jpg',
 	    	
         ));
 
@@ -40,7 +40,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '670288',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '670288.jpg','ubpp' => '90'
+	    	'file_name' => '670288.jpg',
 	    	
         ));
 
@@ -50,7 +50,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '633056',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '633056.jpg','ubpp' => '90'
+	    	'file_name' => '633056.jpg',
 	    	
         ));
 
@@ -60,7 +60,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '622290',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '622290.jpg','ubpp' => '90'
+	    	'file_name' => '622290.jpg',
 	    	
         ));
 
@@ -70,7 +70,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '780026',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '780026.jpg','ubpp' => '90'
+	    	'file_name' => '780026.jpg',
 	    	
         ));
 
@@ -80,7 +80,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '640188',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '640188.jpg','ubpp' => '90'
+	    	'file_name' => '640188.jpg',
 	    	
         ));
 
@@ -90,7 +90,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '650456',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '650456.jpg','ubpp' => '90'
+	    	'file_name' => '650456.jpg',
 	    	
         ));
 
@@ -100,7 +100,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '690355',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '690355.jpg','ubpp' => '90'
+	    	'file_name' => '690355.jpg',
 	    	
         ));
 
@@ -110,7 +110,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '622355',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '622355.jpg','ubpp' => '90'
+	    	'file_name' => '622355.jpg',
 	    	
         ));
 
@@ -120,7 +120,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '601362',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '601362.jpg','ubpp' => '90'
+	    	'file_name' => '601362.jpg',
 	    	
         ));
 
@@ -131,7 +131,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '651093',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '651093.jpg','ubpp' => '90'
+	    	'file_name' => '651093.jpg',
 	    	
         ));
 
@@ -141,7 +141,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '640953',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '640953.jpg','ubpp' => '90'
+	    	'file_name' => '640953.jpg',
 	    	
         ));
 
@@ -151,7 +151,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '633092',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '633092.jpg','ubpp' => '90'
+	    	'file_name' => '633092.jpg',
 	    	
         ));
 
@@ -161,7 +161,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '660404',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '660404.jpg','ubpp' => '90'
+	    	'file_name' => '660404.jpg',
 	    	
         ));
 
@@ -171,7 +171,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '720565',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '720565.jpg','ubpp' => '90'
+	    	'file_name' => '720565.jpg',
 	    	
         ));
 
@@ -181,7 +181,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '730561',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '730561.jpg','ubpp' => '90'
+	    	'file_name' => '730561.jpg',
 	    	
         ));
 
@@ -191,7 +191,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '601626',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '601626.jpg','ubpp' => '90'
+	    	'file_name' => '601626.jpg',
 	    	
         ));
 
@@ -201,7 +201,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '890006',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '890006.jpg','ubpp' => '90'
+	    	'file_name' => '890006.jpg',
 	    	
         ));
 
@@ -211,7 +211,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '850111',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '850111.jpg','ubpp' => '90'
+	    	'file_name' => '850111.jpg',
 	    	
         ));
 
@@ -221,7 +221,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '820022',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '820022.jpg','ubpp' => '90'
+	    	'file_name' => '820022.jpg',
 	    	
         ));
 
@@ -231,7 +231,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '810073',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '810073.jpg','ubpp' => '90'
+	    	'file_name' => '810073.jpg',
 	    	
         ));
 
@@ -241,7 +241,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '800045',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '800045.jpg','ubpp' => '90'
+	    	'file_name' => '800045.jpg',
 	    	
         ));
 
@@ -251,7 +251,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '880007',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '880007.jpg','ubpp' => '90'
+	    	'file_name' => '880007.jpg',
 	    	
         ));
 
@@ -261,7 +261,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '631183',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '631183.jpg','ubpp' => '90'
+	    	'file_name' => '631183.jpg',
 	    	
         ));
 
@@ -271,7 +271,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '830012',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '830012.jpg','ubpp' => '90'
+	    	'file_name' => '830012.jpg',
 	    	
         ));
 
@@ -281,7 +281,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '633329',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '633329.jpg','ubpp' => '90'
+	    	'file_name' => '633329.jpg',
 	    	
         ));
 
@@ -291,7 +291,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '730245.jpg','ubpp' => '90'
+	    	'file_name' => '730245.jpg',
 	    	
         ));
 
@@ -301,7 +301,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '650481',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '650481.jpg','ubpp' => '90'
+	    	'file_name' => '650481.jpg',
 	    	
         ));
 
@@ -311,7 +311,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '610215',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '610215.jpg','ubpp' => '90'
+	    	'file_name' => '610215.jpg',
 	    	
         ));
 
@@ -322,7 +322,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '651225',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '651225.jpg','ubpp' => '90'
+	    	'file_name' => '651225.jpg',
 	    	
         ));
 
@@ -332,7 +332,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '830012',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '830012.jpg','ubpp' => '90'
+	    	'file_name' => '830012.jpg',
 	    	
         ));
 
@@ -342,7 +342,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '670288',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '670288.jpg','ubpp' => '90'
+	    	'file_name' => '670288.jpg',
 	    	
         ));
 
@@ -352,7 +352,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '730245.jpg','ubpp' => '90'
+	    	'file_name' => '730245.jpg',
 	    	
         ));
 
@@ -362,7 +362,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '622290',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '622290.jpg','ubpp' => '90'
+	    	'file_name' => '622290.jpg',
 	    	
         ));
 
@@ -372,7 +372,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '650481',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '650481.jpg','ubpp' => '90'
+	    	'file_name' => '650481.jpg',
 	    	
         ));
 
@@ -382,7 +382,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '640188',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '640188.jpg','ubpp' => '90'
+	    	'file_name' => '640188.jpg',
 	    	
         ));
 
@@ -392,7 +392,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '850111',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '850111.jpg','ubpp' => '90'
+	    	'file_name' => '850111.jpg',
 	    	
         ));
 
@@ -402,7 +402,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '820022',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '820022.jpg','ubpp' => '90'
+	    	'file_name' => '820022.jpg',
 	    	
         ));
 
@@ -412,7 +412,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '622355',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '622355.jpg','ubpp' => '90'
+	    	'file_name' => '622355.jpg',
 	    	
         ));
 
@@ -422,7 +422,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '601362',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '601362.jpg','ubpp' => '90'
+	    	'file_name' => '601362.jpg',
 	    	
 	    	
         ));
@@ -433,7 +433,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '670288',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '670288.jpg','ubpp' => '90'
+	    	'file_name' => '670288.jpg',
 	    	
         ));
 
@@ -443,7 +443,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '730245.jpg','ubpp' => '90'
+	    	'file_name' => '730245.jpg',
 	    	
         ));
 
@@ -453,7 +453,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '633092',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '633092.jpg','ubpp' => '90'
+	    	'file_name' => '633092.jpg',
 	    	
         ));
 
@@ -463,7 +463,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '850111',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '850111.jpg','ubpp' => '90'
+	    	'file_name' => '850111.jpg',
 	    	
         ));
 
@@ -473,7 +473,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '601362',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '601362.jpg','ubpp' => '90'
+	    	'file_name' => '601362.jpg',
 	    	
         ));
 
@@ -483,7 +483,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '660404',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '660404.jpg','ubpp' => '90'
+	    	'file_name' => '660404.jpg',
 	    	
         ));
 
@@ -493,7 +493,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '633329',
 	    	
 	    	'participant_status' => 'Attendee',
-	    	'file_name' => '633329.jpg','ubpp' => '90'
+	    	'file_name' => '633329.jpg',
 	    	
         ));
 
@@ -503,7 +503,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '730425',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '730245.jpg','ubpp' => '90'
+	    	'file_name' => '730245.jpg',
 	    	
         ));
 
@@ -513,7 +513,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '730561',
 	    	
 	    	'participant_status' => 'Certified',
-	    	'file_name' => '730561.jpg','ubpp' => '90'
+	    	'file_name' => '730561.jpg',
 	    	
         ));
 
@@ -523,7 +523,7 @@ class DispDetailSeeder extends Seeder
 	    	'peserta' => '601626',
 	    	
 	    	'participant_status' => 'Qualified',
-	    	'file_name' => '601626.jpg','ubpp' => '90'
+	    	'file_name' => '601626.jpg',
 	    	
         ));
         

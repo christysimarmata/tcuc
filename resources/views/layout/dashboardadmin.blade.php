@@ -23,6 +23,16 @@
 
     <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
 
+    <style type="text/css">
+        .hilang {
+            display: none;
+        }
+
+        .logo-kanan-atas {
+            float: right;
+            width: 18%;
+        }
+    </style>
 
 </head>
 <body>
@@ -39,6 +49,13 @@
                 </button>
                 <a class="navbar-brand" href="./"><img src="{{ asset('images/logosidebar.png') }}" alt="Logo"></a>
                 <a class="navbar-brand hidden" href="./"><img src="{{ asset('images/logotelkom2.png') }}" alt="Logo"></a>
+                <div class="logo-samping">
+                <a href="../profile">
+                    <img class="avatar-sidebar" src="{{ URL::to('/') }}/images/uploads/{{ session('avatarUserAktif') }}" alt="User Avatar" style="width: 60%;">
+                </a>
+                <center><p style="color: white; font-size: 18px; font-weight: 700; margin-top: 5px;">{{ session('nama') }}</p></center>
+                <center><p style="color: white; font-size: 14px; font-style: italic; margin-top: -15px;">{{ session('email') }}</p></center>
+                </div>
             </div>
 
             <div id="main-menu" class="main-menu collapse navbar-collapse">
@@ -75,6 +92,9 @@
                         <a href="../settings"> <i class="menu-icon fa fa-cog"></i>Settings</a>
                     </li>
                     <li>
+                        <a href="../edithelp"> <i class="menu-icon fa fa-pencil"></i>Edit Help Contacts</a>
+                    </li>
+                    <li>
                         <a href="../help"> <i class="menu-icon fa fa-question"></i>Help</a>
                     </li>
                     <li>
@@ -102,12 +122,10 @@
                 </div>
 
                 <div class="col-sm-5">
-                    <div class="user-area dropdown float-right">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <img class="user-avatar rounded-circle" src="{{ URL::to('/') }}/images/uploads/{{ session('avatarUserAktif') }}" alt="User Avatar">
-                        </a>
-
-                      
+                    <div>
+                        <a href="../dashboard">
+                            <img class="logo-kanan-atas" src="{{ URL::to('/') }}/images/logocertification2.png" alt="User Avatar">
+                        </a>              
                     </div>
 
                 </div>

@@ -33,12 +33,12 @@
                 "searchable": false
         	},
         	{
-        		"targets": [ 8 ],
+        		"targets": [ 7 ],
                 "visible": false,
                 "searchable": false
         	},
         	{
-        		"targets": [ 9 ],
+        		"targets": [ 8 ],
                 "visible": false,
                 "searchable": false
         	}
@@ -169,7 +169,7 @@
                 "searchable": true
         	},
         	{
-        		"targets": [ 12 ],
+        		"targets": [ 13 ],
                 "visible": false,
                 "searchable": true
         	},
@@ -215,11 +215,6 @@
             },
             {
                 "targets": [ 22 ],
-                "visible": false,
-                "searchable": true
-            },
-            {
-                "targets": [ 23 ],
                 "visible": false,
                 "searchable": true
             }
