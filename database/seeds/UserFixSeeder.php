@@ -23,7 +23,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'senior operator',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
 
         ));
@@ -37,7 +38,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
       
         ));
 
@@ -50,7 +52,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -63,7 +66,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -76,7 +80,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -89,7 +94,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
          
         ));
 
@@ -102,7 +108,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -115,7 +122,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -128,7 +136,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Manager Trainee',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -141,7 +150,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Penanggung jawab',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -154,7 +164,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -167,7 +178,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -180,7 +192,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -193,7 +206,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
            
         ));
 
@@ -206,7 +220,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -219,7 +234,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -231,7 +247,8 @@ class UserFixSeeder extends Seeder
             'email' => 'nonldemobile@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -243,7 +260,8 @@ class UserFixSeeder extends Seeder
             'email' => 'nonldewins@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human development'
             
         ));
 
@@ -256,7 +274,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Staff Marketing',
             
-            'division' => 'Business Development'
+            'division' => 'Business Development',
+            'current_division' => 'Business Development'
             
         ));
 
@@ -269,7 +288,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Marketing',
             
-            'division' => 'Business Development'
+            'division' => 'Business Development',
+            'current_division' => 'Business Development'
             
         ));
 
@@ -282,7 +302,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082334546804',
             'job' => 'Staff Marketing',
             
-            'division' => 'Business Development'
+            'division' => 'Business Development',
+            'current_division' => 'Business Development'
             
         ));
 
@@ -295,7 +316,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '0823673468321',
             'job' => 'Staff Business',
             
-            'division' => 'Business Development'
+            'division' => 'Business Development',
+            'current_division' => 'Business Development'
             
         ));
 
@@ -308,7 +330,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '0823673468321',
             'job' => 'Staff Advertising',
             
-            'division' => 'Business Program'
+            'division' => 'Business Program',
+            'current_division' => 'Business Program'
         ));
 
         $user4 = UserFix::create(array(
@@ -320,7 +343,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Business',
             
-            'division' => 'Business Development'
+            'division' => 'Business Development',
+            'current_division' => 'Business Development'
             
         ));
 
@@ -333,7 +357,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Marketing',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
             
         ));
 
@@ -346,7 +371,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Networking',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
             
         ));
 
@@ -359,7 +385,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Networking',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
             
         ));
 
@@ -372,7 +399,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Networking',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
             
         ));
 
@@ -385,7 +413,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Head Networking',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
             
         ));
 
@@ -398,7 +427,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Networking',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
            
         ));
 
@@ -411,7 +441,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Resourcing',
             
-            'division' => 'Leadership Program'
+            'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program'
             
         ));
 
@@ -424,7 +455,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff Resourcing',
             
-            'division' => 'Enterprise Service'
+            'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service'
             
         ));
 
@@ -437,7 +469,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Service Operator',
             
-            'division' => 'Enterprise Service'
+            'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service'
             
         ));
 
@@ -450,7 +483,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Service Operator',
             
-            'division' => 'Enterprise Service'
+            'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service'
             
         ));
 
@@ -463,7 +497,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Service Operator',
             
-            'division' => 'Enterprise Service'
+            'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service'
             
         ));
 
@@ -476,7 +511,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Service Operator',
             
-            'division' => 'Enterprise Service'
+            'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service'
             
         ));
 
@@ -490,7 +526,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff HRD',
             
-            'division' => 'Human Resource'
+            'division' => 'Human Resource',
+            'current_division' => 'Human Resource'
             
         ));
 
@@ -503,7 +540,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff HRD',
             
-            'division' => 'Human Resource'
+            'division' => 'Human Resource',
+            'current_division' => 'Human Resource'
             
         ));
 
@@ -516,7 +554,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff HRD',
             
-            'division' => 'Human Resource'
+            'division' => 'Human Resource',
+            'current_division' => 'Human Resource'
             
         ));
 
@@ -530,7 +569,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff HRD',
             
-            'division' => 'Human Resource'
+            'division' => 'Human Resource',
+            'current_division' => 'Human Resource'
             
         ));
 
@@ -544,7 +584,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff HRD',
             
-            'division' => 'Human Resource'
+            'division' => 'Human Resource',
+            'current_division' => 'Human Resource'
             
         ));
 
@@ -557,7 +598,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'Staff HRD',
             
-            'division' => 'Human Resource'
+            'division' => 'Human Resource',
+            'current_division' => 'Human Resource'
             
         ));
 
@@ -570,7 +612,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'CCAN Fulfillment',
             
-            'division' => 'Human Development'
+            'division' => 'Human Development',
+            'current_division' => 'Human Development'
             
         ));
 
@@ -584,7 +627,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'CCAN Fulfillment',
             
-            'division' => 'Human Development'
+            'division' => 'Human Development',
+            'current_division' => 'Human Development'
             
         ));
 
@@ -598,7 +642,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'CCAN Fulfillment',
             
-            'division' => 'Human Development'
+            'division' => 'Human Development',
+            'current_division' => 'Human Development'
             
         ));
 
@@ -612,7 +657,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'CCAN Fulfillment',
             
-            'division' => 'Human Development'
+            'division' => 'Human Development',
+            'current_division' => 'Human Development'
             
         ));
 
@@ -626,7 +672,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'CCAN Fulfillment',
             
-            'division' => 'Human Development'
+            'division' => 'Human Development',
+            'current_division' => 'Human Development'
             
         ));
 
@@ -640,7 +687,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367346804',
             'job' => 'CCAN Fulfillment',
             
-            'division' => 'Human Development'
+            'division' => 'Human Development',
+            'current_division' => 'Human Development'
             
         ));
 
@@ -654,7 +702,8 @@ class UserFixSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             
-            'division' => 'Human development'
+            'division' => 'Human development',
+            'current_division' => 'Human Development'
             
         ));
     }

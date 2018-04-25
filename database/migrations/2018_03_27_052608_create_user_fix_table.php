@@ -23,6 +23,7 @@ class CreateUserFixTable extends Migration
             $table->string('phone_number');
             $table->string('job');
             $table->string('division');
+            $table->string('current_division')->nullable();
             $table->string('avatar')->default('default.jpg');
             $table->timestamps();
         });

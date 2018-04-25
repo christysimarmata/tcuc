@@ -78,12 +78,12 @@
                                                         <td>{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
-                                                        <td>{{ $datas->division }}</td>
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
+                                                        <td>{{ $datas->current_division }}</td>
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}},{{$datas->ubpp}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}},{{$datas->ubpp}}">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}},{{$datas->ubpp}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>     
                                                         </td>                                              

@@ -83,7 +83,7 @@
                                 <option value="YES">YES</option>
                                 <option value="NO">NO</option>
                               </select>
-                              <span style="color: #7A7978; font-size: 11px; font-style: italic;">*Opsi YES hanya untuk sertifikasi yang dibiayai oleh Telkom Group</span>
+                              <span style="color: #414141; font-size: 12px; font-style: italic;">* Opsi YES hanya untuk sertifikasi yang dibiayai oleh Telkom Group</span>
                             </div>
 
                           </div>
@@ -99,7 +99,8 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="file-presence" class=" form-control-label">Presence Participant Upload</label></div>
-                            <div class="col-12 col-md-9"><input type="file" id="file-presence" name="cer_presence" class="form-control-file"></div>
+                            <div class="col-12 col-md-9"><input type="file" accept="image/*,.jpg,.jpeg,.pdf,.png,image/png,application/pdf" id="file-presence" name="cer_presence" class="form-control-file">
+                              <span style="color: #414141; font-size: 12px; font-style: italic;">* Format file only .jpg, .jpeg, .png and .pdf. Max size 5 MB.</span></div>
                           </div>
                             <input type="button" name="next" class="next1 action-button" value="Next" />
                           </fieldset>

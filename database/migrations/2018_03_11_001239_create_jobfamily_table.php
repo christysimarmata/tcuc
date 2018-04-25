@@ -15,6 +15,7 @@ class CreateJobfamilyTable extends Migration
     {
         Schema::create('jobfamily', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('flag');
             $table->string('name');
             $table->timestamps();
         });

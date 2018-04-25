@@ -47,8 +47,16 @@ $(".next1").click(function(){
                 isValid = false;                 
     };
 
+    var uploadField = document.getElementById('file-presence');
+
+    uploadField.onchange = function() {
+    	if(this.files[0].size > 5120) {
+    		alert("File is bigger than 5 MB");
+    		isValid = false;
+    	}
+    }
+
     if($("#text-input-start").val() > $("#text-input-finish").val()) {
-    	console.log('asdasd');
     	alert("End date must be greater than start date");
     	isValid = false;
     }
@@ -82,6 +90,18 @@ $(".input_file").click(function(){
 	
 });
 
+$(".action-button").click(function(){
+	
+	var uploadField = document.getElementsByClassName('form-control-file');
+
+    uploadField.onchange = function() {
+    	if(this.files[0].size > 5120) {
+    		alert("File is bigger than 5 MB");
+    	}
+    }
+	
+	
+});
 
 
 

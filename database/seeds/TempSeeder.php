@@ -25,6 +25,7 @@ class TempSeeder extends Seeder
             'job' => 'senior operator',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
 
         ));
@@ -40,6 +41,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -53,6 +55,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -66,6 +69,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -79,6 +83,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -92,6 +97,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -105,6 +111,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -118,6 +125,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -131,6 +139,7 @@ class TempSeeder extends Seeder
             'job' => 'Manager Trainee',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -144,6 +153,7 @@ class TempSeeder extends Seeder
             'job' => 'Penanggung jawab',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -157,6 +167,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -170,6 +181,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -183,6 +195,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -196,6 +209,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -209,6 +223,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -222,6 +237,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -234,6 +250,7 @@ class TempSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -246,6 +263,7 @@ class TempSeeder extends Seeder
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             'division' => 'Human development',
+            'current_division' => 'Human development',
             'status' => 'fix'
         ));
 
@@ -259,6 +277,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Marketing',
             
             'division' => 'Business Development',
+            'current_division' => 'Business Development',
             'status' => 'fix'
         ));
 
@@ -272,6 +291,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Marketing',
             
             'division' => 'Business Development',
+            'current_division' => 'Business Development',
             'status' => 'fix'
         ));
 
@@ -285,6 +305,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Marketing',
             
             'division' => 'Business Development',
+            'current_division' => 'Business Development',
             'status' => 'fix'
         ));
 
@@ -298,6 +319,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Business',
             
             'division' => 'Business Development',
+            'current_division' => 'Business Development',
             'status' => 'fix'
         ));
 
@@ -311,6 +333,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Advertising',
             
             'division' => 'Business Program',
+            'current_division' => 'Business Program',
             'status' => 'fix'
         ));
 
@@ -324,6 +347,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Business',
             
             'division' => 'Business Development',
+            'current_division' => 'Business Development',
             'status' => 'fix'
         ));
 
@@ -337,6 +361,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Marketing',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -350,6 +375,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Networking',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -363,6 +389,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Networking',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -376,6 +403,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Networking',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -389,6 +417,7 @@ class TempSeeder extends Seeder
             'job' => 'Head Networking',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -402,6 +431,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Networking',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -415,6 +445,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Resourcing',
             
             'division' => 'Leadership Program',
+            'current_division' => 'Leadership Program',
             'status' => 'fix'
         ));
 
@@ -428,6 +459,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff Resourcing',
             
             'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service',
             'status' => 'fix'
         ));
 
@@ -441,6 +473,7 @@ class TempSeeder extends Seeder
             'job' => 'Service Operator',
             
             'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service',
             'status' => 'fix'
         ));
 
@@ -454,6 +487,7 @@ class TempSeeder extends Seeder
             'job' => 'Service Operator',
             
             'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service',
             'status' => 'fix'
         ));
 
@@ -467,6 +501,7 @@ class TempSeeder extends Seeder
             'job' => 'Service Operator',
             
             'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service',
             'status' => 'fix'
         ));
 
@@ -480,6 +515,7 @@ class TempSeeder extends Seeder
             'job' => 'Service Operator',
             
             'division' => 'Enterprise Service',
+            'current_division' => 'Enterprise Service',
             'status' => 'fix'
         ));
 
@@ -494,6 +530,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff HRD',
             
             'division' => 'Human Resource',
+            'current_division' => 'Human Resource',
             'status' => 'fix'
         ));
 
@@ -507,6 +544,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff HRD',
             
             'division' => 'Human Resource',
+            'current_division' => 'Human Resource',
             'status' => 'fix'
         ));
 
@@ -520,6 +558,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff HRD',
             
             'division' => 'Human Resource',
+            'current_division' => 'Human Resource',
             'status' => 'fix'
         ));
 
@@ -534,6 +573,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff HRD',
             
             'division' => 'Human Resource',
+            'current_division' => 'Human Resource',
             'status' => 'fix'
         ));
 
@@ -548,6 +588,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff HRD',
             
             'division' => 'Human Resource',
+            'current_division' => 'Human Resource',
             'status' => 'fix'
         ));
 
@@ -561,6 +602,7 @@ class TempSeeder extends Seeder
             'job' => 'Staff HRD',
             
             'division' => 'Human Resource',
+            'current_division' => 'Human Resource',
             'status' => 'fix'
         ));
 
@@ -574,6 +616,7 @@ class TempSeeder extends Seeder
             'job' => 'CCAN Fulfillment',
             
             'division' => 'Human Development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
 
@@ -588,6 +631,7 @@ class TempSeeder extends Seeder
             'job' => 'CCAN Fulfillment',
             
             'division' => 'Human Development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
 
@@ -602,6 +646,7 @@ class TempSeeder extends Seeder
             'job' => 'CCAN Fulfillment',
             
             'division' => 'Human Development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
 
@@ -616,6 +661,7 @@ class TempSeeder extends Seeder
             'job' => 'CCAN Fulfillment',
             
             'division' => 'Human Development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
 
@@ -630,6 +676,7 @@ class TempSeeder extends Seeder
             'job' => 'CCAN Fulfillment',
             
             'division' => 'Human Development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
 
@@ -644,6 +691,7 @@ class TempSeeder extends Seeder
             'job' => 'CCAN Fulfillment',
             
             'division' => 'Human Development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
 
@@ -658,6 +706,7 @@ class TempSeeder extends Seeder
             'job' => 'Non Manager',
             
             'division' => 'Human development',
+            'current_division' => 'Human Development',
             'status' => 'fix'
         ));
     }

@@ -38,7 +38,7 @@
                     			<h5 class="text-sm-left">Job Position</h5>
                     			<p>{{ $user->job}}</p>
                     			<h5 class="text-sm-left">Division</h5>
-                    			<p>{{ $user->division}}</p>
+                    			<p>{{ $user->current_division}}</p>
                     		</div>
                     	</div>	
                     </div>

@@ -15,6 +15,7 @@ class CreateMainprogramTable extends Migration
     {
         Schema::create('mainprogram', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('flag');
             $table->string('name');
             $table->timestamps();
         });

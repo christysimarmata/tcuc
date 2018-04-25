@@ -55,7 +55,7 @@
                     			<h5 class="text-sm-left">Job Position</h5>
                     			<p>{{ $user->job}}</p>
                     			<h5 class="text-sm-left">Division</h5>
-                    			<p>{{ $user->division}}</p>
+                    			<p>{{ $user->current_division}}</p>
                                 <hr>
                                 <button type="button" class="btn btn-success" style="float: right;"><a href="changepassword" style="color: white;"><i class="fa fa-key"></i>&nbsp; Change Password</a></button>
                     		</div>

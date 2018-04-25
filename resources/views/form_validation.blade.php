@@ -443,7 +443,9 @@
                                         <div class="card">
                                             <div class="card-header">
                                                 <strong class="card-title">Data Table</strong>
+
                                             </div>
+                                            <span style="font-style: italic; font-size: 12px; color: #414141;  margin-top: 5px; margin-left: 5px;">* Certificate file format only accept .jpeg, .jpg, .pdf, .png, .bmp. Each file max 5 MB </span>
                                             <div class="card-body">
                                                 
                                       <table id="bootstrap-data-table" class="table table-striped table-bordered ttotsave">
@@ -452,7 +454,7 @@
                                           <tr>
                                             <div class="row form-group">
                                             <div class="col col-md-3"><label for="text-input" class="form-control-label" style="margin-left: 10px;">Upload Multiple</label></div>
-                                            <div class="col-12"><input type="file" id="text-input" name="multiple_certificate[]" class="form-control" multiple="multiple"></div>
+                                            <div class="col-12"><input type="file" id="text-input" name="multiple_certificate[]" class="form-control" accept="image/*, .pdf, application/pdf" multiple="multiple"></div>
                                           </div>
                                             <th>No</th>
                                             <th>NIK</th>
@@ -475,11 +477,11 @@
                                                       <label for="file-certificate{{ $items->nik }}" class="custom-file-upload" style="float: right;">
                                                           <i class="fa fa-cloud-upload"></i> Change
                                                       </label>
-                                                      <input type="file" id="file-certificate{{ $items->nik }}" name="{{ $items->nik }}" class="form-control-file changefile">
+                                                      <input type="file" accept="image/*, .pdf, application/pdf" id="file-certificate{{ $items->nik }}" name="{{ $items->nik }}" class="form-control-file changefile">
                                                       </td>
                                                     @else
                                                       <td>  
-                                                      <input type="file" id="file-certificate{{ $items->nik }}" name="{{ $items->nik }}" class="form-control-file">
+                                                      <input type="file" accept="image/*, .pdf, application/pdf" id="file-certificate{{ $items->nik }}" name="{{ $items->nik }}" class="form-control-file">
                                                       </td>
                                                     @endif
                                                     <td>
