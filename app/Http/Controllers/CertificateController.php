@@ -25,6 +25,7 @@ use App\WinsDetail;
 use App\CertificateTempDetail;
 use App\MainProgram;
 use App\JobFamily;
+use DB;
 use Storage;
 use Excel;
 use Illuminate\Support\Facades\Input;
@@ -49,7 +50,8 @@ class CertificateController extends Controller
 
     public static function createNew() {
         session(['idx' => '1']);
-    	return view('form_sertificate');
+        $listacademy = DB::table('academy')->where('flag', date("Y"))->pluck('name');
+    	return view('form_sertificate')->with('listacademy', $listacademy);
     }
 
     public static function getParticipant(Request $request) {
@@ -92,7 +94,7 @@ class CertificateController extends Controller
                 foreach ($participantdata as $datas) {
                     if(empty(Users::getParticipantFirst($datas->nik))) {
 
-                        $participant_data[] = (object) array("nik"=>$datas->nik, "nama"=>"", "job"=>"", "current_division"=>"", "status"=>'readonly');
+                        $participant_data[] = (object) array("nik"=>$datas->nik, "nama"=>"", "job"=>"", "division"=>"", "status"=>'readonly');
                     } else {
                         $participant_data[] = Users::getParticipantFirst($datas->nik);     
                     }
@@ -109,7 +111,7 @@ class CertificateController extends Controller
             
                 foreach ($data_participant as $datas) {
                     if(empty(Users::getParticipantFirst($datas))) {
-                        $participant_data[] = (object) array("nik"=>$datas, "nama"=>"", "job"=>"", "current_division"=>"", "status"=>'readonly');
+                        $participant_data[] = (object) array("nik"=>$datas, "nama"=>"", "job"=>"", "division"=>"", "status"=>'readonly');
                     } else {
                         
                         $participant_data[] = Users::getParticipantFirst($datas);
@@ -480,10 +482,13 @@ class CertificateController extends Controller
     public function editItem2(Request $request) {
         $edited = ($request->fnik);
         if(UserFix::where('nik', $edited)->exists()) {
-            Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'current_division' => $request->fdivision]);
-            UserFix::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'current_division' => $request->fdivision]);
+            Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision]);
+            UserFix::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision]);
+
+            CertificateTempDetail::where('name', $request->fname)->where('peserta', $request->fnik)->update(['division' => $request->fdivision]);
         } else {
-            Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'current_division' => $request->fdivision]);
+            Users::where('nik', $edited)->update(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision]);
+            CertificateTempDetail::where('name', $request->fname)->where('peserta', $request->fnik)->update(['division' => $request->fdivision]);
         } 
         
         return response()->json();
@@ -491,15 +496,19 @@ class CertificateController extends Controller
 
     public function createItem2(Request $request) {
         if(Users::where('nik', $request->fnik)->exists()) {
-            CertificateTempDetail::insert(['name' => $request->fname, 'peserta' => $request->fnik]);
             $data = CertificateTemp::where('name', $request->fname)->get();
+            $datausers = Users::where('nik', $request->fnik)->get();
+
+            $division = $datausers[0]->division;
             $participant = $data[0]->participants;
 
             $participant = $participant.','.$request->fnik;
+            CertificateTempDetail::insert(['name' => $request->fname, 'peserta' => $request->fnik, 'division' => $division]);
+            
 
             CertificateTemp::where('name', $request->fname)->update(['participants' => $participant]);
         } else {
-            Users::insert(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision, 'current_division' => $request->fdivision, 'status' => 'readonly']);
+            Users::insert(['nik' => $request->fnik, 'nama' => $request->fnama, 'job' => $request->fjob, 'division' => $request->fdivision, 'status' => 'readonly']);
             CertificateTempDetail::insert(['name' => $request->fname, 'peserta' => $request->fnik]);
             $data = CertificateTemp::where('name', $request->fname)->get();
             $participant = $data[0]->participants;
@@ -549,7 +558,7 @@ class CertificateController extends Controller
             $datas[$edited]->nik = $request->fnik;
             $datas[$edited]->nama = $request->fnama;
             $datas[$edited]->job = $request->fjob;
-            $datas[$edited]->current_division = $request->fdivision;
+            $datas[$edited]->division = $request->fdivision;
             $datas[$edited]->ubpp = $request->fubpp;
 
             session(['peserta' => $datas]);
@@ -641,10 +650,10 @@ class CertificateController extends Controller
             $data_baru = CertificateTemp::where('name', $name)->first();
 
         
-            Users::where('nik', $nik)->update(['nik' => $nik, 'nama' => $nama, 'job' => $job, 'current_division' => $division]);
-            UserFix::where('nik', $nik)->update(['nik' => $nik, 'nama' => $nama, 'job' => $job, 'current_division' => $division]);
-            CertificateTempDetail::where('name', $name)->where('peserta', $nik)->update(['ubpp' => $ubpp]);
-        return response()->json();
+            Users::where('nik', $nik)->update(['nik' => $nik, 'nama' => $nama, 'job' => $job, 'division' => $division]);
+            UserFix::where('nik', $nik)->update(['nik' => $nik, 'nama' => $nama, 'job' => $job, 'division' => $division]);
+            CertificateTempDetail::where('name', $name)->where('peserta', $nik)->update(['division' => $division]);
+            return response()->json();
 
     }
 
@@ -663,6 +672,7 @@ class CertificateController extends Controller
         array_splice($data_participant,$deleted-1,1);
 
         CertificateTemp::where('name', $name)->update(['participants' => implode(',',$data_participant)]);
+        CertificateTempDetail::where('name', $name)->where('peserta', $nik)->delete();
   
         return response()->json();
 
@@ -698,12 +708,12 @@ class CertificateController extends Controller
         foreach($participants as $data) {
             $participant = $participant . $data->nik . ',';
             if(Users::where('nik', $data->nik)->exists()) {
-                Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'current_division'=>$data->current_division]);
-                UserFix::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'current_division'=>$data->current_division]);
-                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
+                Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
+                UserFix::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik, 'division' => $data->division]);
             } else {
-                Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->current_division, 'current_division'=>$data->current_division,'status'=>'readonly']);
-                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
+                Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division, 'status'=>'readonly']);
+                CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik, 'division' => $data->division]);
             }
         }
         $participant = substr($participant,0,-1);
@@ -814,13 +824,13 @@ class CertificateController extends Controller
             foreach($participants as $data) {
                 $participant = $participant . $data->nik . ',';
                 if(Users::where('nik', $data->nik)->exists()) {
-                    Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'current_division'=>$data->current_division]);
-                    UserFix::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'current_division'=>$data->current_division]);
+                    Users::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
+                    UserFix::where('nik', $data->nik)->update(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division]);
 
-                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
+                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik, 'division' => $data->division]);
                 } else {
-                    Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->current_division, 'current_division'=>$data->current_division, 'status'=>'readonly']);
-                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik]);
+                    Users::insert(['nik'=>$data->nik, 'nama'=>$data->nama, 'job'=>$data->job, 'division'=>$data->division, 'status'=>'readonly']);
+                    CertificateTempDetail::insert(['name' => $details[0], 'peserta' => $data->nik, 'division' => $data->division]);
                 }
             }
             $participant = substr($participant,0,-1);

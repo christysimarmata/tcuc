@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateDispDetailTable extends Migration
+class CreateAcademyTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,10 @@ class CreateDispDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('disp_detail', function (Blueprint $table) {
+        Schema::create('academy', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('flag');
             $table->string('name');
-            $table->string('job_family')->nullable();
-            $table->string('peserta')->nullable();
-            $table->string('participant_status')->nullable();
-            $table->string('division')->nullable();
-            $table->string('file_name')->nullable();
             $table->timestamps();
         });
     }
@@ -32,6 +28,6 @@ class CreateDispDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('disp_detail');
+        Schema::dropIfExists('academy');
     }
 }

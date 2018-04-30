@@ -52,10 +52,12 @@ Route::post('profile', 'ProfileController@updateAvatar');
 
 Route::get('settings', 'SettingsController@index');
 Route::post('changeinfo', 'SettingsController@changeinfo');
-Route::post('addprogram', 'SettingsController@addprogram');
+Route::post('createprogram', 'SettingsController@createprogram');
 Route::post('deleteprogram', 'SettingsController@deleteprogram');
+Route::post('createfamily', 'SettingsController@createfamily');
 Route::post('deletefamily', 'SettingsController@deletefamily');
-Route::post('addfamily', 'SettingsController@addfamily');
+Route::post('createacademy', 'SettingsController@createacademy');
+Route::post('deleteacademy', 'SettingsController@deleteacademy');
 Route::get('createuser', 'SettingsController@indexuser');
 Route::post('addusersingle', 'SettingsController@addusersingle');
 Route::post('addusermultiple', 'SettingsController@addusermultiple');
@@ -153,3 +155,6 @@ Route::post('submitComplete', 'CertificateController@submitComplete');
 
 Route::get('reports', 'ReportsController@showReports');
 Route::get('updatereports', 'ReportsController@updateReports');
+Route::get('updatereportsyear', 'ReportsController@updateReportsYear');
+
+

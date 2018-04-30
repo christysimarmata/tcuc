@@ -78,12 +78,12 @@
                                                         <td>{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
-                                                        <td>{{ $datas->current_division }}</td>
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}},{{$datas->ubpp}}">
+                                                        <td>{{ $datas->division }}</td>
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}},{{$datas->ubpp}}">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>     
                                                         </td>                                              
@@ -159,12 +159,6 @@
                             </div>
                         </div>
                         
-                        <div class="row form-group">
-                            <label class="control-label col-sm-2" for="fubpp">UBPP</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" id="fubpp">
-                            </div>
-                        </div>
                             {{ csrf_field() }}
                     </form>
                     <div class="deleteContent">
@@ -272,7 +266,6 @@
             $('#fnama').val(details[2]);
             $('#fjob').val(details[3]);
             $('#fdivision').val(details[4]);
-            $('#fubpp').val(details[5]);
         }
 
 
@@ -287,8 +280,7 @@
                 'fnik' : $("#fnik").val(),
                 'fnama': $('#fnama').val(),
                 'fjob': $('#fjob').val(),
-                'fdivision': $('#fdivision').val(),
-                'fubpp': $('#fubpp').val()            
+                'fdivision': $('#fdivision').val(),         
             },
             success: function(data) {
                     setTimeout(function() {

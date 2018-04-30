@@ -72,8 +72,8 @@ class WinsSeeder extends Seeder
 
         $bd1 = Wins::create(array(
         	'name' => 'Service Operation Batch 8',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2018-05-19',
+	   	 	'finish_date' => '2018-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -82,7 +82,7 @@ class WinsSeeder extends Seeder
 	    	'participants' => '660404,720565,730561,601626',
 	    	'cfu_fu' => 'CFU WINS',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-06-01',
+	    	'released_date' => '2018-06-01',
 	    	'expired_at' => '2100-12-12',
 	    	'filename' => 'Service Operation Batch 8.xlsx',
 	    	'status' => 'complete'
@@ -165,8 +165,8 @@ class WinsSeeder extends Seeder
 
         $bi1 = Wins::create(array(
         	'name' => 'Sertifikasi CISO Batch 8',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2018-10-24',
+	   	 	'finish_date' => '2018-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'WINS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -175,7 +175,7 @@ class WinsSeeder extends Seeder
 	    	'participants' => '670288,730245,633092,850111,601362',
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Advance',
-	    	'released_date' => '2017-10-01',
+	    	'released_date' => '2018-10-01',
 	    	'expired_at' => '2021-10-01',
 	    	'filename' => 'Sertifikasi CISO Batch 8.xlsx',
 	    	'status' => 'complete'

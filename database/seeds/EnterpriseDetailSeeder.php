@@ -19,7 +19,7 @@ class EnterpriseDetailSeeder extends Seeder
         	'job_family' => 'Job Family 3',
 	    	'peserta' => '651225',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '651225.jpg',
 	    	
         ));
@@ -29,7 +29,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '591825',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '591825.jpg',
 	    	
         ));
@@ -39,7 +39,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '670288',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '670288.jpg',
 	    	
         ));
@@ -49,7 +49,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '633056',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '633056.jpg',
 	    	
         ));
@@ -59,7 +59,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '622290',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '622290.jpg',
 	    	
         ));
@@ -69,7 +69,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '780026',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '780026.jpg',
 	    	
         ));
@@ -79,7 +79,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '640188',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '640188.jpg',
 	    	
         ));
@@ -89,7 +89,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '650456',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '650456.jpg',
 	    	
         ));
@@ -99,7 +99,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '690355',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '690355.jpg',
 	    	
         ));
@@ -109,7 +109,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '622355',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '622355.jpg',
 	    	
         ));
@@ -119,7 +119,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 3',
 	    	'peserta' => '601362',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '601362.jpg',
 	    	
         ));
@@ -130,7 +130,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '651093',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '651093.jpg',
 	    	
         ));
@@ -140,7 +140,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '640953',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '640953.jpg',
 	    	
         ));
@@ -150,7 +150,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '633092',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '633092.jpg',
 	    	
         ));
@@ -160,7 +160,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '660404',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '660404.jpg',
 	    	
         ));
@@ -170,7 +170,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '720565',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '720565.jpg',
 	    	
         ));
@@ -180,7 +180,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '730561',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730561.jpg',
 	    	
         ));
@@ -190,7 +190,7 @@ class EnterpriseDetailSeeder extends Seeder
         	'job_family' => 'Job Family 5',
 	    	'peserta' => '601626',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '601626.jpg',
 	    	
         ));
@@ -200,7 +200,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 2',
 	    	'peserta' => '890006',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '890006.jpg',
 	    	
         ));
@@ -210,7 +210,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 2',
 	    	'peserta' => '850111',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '850111.jpg',
 	    	
         ));
@@ -220,7 +220,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 2',
 	    	'peserta' => '820022',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '820022.jpg',
 	    	
         ));
@@ -230,7 +230,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 2',
 	    	'peserta' => '810073',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '810073.jpg',
 	    	
         ));
@@ -240,7 +240,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 2',
 	    	'peserta' => '800045',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '800045.jpg',
 	    	
         ));
@@ -250,7 +250,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 2',
 	    	'peserta' => '880007',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '880007.jpg',
 	    	
         ));
@@ -260,7 +260,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '631183',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '631183.jpg',
 	    	
         ));
@@ -270,7 +270,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '830012',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '830012.jpg',
 	    	
         ));
@@ -280,7 +280,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '633329',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '633329.jpg',
 	    	
         ));
@@ -290,7 +290,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '730245',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730245.jpg',
 	    	
         ));
@@ -300,7 +300,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '650481',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '650481.jpg',
 	    	
         ));
@@ -310,7 +310,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '610215',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '610215.jpg',
 	    	
         ));
@@ -321,7 +321,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '651225',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '651225.jpg',
 	    	
         ));
@@ -331,7 +331,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '830012',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '830012.jpg',
 	    	
         ));
@@ -341,7 +341,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '670288',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '670288.jpg',
 	    	
         ));
@@ -351,7 +351,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '730245',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730245.jpg',
 	    	
         ));
@@ -361,7 +361,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '622290',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '622290.jpg',
 	    	
         ));
@@ -371,7 +371,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 4',
 	    	'peserta' => '650481',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '650481.jpg',
 	    	
         ));
@@ -381,7 +381,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '640188',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '640188.jpg',
 	    	
         ));
@@ -391,7 +391,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '850111',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '850111.jpg',
 	    	
         ));
@@ -401,7 +401,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '820022',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '820022.jpg',
 	    	
         ));
@@ -411,7 +411,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '622355',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '622355.jpg',
 	    	
         ));
@@ -421,7 +421,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '601362',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '601362.jpg',
 	    	
 	    	
@@ -432,7 +432,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '670288',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '670288.jpg',
 	    	
         ));
@@ -442,7 +442,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '730245',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730245.jpg',
 	    	
         ));
@@ -452,7 +452,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '633092',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '633092.jpg',
 	    	
         ));
@@ -462,7 +462,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '850111',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '850111.jpg',
 	    	
         ));
@@ -472,7 +472,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 5',
 	    	'peserta' => '601362',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '601362.jpg',
 	    	
         ));
@@ -482,7 +482,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '660404',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '660404.jpg',
 	    	
         ));
@@ -492,7 +492,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '633329',
 	    	
-	    	'participant_status' => 'Attendee',
+	    	'participant_status' => 'Attendee','division' => 'Business Service',
 	    	'file_name' => '633329.jpg',
 	    	
         ));
@@ -502,7 +502,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '730425',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730245.jpg',
 	    	
         ));
@@ -512,7 +512,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '730561',
 	    	
-	    	'participant_status' => 'Certified',
+	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730561.jpg',
 	    	
         ));
@@ -522,7 +522,7 @@ class EnterpriseDetailSeeder extends Seeder
 	   	 	'job_family' => 'Job Family 1',
 	    	'peserta' => '601626',
 	    	
-	    	'participant_status' => 'Qualified',
+	    	'participant_status' => 'Qualified','division' => 'Human Development',
 	    	'file_name' => '601626.jpg',
 	    	
         ));

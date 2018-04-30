@@ -50,14 +50,9 @@
                             <div class="col-12 col-md-9">
                               <select name="cer_academy" id="selectAcademy" class="form-control" required="">
                                 <option value="pilih">-- Pilih --</option>
-                                <option value="NITS">NITS</option>
-                                <option value="Consumer">Consumer</option>
-                                <option value="DISP">Disp</option>
-                                <option value="WINS">Wins</option>
-                                <option value="Mobile">Mobile</option>
-                                <option value="Enterprise">Enterprise</option>
-                                <option value="Business Enabler">Business Enabler</option>
-                                <option value="Leadership">Leadership</option>
+                                @foreach($listacademy as $data)
+                                  <option value="{{ $data }}">{{ $data }}</option>
+                                @endforeach
                               </select>
                             </div>
                           </div>
@@ -99,7 +94,7 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="file-presence" class=" form-control-label">Presence Participant Upload</label></div>
-                            <div class="col-12 col-md-9"><input type="file" accept="image/*,.jpg,.jpeg,.pdf,.png,image/png,application/pdf" id="file-presence" name="cer_presence" class="form-control-file">
+                            <div class="col-12 col-md-9"><input type="file" accept="image/*,.jpg,.jpeg,.pdf,.png,.bnp,image/png,application/pdf" id="file-presence" name="cer_presence" class="form-control-file">
                               <span style="color: #414141; font-size: 12px; font-style: italic;">* Format file only .jpg, .jpeg, .png and .pdf. Max size 5 MB.</span></div>
                           </div>
                             <input type="button" name="next" class="next1 action-button" value="Next" />
@@ -112,7 +107,7 @@
                           </div>
                           <div class="row form-group">
                             <div class="col col-md-3"><label for="input-multiple" id="label-input-2" class="form-control-label hidden">List Participant Upload<span style="color: red;">*</span></label></div>
-                            <div class="col-12 col-md-9"><input type="file" id="input-multiple" name="cer_participant_excel" class="form-control-file"></div>
+                            <div class="col-12 col-md-9"><input type="file" accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" id="input-multiple" name="cer_participant_excel" class="form-control-file"></div>
                           </div>
                           <input type="hidden" name="_token" value="{{ csrf_token() }}">
                             

@@ -40,7 +40,6 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-6">
                     	<div class="card">
                     		<div class="card-body">
@@ -55,7 +54,7 @@
                     			<h5 class="text-sm-left">Job Position</h5>
                     			<p>{{ $user->job}}</p>
                     			<h5 class="text-sm-left">Division</h5>
-                    			<p>{{ $user->current_division}}</p>
+                    			<p>{{ $user->division}}</p>
                                 <hr>
                                 <button type="button" class="btn btn-success" style="float: right;"><a href="changepassword" style="color: white;"><i class="fa fa-key"></i>&nbsp; Change Password</a></button>
                     		</div>

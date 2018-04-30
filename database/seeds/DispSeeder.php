@@ -72,8 +72,8 @@ class DispSeeder extends Seeder
 
         $bd1 = Disp::create(array(
         	'name' => 'Service Operation Batch 4',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2018-05-19',
+	   	 	'finish_date' => '2018-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -165,8 +165,8 @@ class DispSeeder extends Seeder
 
         $bi1 = Disp::create(array(
         	'name' => 'Sertifikasi CISO Batch 4',
-	   	 	'start_date' => '2017-10-24',
-	   	 	'finish_date' => '2017-10-27',
+	   	 	'start_date' => '2018-10-24',
+	   	 	'finish_date' => '2018-10-27',
 	    	'location' => 'Intercontinental Hotel Bali',
 	   		'academy' => 'DISP',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

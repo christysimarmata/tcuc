@@ -35,8 +35,8 @@ class LeadershipSeeder extends Seeder
 
         $bb1 = Leadership::create(array(
         	'name' => 'TCIF Batch 6',
-	   	 	'start_date' => '2015-02-17',
-	   	 	'finish_date' => '2015-02-20',
+	   	 	'start_date' => '2018-02-17',
+	   	 	'finish_date' => '2018-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -53,8 +53,8 @@ class LeadershipSeeder extends Seeder
 
         $bc1 = Leadership::create(array(
         	'name' => 'TCBPM Batch 6',
-	   	 	'start_date' => '2016-04-24',
-	   	 	'finish_date' => '2016-04-27',
+	   	 	'start_date' => '2018-04-24',
+	   	 	'finish_date' => '2018-04-27',
 	    	'location' => 'Gedung Sabuga ITB',
 	   		'academy' => 'Leadership',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

@@ -35,5 +35,6 @@ class DatabaseSeeder extends Seeder
         $this->call(WinsDetailSeeder::class);
         $this->call(CertificateTempDetailSeeder::class);
         $this->call(HelpTableSeeder::class);
+        $this->call(AcademySeeder::class);
     }
 }

@@ -126,16 +126,17 @@ class LoginController extends Controller
             session(['totalparticipants' => $totalparticipants]);
 
 
-        $mainprogram = MainProgram::get();
+        $mainprogram = MainProgram::where('flag', date("Y"))->get();
         foreach($mainprogram as $program) {
-            $programs[$program->name] = Nits::getTotalByProgram($program->name) + Consumer::getTotalByProgram($program->name) + Business::getTotalByProgram($program->name) + Disp::getTotalByProgram($program->name) + Mobile::getTotalByProgram($program->name) + Enterprise::getTotalByProgram($program->name) + Leadership::getTotalByProgram($program->name) + Wins::getTotalByProgram($program->name);
+            $programs[$program->name] = Nits::programByYear(date("Y"),$program->name) + Consumer::programByYear(date("Y"),$program->name) + Business::programByYear(date("Y"),$program->name) + Disp::programByYear(date("Y"),$program->name) + Mobile::programByYear(date("Y"),$program->name) + Enterprise::programByYear(date("Y"),$program->name) + Leadership::programByYear(date("Y"),$program->name) + Wins::programByYear(date("Y"),$program->name);
 
             $labelprogram[] = $program->name;
         }
 
-        $jobfamily = JobFamily::get();
+
+        $jobfamily = JobFamily::where('flag', date("Y"))->get();
         foreach($jobfamily as $family) {
-            $families[$family->name] = Nits::getTotalByFamily($family->name) + Consumer::getTotalByFamily($family->name) + Business::getTotalByFamily($family->name) + Disp::getTotalByFamily($family->name) + Wins::getTotalByFamily($family->name) + Mobile::getTotalByFamily($family->name) + Leadership::getTotalByFamily($family->name) + Enterprise::getTotalByFamily($family->name); 
+            $families[$family->name] = Nits::familyByYear(date("Y"),$family->name) + Consumer::familyByYear(date("Y"),$family->name) + Business::familyByYear(date("Y"),$family->name) + Disp::familyByYear(date("Y"),$family->name) + Wins::familyByYear(date("Y"),$family->name) + Mobile::familyByYear(date("Y"),$family->name) + Leadership::familyByYear(date("Y"),$family->name) + Enterprise::familyByYear(date("Y"),$family->name); 
         
             $labelfamily[] = $family->name;
         }

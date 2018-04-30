@@ -23,7 +23,6 @@ class CreateUsersTable extends Migration
             $table->string('phone_number')->nullable();
             $table->string('job')->nullable();
             $table->string('division')->nullable();
-            $table->string('current_division')->nullable();
             $table->string('avatar')->default('default.jpg');
             $table->string('status')->default('fix');
             $table->timestamps();

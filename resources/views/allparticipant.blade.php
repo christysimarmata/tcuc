@@ -50,7 +50,8 @@
                                 <th>Certification Name</th>
                                 <th>Participant Status</th>
                                 <th>Job Position</th>
-                                <th>Division</th>
+                                <th>Starting Division</th>
+                                <th>Current Division</th>
                                 <th>Email</th>
                                 <th>Phone Number</th>
                              
@@ -81,6 +82,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -112,6 +114,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -143,6 +146,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -174,6 +178,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -205,6 +210,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -236,6 +242,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -267,6 +274,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>
@@ -298,6 +306,7 @@
                                         <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
                                         <td>{{ $pnits->participant_status }}</td>
                                         <td>{{ $pnits->job }}</td>
+                                        <td>{{ $pnits->division }}</td>
                                         <td>{{ $pnits->current_division }}</td>
                                         <td>{{ $pnits->email }}</td>
                                         <td>{{ $pnits->phone_number }}</td>

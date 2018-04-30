@@ -47,7 +47,7 @@
                                 <div class="row form-group">
                                     <label class="control-label col-sm-2">List Certificate (Excel)</label>
                                     <div class="col-sm-10">
-                                        <input type="file" id="input-multiple" name="certificate_excel" class="form-control" required="">
+                                        <input type="file" accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" id="input-multiple" name="certificate_excel" class="form-control" required="">
                                     </div>
                                 </div>                    
                             
@@ -69,7 +69,7 @@
                                 <div class="row form-group">
                                     <label class="control-label col-sm-2">List User (Excel)</label>
                                     <div class="col-sm-10">
-                                        <input type="file" id="input-multiple" name="participant_excel" class="form-control" required="">
+                                        <input type="file" accept=".xls,.xlsx, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.ms-excel" id="input-multiple" name="participant_excel" class="form-control" required="">
                                     </div>
                                 </div>                    
                             

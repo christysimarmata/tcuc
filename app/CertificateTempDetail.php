@@ -20,6 +20,7 @@ class CertificateTempDetail extends Model
 	    'job_family',
 	    'peserta',
 	    'participant_status',
+	    'division',
 	    'file_name',
 	    'created_at',
 	    'updated_at'];

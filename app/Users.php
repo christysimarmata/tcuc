@@ -24,7 +24,6 @@ class Users extends Model
 	    'phone_number',
 	    'job',
 	    'division',
-	    'current_division',
 	    'created_at',
 	    'updated_at'];
 

@@ -41,6 +41,66 @@ class Wins extends Model
 		return DB::table('wins')->get();
 	}
 
+	public static function getSum() {
+		return DB::table('wins')->count();
+	}
+
+	public static function jumlahLulus($year) {
+		$datas = DB::table('wins')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('wins_detail')->where('name', $data->name)->where('participant_status', 'Certified')->count();
+		}
+		return $sum;
+	}
+
+	public static function jumlahTidakLulus($year) {
+		$datas = DB::table('wins')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('wins_detail')->where('name', $data->name)->where('participant_status', '<>', 'Certified')->count();
+		}
+		return $sum;
+	}
+
+	public static function lulusValid($year, $expired) {
+		$datas = DB::table('wins')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->where('expired_at', '>=', $expired)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('wins_detail')->where('name', $data->name)->where('participant_status', 'Certified')->count();
+		}
+
+		return $sum;
+	}
+
+	public static function lulusTidakValid($year, $expired) {
+		$datas = DB::table('wins')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->where('expired_at', '<', $expired)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('wins_detail')->where('name', $data->name)->where('participant_status', 'Certified')->count();
+		}
+
+		return $sum;
+	}
+	
 	public static function getWhereThereIs($nik, $job_family) {
 		return DB::table('wins')->where('participants','like','%'.$nik.',%')
 								->where('job_family',$job_family)
@@ -91,20 +151,28 @@ class Wins extends Model
 	}				
 
 
-	public static function getByMonthProgram($start, $finish, $program, $month) {
-		return DB::table('wins')->where('start_date','>=', $start)
-								->where('finish_date', '<=', $finish)
+	public static function getByMonthProgram($year, $program, $month) {
+		return DB::table('wins')->whereYear('start_date', $year)
 								->where('telkom_main', $program)
-								->where('start_date','like','%-'.$month.'-%')
+								->whereMonth('start_date', $month)
 								->count();
 	}
 
-	public static function getByMonthFamily($start, $finish, $family, $month) {
-		return DB::table('wins')->whereYear('start_date','>=', $start)
-								->whereYear('finish_date', '<=', $start + $finish)
+	public static function getByMonthFamily($year, $family, $month) {
+		return DB::table('wins')->whereYear('start_date', $year)
 								->where('job_family', $family)
-								->whereMonth('start_date', '<=', $month)
-								->whereMonth('finish_date', '>=', $month)
+								->whereMonth('start_date', $month)
+								->count();
+	}
+
+	public static function programByYear($year, $program) {
+		return DB::table('wins')->whereYear('start_date', $year)
+								->where('telkom_main', $program)
+								->count();
+							}
+	public static function familyByYear($year, $family) {
+		return DB::table('wins')->whereYear('start_date', $year)
+								->where('job_family', $family)
 								->count();
 	}
 }

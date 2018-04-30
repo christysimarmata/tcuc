@@ -79,12 +79,12 @@
                                                         <td>{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
-                                                        <td>{{ $datas->current_division }}</td>
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}}">
+                                                        <td>{{ $datas->division }}</td>
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}}">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
                                                         </td>                                              
@@ -95,12 +95,12 @@
                                                         <td style="color:red;">{{ $datas->nik }}</td>
                                                         <td>{{ $datas->nama }}</td>
                                                         <td>{{ $datas->job }}</td>
-                                                        <td>{{ $datas->current_division }}</td>
-                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}}">
+                                                        <td>{{ $datas->division }}</td>
+                                                        <td><button class="edit-modal btn btn-info" data-toggle="modal" data-target="#myModal" data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-edit"></span> Edit
         </button>
         <button class="delete-modal btn btn-danger" data-toggle="modal" data-target="#myModal"
-            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->current_division}}">
+            data-info="{{$nomor}},{{$datas->nik}},{{$datas->nama}},{{$datas->job}},{{$datas->division}}">
             <span class="glyphicon glyphicon-trash"></span> Delete
         </button>
                                                         </td>                                              
@@ -386,7 +386,7 @@
                 data: {
                     '_token': $('input[name=_token]').val(),
                     'fnomor': $('.did').html(),
-                    'fnik' : $('did1').html(),
+                    'fnik' : $('.did1').html(),
                     'fname' : $('.val_name').html()
                 },
                 success: function(data) {

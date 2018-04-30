@@ -35,8 +35,8 @@ class ConsumerSeeder extends Seeder
 
         $bb1 = Consumer::create(array(
         	'name' => 'TCIF Batch 3',
-	   	 	'start_date' => '2017-02-17',
-	   	 	'finish_date' => '2017-02-20',
+	   	 	'start_date' => '2018-02-17',
+	   	 	'finish_date' => '2018-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -45,7 +45,7 @@ class ConsumerSeeder extends Seeder
 	    	'participants' => '640188,650456,690355,622355,601362',
 	    	'cfu_fu' => 'CFU DIGITAL SERVICE',
 	    	'level' => 'Intermediate',
-	    	'released_date' => '2017-02-01',
+	    	'released_date' => '2018-02-01',
 	    	'expired_at' => '2021-02-01',
 	    	'filename' => 'TCIF Batch 3.xlsx',
 	    	'status' => 'complete'
@@ -91,8 +91,8 @@ class ConsumerSeeder extends Seeder
 
         $be1 = Consumer::create(array(
         	'name' => 'TCOOA Batch 3',
-	   	 	'start_date' => '2016-06-09',
-	   	 	'finish_date' => '2016-06-15',
+	   	 	'start_date' => '2018-06-09',
+	   	 	'finish_date' => '2018-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -184,8 +184,8 @@ class ConsumerSeeder extends Seeder
 
         $bj1 = Consumer::create(array(
         	'name' => 'TCGT Batch 3',
-	   	 	'start_date' => '2017-11-23',
-	   	 	'finish_date' => '2017-12-27',
+	   	 	'start_date' => '2018-11-23',
+	   	 	'finish_date' => '2018-12-27',
 	    	'location' => 'Loker masing-masing',
 	   		'academy' => 'Consumer',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

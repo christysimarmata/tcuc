@@ -72,8 +72,8 @@ class BusinessSeeder extends Seeder
 
         $bd1 = Business::create(array(
         	'name' => 'Service Operation Batch 2',
-	   	 	'start_date' => '2017-05-19',
-	   	 	'finish_date' => '2017-05-23',
+	   	 	'start_date' => '2018-05-19',
+	   	 	'finish_date' => '2018-05-23',
 	    	'location' => 'Telkom Corpu Bandung Gedung B',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -82,7 +82,7 @@ class BusinessSeeder extends Seeder
 	    	'participants' => '660404,720565,730561,601626',
 	    	'cfu_fu' => 'CFU CONSUMER',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-06-01',
+	    	'released_date' => '2018-06-01',
 	    	'expired_at' => '2100-12-12',
 	    	'filename' => 'Service Operation Batch 2.xlsx',
 	    	'status' => 'complete'
@@ -91,8 +91,8 @@ class BusinessSeeder extends Seeder
 
         $be1 = Business::create(array(
         	'name' => 'TCOOA Batch 2',
-	   	 	'start_date' => '2017-06-09',
-	   	 	'finish_date' => '2017-06-15',
+	   	 	'start_date' => '2018-06-09',
+	   	 	'finish_date' => '2018-06-15',
 	    	'location' => 'Telkom Corpu Bandung Gedung ABC',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -101,7 +101,7 @@ class BusinessSeeder extends Seeder
 	    	'participants' => '890006,850111,820022,810073,800045,880007',
 	    	'cfu_fu' => 'FU FINANCE',
 	    	'level' => 'Intermediate',
-	    	'released_date' => '2017-07-01',
+	    	'released_date' => '2018-07-01',
 	    	'expired_at' => '2020-07-01',
 	    	'filename' => 'TCOOA Batch 2.xlsx',
 	    	'status' => 'complete'
@@ -110,8 +110,8 @@ class BusinessSeeder extends Seeder
 
         $bf1 = Business::create(array(
         	'name' => 'Sertifikasi CMPM Batch 2',
-	   	 	'start_date' => '2014-07-23',
-	   	 	'finish_date' => '2014-07-28',
+	   	 	'start_date' => '2018-07-23',
+	   	 	'finish_date' => '2018-07-28',
 	    	'location' => 'Learning Area 3',
 	   		'academy' => 'Business Enabler',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

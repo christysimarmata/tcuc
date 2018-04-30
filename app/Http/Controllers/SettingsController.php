@@ -40,13 +40,15 @@ class SettingsController extends Controller
         $address = $data[0]->address;
         $phone_number = $data[0]->phone_number;
         $email = $data[0]->email;
-        $listprogram = DB::table('mainprogram')->get();
-        $listfamily = DB::table('jobfamily')->get();
+        $listprogram = DB::table('mainprogram')->where('flag', date("Y"))->get();
+        $listfamily = DB::table('jobfamily')->where('flag', date("Y"))->get();
+        $listacademy = DB::table('academy')->where('flag', date("Y"))->get();
         return view('settings')->with('address', $address)
                                ->with('phone_number', $phone_number)
                                ->with('email', $email)
                                ->with('listprogram', $listprogram)
-                               ->with('listfamily', $listfamily);
+                               ->with('listfamily', $listfamily)
+                               ->with('listacademy', $listacademy);
 
     }
 
@@ -63,38 +65,72 @@ class SettingsController extends Controller
         return redirect('settings')->with('status', 'Changes Succedd !');
     }
 
-    public static function addprogram(Request $request) {
-        $added = Input::post('newprogram');
+    public static function createprogram(Request $request) {
+        $program = $request->fprogram;
+        if(DB::table('mainprogram')->where('flag', date("Y"))->exists()) {
+            DB::table('mainprogram')->insert(['flag' => date("Y"), 'name' => $program]);
+        } else {
+            $listbefore = DB::table('mainprogram')->where('flag', date("Y")-1)->pluck('name');
+            DB::table('mainprogram')->insert(['flag' => date("Y"), 'name' => $program]);
+            foreach($listbefore as $data) {
+                DB::table('mainprogram')->insert(['flag' => date("Y"), 'name' => $data]);
+            }
+        }
+        return response()->json();
 
-        DB::table('mainprogram')->insert(['name' => $added]);
-
-        return redirect('settings')->with('status', 'Changes Succedd !');
-    }
-
-    public static function addfamily(Request $request) {
-        $added = Input::post('newfamily');
-
-        DB::table('jobfamily')->insert(['name' => $added]);
-
-        return redirect('settings')->with('status', 'Changes Succedd !');
     }
 
     public static function deleteprogram(Request $request) {
-        $deleted = Input::post('deletedprogram');
+        $deleted = $request->fprogram;
+        DB::table('mainprogram')->where('flag', date("Y"))->where('name', $deleted)->delete();
 
-        DB::table('mainprogram')->where('name', $deleted)->delete();
+        return response()->json();
+    }
 
-        return redirect('settings')->with('status', 'Changes Succedd !');
+    public static function createfamily(Request $request) {
+        $family = $request->ffamily;
+        if(DB::table('jobfamily')->where('flag', date("Y"))->exists()) {
+            DB::table('jobfamily')->insert(['flag' => date("Y"), 'name' => $family]);
+        } else {
+            $listbefore = DB::table('jobfamily')->where('flag', date("Y")-1)->pluck('name');
+            DB::table('jobfamily')->insert(['flag' => date("Y"), 'name' => $family]);
+            foreach($listbefore as $data) {
+                DB::table('jobfamily')->insert(['flag' => date("Y"), 'name' => $data]);
+            }
+        }
+        return response()->json();
+
     }
 
     public static function deletefamily(Request $request) {
-        $deleted = Input::post('deletedfamily');
+        $deleted = $request->ffamily;
+        DB::table('jobfamily')->where('flag', date("Y"))->where('name', $deleted)->delete();
 
-        DB::table('jobfamily')->where('name', $deleted)->delete();
-
-        return redirect('settings')->with('status', 'Changes Succedd !');
+        return response()->json();
     }
-    
+
+    public static function createacademy(Request $request) {
+        $academy = $request->facademy;
+        if(DB::table('academy')->where('flag', date("Y"))->exists()) {
+            DB::table('academy')->insert(['flag' => date("Y"), 'name' => $academy]);
+        } else {
+            $listbefore = DB::table('academy')->where('flag', date("Y")-1)->pluck('name');
+            DB::table('academy')->insert(['flag' => date("Y"), 'name' => $academy]);
+            foreach($listbefore as $data) {
+                DB::table('academy')->insert(['flag' => date("Y"), 'name' => $data]);
+            }
+        }
+        return response()->json();
+
+    }
+
+    public static function deleteacademy(Request $request) {
+        $deleted = $request->facademy;
+        DB::table('academy')->where('flag', date("Y"))->where('name', $deleted)->delete();
+
+        return response()->json();
+    }
+
     public static function addusersingle(Request $request) {
         $nik = Input::post('fnik');
         $name = Input::post('fname');
@@ -108,11 +144,11 @@ class SettingsController extends Controller
         if(UserFix::where('nik', $nik)->exists()) {
             Users::where('nik', $nik)->update(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division, 'status' => 'fix']);
 
-            UserFix::where('nik', $nik)->update(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+            UserFix::where('nik', $nik)->update(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division ]);
         } else {
-            Users::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+            Users::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division, 'status' => 'fix' ]);
 
-            UserFix::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division]);
+            UserFix::insert(['nik' => $nik, 'nama' => $name, 'password' => $password, 'role' => $role, 'email' => $email, 'phone_number' => $phone, 'job' => $job, 'division' => $division ]);
 
         }
         
@@ -134,9 +170,9 @@ class SettingsController extends Controller
 
                     UserFix::where('nik', $data->nik)->update(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
                     } else {
-                        Users::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
+                        Users::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division, 'status' => 'fix' ]);
 
-                        UserFix::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division]);
+                        UserFix::insert(['nik' => $data->nik, 'nama' => $data->nama, 'password' => $data->password, 'role' => $data->role, 'email' => $data->email, 'phone_number' => $data->phone_number, 'job' => $data->job, 'division' => $data->division ]);
                     }
                 } 
 
@@ -163,28 +199,28 @@ class SettingsController extends Controller
                         if($datas[$y]->certification_name == $temp) {
                             $list_participant[] = $datas[$y]->nik;
                             if(Users::where('nik', $datas[$y])->exists()) {
-                                Users::where('nik', $datas[$y])->update(['nama' => $datas[$y]->name, 'role' => 'user', 'email' => $datas[$y]->email, 'phone_number' => $datas[$y]->phone_number, 'job' => $datas[$y]->job_position, 'division' => $datas[$y]->division]);
+                                Users::where('nik', $datas[$y])->update(['nama' => $datas[$y]->name, 'role' => 'user', 'email' => $datas[$y]->email, 'phone_number' => $datas[$y]->phone_number, 'job' => $datas[$y]->job_position]);
                             } else {
                                 Users::insert(['nik' => $datas[$y]->nik, 'nama' => $datas[$y]->name, 'role' => 'user', 'password' => 'password', 'email' => $datas[$y]->email, 'phone_number' => $datas[$y]->phone_number, 'job' => $datas[$y]->job_position, 'division' => $datas[$y]->division, 'status' => 'readonly']);
                             }
 
 
                             if($datas[$x]->academy == 'NITS') {
-                                NitsDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                NitsDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'Business Enabler') {
-                                BusinessDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                BusinessDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'Consumer') {
-                                ConsumerDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                ConsumerDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'DISP') {
-                                DispDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                DispDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'Enterprise') {
-                                EnterpriseDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                EnterpriseDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'Leadership') {
-                                LeadershipDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                LeadershipDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'Mobile') {
-                                MobileDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                MobileDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             } elseif($datas[$x]->academy == 'WINS') {
-                                WinsDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'ubpp' => $datas[$y]->ubpp]); 
+                                WinsDetail::insert(['name' => $datas[$x]->certification_name, 'job_family' => $datas[$x]->job_family, 'peserta' => $datas[$y]->nik, 'participant_status' => $datas[$y]->participant_status, 'division' => $datas[$y]->division]); 
                             }
                             
                             $y++;

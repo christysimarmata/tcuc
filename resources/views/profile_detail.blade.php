@@ -38,7 +38,7 @@
                     			<h5 class="text-sm-left">Job Position</h5>
                     			<p>{{ $user->job}}</p>
                     			<h5 class="text-sm-left">Division</h5>
-                    			<p>{{ $user->current_division}}</p>
+                    			<p>{{ $user->division}}</p>
                     		</div>
                     	</div>	
                     </div>
@@ -80,7 +80,7 @@
                                                     @if($dat->expired_at === '2100-12-12')
                                                         All Time <a href="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{ $user->nik }}.jpg" download><i class="fa fa-download"></i></a>
                                                     @else 
-                                                        {{ $dat->expired_at }} <a href="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{ $user->nik }}.jpg" download><i class="fa fa-download"></i></a>
+                                                        {{ $dat->expired_at }} <a href="{{ URL::to('/') }}/storage/{{ $dat->name }}/{{ $fil->file_name }}" download><i class="fa fa-download"></i></a>
                                                     @endif
                                                 </div>
                                             </div>

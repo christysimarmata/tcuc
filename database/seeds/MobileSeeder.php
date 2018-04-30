@@ -35,8 +35,8 @@ class MobileSeeder extends Seeder
 
         $bb1 = Mobile::create(array(
         	'name' => 'TCIF Batch 7',
-	   	 	'start_date' => '2015-02-17',
-	   	 	'finish_date' => '2015-02-20',
+	   	 	'start_date' => '2018-02-17',
+	   	 	'finish_date' => '2018-02-20',
 	    	'location' => 'Istana Kayana Bandung',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -129,8 +129,8 @@ class MobileSeeder extends Seeder
 
         $bg1 = Mobile::create(array(
         	'name' => 'BARJAS Batch 7',
-	   	 	'start_date' => '2017-08-01',
-	   	 	'finish_date' => '2017-08-14',
+	   	 	'start_date' => '2018-08-01',
+	   	 	'finish_date' => '2018-08-14',
 	    	'location' => 'Learning Area 2 Jakarta',
 	   		'academy' => 'Mobile',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -139,7 +139,7 @@ class MobileSeeder extends Seeder
 	    	'participants' => '651225,830012,670288,730245,622290,650481',
 	    	'cfu_fu' => 'FU ISP',
 	    	'level' => 'Advance',
-	    	'released_date' => '2017-09-01',
+	    	'released_date' => '2018-09-01',
 	    	'expired_at' => '2100-12-12',
 	    	'filename' => 'BARJAS Batch 7.xlsx',
 	    	'status' => 'complete'

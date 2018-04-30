@@ -17,8 +17,8 @@ class EnterpriseSeeder extends Seeder
 
         $ba1 = Enterprise::create(array(
         	'name' => 'CSAM Batch 5',
-	   	 	'start_date' => '2013-03-04',
-	   	 	'finish_date' => '2013-03-07',
+	   	 	'start_date' => '2018-03-04',
+	   	 	'finish_date' => '2018-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -147,8 +147,8 @@ class EnterpriseSeeder extends Seeder
 
         $bh1 = Enterprise::create(array(
         	'name' => 'CCNP Batch 5',
-	   	 	'start_date' => '2015-09-14',
-	   	 	'finish_date' => '2015-09-15',
+	   	 	'start_date' => '2018-09-14',
+	   	 	'finish_date' => '2018-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'Enterprise',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',

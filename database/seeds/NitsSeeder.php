@@ -17,8 +17,8 @@ class NitsSeeder extends Seeder
 
         $ba1 = Nits::create(array(
         	'name' => 'CSAM Batch 1',
-	   	 	'start_date' => '2014-03-04',
-	   	 	'finish_date' => '2014-03-07',
+	   	 	'start_date' => '2018-03-04',
+	   	 	'finish_date' => '2018-03-07',
 	    	'location' => 'Telkom University Bandung',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -27,7 +27,7 @@ class NitsSeeder extends Seeder
 	    	'participants' => '651225,591825,670288,633056,622290,780026',	
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-01-01',
+	    	'released_date' => '2018-01-01',
 	    	'expired_at' => '2022-12-12',
 	    	'filename' => 'CSAM Batch 1.xlsx',
 	    	'status' => 'complete'
@@ -147,8 +147,8 @@ class NitsSeeder extends Seeder
 
         $bh1 = Nits::create(array(
         	'name' => 'CCNP Batch 1',
-	   	 	'start_date' => '2017-09-14',
-	   	 	'finish_date' => '2017-09-15',
+	   	 	'start_date' => '2018-09-14',
+	   	 	'finish_date' => '2018-09-15',
 	    	'location' => 'Yogyakarta',
 	   		'academy' => 'NITS',
 	    	'outline'=> 'Pembukaan, Kata Sambutan, Sarapan, Inti, Selesai',
@@ -157,7 +157,7 @@ class NitsSeeder extends Seeder
 	    	'participants' => '640188,850111,820022,622355,601362',
 	    	'cfu_fu' => 'CFU ENTERPRISE',
 	    	'level' => 'Intermediate',
-	    	'released_date' => '2017-09-20',
+	    	'released_date' => '2018-09-20',
 	    	'expired_at' => '2020-09-20',
 	    	'filename' => 'CCNP Batch 1.xlsx',
 	    	'status' => 'complete'

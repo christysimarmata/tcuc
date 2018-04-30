@@ -12,6 +12,10 @@
                 lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]]
         });
 
+    $('#bootstrap-data-table-khusus').DataTable({
+                dom: 'rt'
+        });
+
     $('#bootstrap-data-table-form').DataTable({
                 lengthMenu: [[10, 20, 50, -1], [10, 20, 50, "All"]]
         });
@@ -168,11 +172,11 @@
                 "visible": false,
                 "searchable": true
         	},
-        	{
-        		"targets": [ 13 ],
+            {
+                "targets": [ 12 ],
                 "visible": false,
                 "searchable": true
-        	},
+            },
         	{
         		"targets": [ 14 ],
                 "visible": false,
@@ -188,11 +192,11 @@
                 "visible": false,
                 "searchable": true
         	},
-            {
-                "targets": [ 17 ],
+        	{
+        		"targets": [ 17 ],
                 "visible": false,
                 "searchable": true
-            },
+        	},
             {
                 "targets": [ 18 ],
                 "visible": false,
@@ -215,6 +219,11 @@
             },
             {
                 "targets": [ 22 ],
+                "visible": false,
+                "searchable": true
+            },
+            {
+                "targets": [ 23 ],
                 "visible": false,
                 "searchable": true
             }

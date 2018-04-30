@@ -19,6 +19,7 @@ class CreateBusinessDetailTable extends Migration
             $table->string('job_family')->nullable();
             $table->string('peserta')->nullable();
             $table->string('participant_status')->nullable();
+            $table->string('division')->nullable();
             $table->string('file_name')->nullable();
             $table->timestamps();
         });

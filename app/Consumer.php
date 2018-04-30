@@ -41,6 +41,66 @@ class Consumer extends Model
 		return DB::table('consumer')->get();
 	}
 
+	public static function getSum() {
+		return DB::table('consumer')->count();
+	}
+
+	public static function jumlahLulus($year) {
+		$datas = DB::table('consumer')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('consumer_detail')->where('name', $data->name)->where('participant_status', 'Certified')->count();
+		}
+		return $sum;
+	}
+
+	public static function jumlahTidakLulus($year) {
+		$datas = DB::table('consumer')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('consumer_detail')->where('name', $data->name)->where('participant_status', '<>', 'Certified')->count();
+		}
+		return $sum;
+	}
+	
+	public static function lulusValid($year, $expired) {
+		$datas = DB::table('consumer')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->where('expired_at', '>=', $expired)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('consumer_detail')->where('name', $data->name)->where('participant_status', 'Certified')->count();
+		}
+
+		return $sum;
+	}
+
+	public static function lulusTidakValid($year, $expired) {
+		$datas = DB::table('consumer')->whereYear('start_date', '<=', $year)
+									 ->whereYear('finish_date', '>=', $year)
+									 ->where('expired_at', '<', $expired)
+									 ->get();
+
+		$sum = 0;
+
+		foreach($datas as $data) {
+			$sum = $sum + DB::table('consumer_detail')->where('name', $data->name)->where('participant_status', 'Certified')->count();
+		}
+
+		return $sum;
+	}
+	
 	public static function getByProgramYears($start, $finish, $program) {
 		return DB::table('consumer')->whereYear('start_date','>=', $start)
 									->whereYear('finish_date', '<=', $finish)
@@ -91,21 +151,29 @@ class Consumer extends Model
 								->count();
 	}
 
-	public static function getByMonthProgram($start, $finish, $program, $month) {
-		return DB::table('consumer')->whereYear('start_date','>=', $start)
-								->whereYear('finish_date', '<=', $start + $finish)
+	public static function getByMonthProgram($year, $program, $month) {
+		return DB::table('consumer')->whereYear('start_date', $year)
 								->where('telkom_main', $program)
-								->whereMonth('start_date', '<=', $month)
-								->whereMonth('finish_date', '>=', $month)
+								->whereMonth('start_date', $month)
 								->count();
 	}
 
-	public static function getByMonthFamily($start, $finish, $family, $month) {
-		return DB::table('consumer')->whereYear('start_date','>=', $start)
-								->whereYear('finish_date', '<=', $start + $finish)
+	public static function getByMonthFamily($year, $family, $month) {
+		return DB::table('consumer')->whereYear('start_date', $year)
 								->where('job_family', $family)
-								->whereMonth('start_date', '<=', $month)
-								->whereMonth('finish_date', '>=', $month)
+								->whereMonth('start_date', $month)
+								->count();
+	}
+
+	public static function programByYear($year, $program) {
+		return DB::table('consumer')->whereYear('start_date', $year)
+								->where('telkom_main', $program)
+								->count();
+							}
+
+	public static function familyByYear($year, $family) {
+		return DB::table('consumer')->whereYear('start_date', $year)
+								->where('job_family', $family)
 								->count();
 	}
 }
