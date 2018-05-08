@@ -121,7 +121,6 @@ class CertificateController extends Controller
                 } 
 
                 
-                \Log::info($participant_data);
                 session(['peserta' => $participant_data]);
                 return view('step_final')->with('participant_detail', collect(session('peserta')))
                                          ->with('data_detail', collect(session('detail')));
@@ -147,7 +146,6 @@ class CertificateController extends Controller
                     }
 
 
-            \Log::info($participant);
             return view('step_final2')->with('data_detail', $data_baru)
                                       ->with('participant_detail', $participant);
     }
@@ -164,7 +162,6 @@ class CertificateController extends Controller
                 foreach ($data_participant as $datas) {
                         $temp = (array) Users::getParticipantFirst($datas);
                         $temp_ubpp = CertificateTempDetail::where('name', $name)->where('peserta', $datas)->first();
-                        \Log::info($temp_ubpp);
                         $temp['ubpp'] = $temp_ubpp['ubpp'];
                         $participant[] = (object) $temp;
                     }
@@ -175,65 +172,24 @@ class CertificateController extends Controller
     }
 
     public static function validateCertification() {
-        $academi;
-        if(session('userAktif') === 'ldenits') {
-            $academi = 'NITS';
-        } elseif(session('userAktif') === 'ldebusiness') {
-            $academi = 'Business Enabler';
-        } elseif(session('userAktif') === 'ldeconsumer') {
-            $academi = 'Consumer';
-        } elseif(session('userAktif') === 'ldedisp') {
-            $academi = 'DISP';
-        } elseif(session('userAktif') === 'ldeenterprise') {
-            $academi = 'Enterprise';
-        } elseif(session('userAktif') === 'ldeleadership') {
-            $academi = 'Leadership';
-        } elseif(session('userAktif') === 'ldemobile') {
-            $academi = 'Mobile';
-        } else {
-            $academi = 'WINS';
-        }
+        $academi = DB::table('academy')->where('flag', date("Y"))->where('niklde', session('userAktif'))->first();
 
         $all_certificate = [];
-        $all_certificate[] = CertificateTemp::getAllValidation($academi);
+        $all_certificate[] = CertificateTemp::getAllValidation($academi->name);
         return view('validation_list')->with('datas',$all_certificate);
 
     }
 
     public static function complete() {
-        $academi;
-        if(session('userAktif') === 'ldenits' || session('userAktif') === 'nonldenits') {
-            $academi = 'NITS';
-        } elseif(session('userAktif') === 'ldebusiness' || session('userAktif') === 'nonldebusiness') {
-            $academi = 'Business Enabler';
-        } elseif(session('userAktif') === 'ldeconsumer' || session('userAktif') === 'nonldeconsumer') {
-            $academi = 'Consumer';
-        } elseif(session('userAktif') === 'ldedisp' || session('userAktif') === 'nonldedisp') {
-            $academi = 'DISP';
-        } elseif(session('userAktif') === 'ldeenterprise' || session('userAktif') === 'nonldeenterprise') {
-            $academi = 'Enterprise';
-        } elseif(session('userAktif') === 'ldeleadership' || session('userAktif') === 'nonldeleadership') {
-            $academi = 'Leadership';
-        } elseif(session('userAktif') === 'ldemobile' || session('userAktif') === 'nonldemobile') {
-            $academi = 'Mobile';
-        } elseif(session('userAktif') === 'ldewins' || session('userAktif') === 'nonldewins') {
-            $academi = 'WINS';
-        }
+        
 
+        $temp_data = DB::table('academy')->where('flag', date("Y"))->where('niklde', session('userAktif'))->orWhere('niknonlde', session('userAktif'))->first();
+
+        $academi = $temp_data->name;
 
         $all_certificate = [];
-        // if($academi === 'ALL') {
-        //     $all_certificate[] = CertificateTemp::getAllComplete('NITS');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('Business Enabler');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('Consumer');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('DISP');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('Enterprise');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('Leadership');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('Mobile');
-        //     $all_certificate[] = CertificateTemp::getAllComplete('WINS');
-        // } else {
-           $all_certificate[] = CertificateTemp::getAllComplete($academi); 
-        // }
+        $all_certificate[] = CertificateTemp::getAllComplete($academi); 
+        
         
 
         $all_presence = Storage::files('public/presence_upload');
@@ -252,7 +208,6 @@ class CertificateController extends Controller
             
         }
 
-        \Log::info($bool_cert);
         
         return view('complete_certification')->with('datas',$all_certificate)
                                              ->with('have', $bool_cert);
@@ -360,7 +315,6 @@ class CertificateController extends Controller
     public static function formValidate() {
         $datas = session('locked');
         $data = CertificateTemp::where('name', $datas[1])->get();
-        \Log::info($data);
         $list_participant = CertificateTemp::where('name',$datas[1])->first();
 
         $pluckedprogram = MainProgram::where('flag', date("Y"))->get()->pluck('name');
@@ -907,73 +861,14 @@ class CertificateController extends Controller
             $participant = $tes['participants'];
 
 
-            $akademi;
-            if($request->academy === 'NITS') {
-                Nits::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
 
-                foreach($temp_detail as $datas) {
-                    NitsDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-                    
-            } elseif($request->academy === 'WINS') {
-                Wins::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
+            $temp_academy = DB::table('academy')->where('flag', date("Y"))->where('name', $request->academy)->first();
+            $name_table = $temp_academy->table;
+            $temp_table_detail = DB::table('academy_detail')->where('flag', date("Y"))->where('name', $request->academy)->first();
+            $name_detail = $temp_table_detail->table;
 
-                foreach($temp_detail as $datas) {
-                    WinsDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-            } elseif($request->academy === 'DISP') {
-                Disp::insert(
-                ['name' => $request->name,
+            DB::table($name_table)->insert([
+                'name' => $request->name,
                 'start_date' => $request->start,
                 'finish_date' => $request->finish,
                 'location' => $request->location,
@@ -990,170 +885,19 @@ class CertificateController extends Controller
                 'released_date' => $request->released_date,
                 'expired_at' => $request->expired_date,
                 'status' => 'complete'
-                ]);
+            ]);
 
-                foreach($temp_detail as $datas) {
-                    DispDetail::insert(
+            foreach($temp_detail as $datas) {
+                    DB::table($name_detail)->insert(
                     [
                         'name' => $datas->name,
                         'peserta' => $datas->peserta,
                         'job_family' => $request->job_family,
                         'participant_status' => $datas->participant_status,
+                        'division' => $datas->division,
                         'file_name' => $datas->file_name
                     ]);
                 }
-            } elseif($request->academy === 'Business Enabler') {
-                Business::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
-
-                foreach($temp_detail as $datas) {
-                    BusinessDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-            } elseif($request->academy === 'Consumer') {
-                Consumer::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
-                foreach($temp_detail as $datas) {
-                    ConsumerDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-            } elseif($request->academy === 'Mobile') {
-                Mobile::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
-                foreach($temp_detail as $datas) {
-                    MobileDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-            } elseif($request->academy === 'Leadership') {
-                Leadership::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
-                foreach($temp_detail as $datas) {
-                    LeadershipDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-            } elseif($request->academy === 'Enterprise') {
-                Enterprise::insert(
-                ['name' => $request->name,
-                'start_date' => $request->start,
-                'finish_date' => $request->finish,
-                'location' => $request->location,
-                'academy' => $request->academy,
-                'institution' => $request->institution,
-                'category' => $request->category,
-                'internal' => $request->internal,
-                'cfu_fu' => $request->cfu_fu,
-                'level' => $request->level,
-                'outline' => $request->outline,
-                'telkom_main' => $request->main_program,
-                'job_family' => $request->job_family,
-                'participants' => $participant,
-                'released_date' => $request->released_date,
-                'expired_at' => $request->expired_date,
-                'status' => 'complete'
-                ]);
-                foreach($temp_detail as $datas) {
-                    EnterpriseDetail::insert(
-                    [
-                        'name' => $datas->name,
-                        'peserta' => $datas->peserta,
-                        'job_family' => $request->job_family,
-                        'participant_status' => $datas->participant_status,
-                        'file_name' => $datas->file_name
-                    ]);
-                }
-            }
             
             return response()->json();
         } else {

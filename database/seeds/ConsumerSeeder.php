@@ -28,7 +28,7 @@ class ConsumerSeeder extends Seeder
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-01-01',
-	    	'expired_at' => '2022-12-12',
+	    	'expired_at' => '2017-12-12',
 	    	'filename' => 'CSAM Batch 3.xlsx',
 	    	'status' => 'complete'
         ));
@@ -101,7 +101,7 @@ class ConsumerSeeder extends Seeder
 	    	'participants' => '890006,850111,820022,810073,800045,880007',
 	    	'cfu_fu' => 'FU FINANCE',
 	    	'level' => 'Intermediate',
-	    	'released_date' => '2017-07-01',
+	    	'released_date' => '2019-07-01',
 	    	'expired_at' => '2020-07-01',
 	    	'filename' => 'TCOOA Batch 3.xlsx',
 	    	'status' => 'complete'
@@ -121,7 +121,7 @@ class ConsumerSeeder extends Seeder
 	    	'cfu_fu' => 'FU HCM',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-08-01',
-	    	'expired_at' => '2021-08-01',
+	    	'expired_at' => '2018-01-01',
 	    	'filename' => 'Sertifikasi CMPM Batch 3.xlsx',
 	    	'status' => 'complete'
         ));
@@ -140,7 +140,7 @@ class ConsumerSeeder extends Seeder
 	    	'cfu_fu' => 'FU ISP',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-09-01',
-	    	'expired_at' => '2100-12-12',
+	    	'expired_at' => '2018-01-12',
 	    	'filename' => 'BARJAS Batch 3.xlsx',
 	    	'status' => 'complete'
         ));
@@ -158,7 +158,7 @@ class ConsumerSeeder extends Seeder
 	    	'cfu_fu' => 'CFU ENTERPRISE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-09-20',
-	    	'expired_at' => '2020-09-20',
+	    	'expired_at' => '2018-03-20',
 	    	'filename' => 'CCNP Batch 3.xlsx',
 	    	'status' => 'complete'
         ));

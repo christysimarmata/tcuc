@@ -6,6 +6,11 @@
 </style>
 @endpush
 @section('content')
+    @if (session('status'))
+        <div class="alert alert-danger">
+            {{ session('status') }}
+        </div>
+    @endif
 
 	<div class="breadcrumbs">
             <div class="col-sm-4">
@@ -174,31 +179,6 @@
     <script src="{{ asset('js/lib/data-table/datatables.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/dataTables.bootstrap.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/dataTables.buttons.min.js') }}"></script>
-    <script>
-        
-            $('#finishDate').focus(function() {
-            if($('#finishDate').val() == "1") {
-                $('#mainprogram').removeAttr('disabled');
-                $('#jobfamily').removeAttr('disabled');
-            } else {
-                $('#mainprogram').attr('disabled', true);
-                $('#jobfamily').attr('disabled', true);
-            } 
-        });
-
-            $('#finishDate').click(function() {
-            if($('#finishDate').val() == "1") {
-                $('#mainprogram').removeAttr('disabled');
-                $('#jobfamily').removeAttr('disabled');
-            } else {
-                $('#mainprogram').attr('disabled', true);
-                $('#jobfamily').attr('disabled', true);
-            } 
-        });
-        
-
-
-    </script>
 @endpush
 
 @endsection

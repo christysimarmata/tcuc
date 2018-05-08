@@ -50,7 +50,7 @@
                             <div class="col-12 col-md-9">
                               <select name="cer_academy" id="selectAcademy" class="form-control" required="">
                                 <option value="pilih">-- Pilih --</option>
-                                @foreach($listacademy as $data)
+                                @foreach(session('listacademy') as $data)
                                   <option value="{{ $data }}">{{ $data }}</option>
                                 @endforeach
                               </select>

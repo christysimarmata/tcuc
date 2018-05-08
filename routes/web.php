@@ -70,33 +70,10 @@ Route::post('deleteRequest', 'SettingsController@deleteRequest');
 
 Route::get('mycertification', 'MyCertificationController@showCertification');
 
+Route::get('academy/{academy?}', 'MainController@show');
+Route::post('academy/{academy?}', 'MainController@updateShow');
+Route::get('details/{academy?}/{name?}', 'MainController@showDetails');
 
-Route::get('NITScer', 'NitsController@showList');
-Route::get('Consumercer', 'ConsumerController@showList');
-Route::get('Business Enablercer', 'BusinessController@showList');
-Route::get('DISPcer', 'DispController@showList');
-Route::get('Leadershipcer', 'LeadershipController@showList');
-Route::get('Enterprisecer', 'EnterpriseController@showList');
-Route::get('Mobilecer', 'MobileController@showList');
-Route::get('WINScer', 'WinsController@showList');
-
-Route::post('NITScer', 'NitsController@updateList');
-Route::post('Consumercer', 'ConsumerController@updateList');
-Route::post('Business Enablercer', 'BusinessController@updateList');
-Route::post('DISPcer', 'DispController@updateList');
-Route::post('Leadershipcer', 'LeadershipController@updateList');
-Route::post('Enterprisecer', 'EnterpriseController@updateList');
-Route::post('Mobilecer', 'MobileController@updateList');
-Route::post('WINScer', 'WinsController@updateList');
-
-Route::get('NITScer/{name?}', 'NitsController@showCertificate');
-Route::get('Consumercer/{name?}', 'ConsumerController@showCertificate');
-Route::get('Business Enablercer/{name?}', 'BusinessController@showCertificate');
-Route::get('DISPcer/{name?}', 'DispController@showCertificate');
-Route::get('Leadershipcer/{name?}', 'LeadershipController@showCertificate');
-Route::get('Enterprisecer/{name?}', 'EnterpriseController@showCertificate');
-Route::get('Mobilecer/{name?}', 'MobileController@showCertificate');
-Route::get('WINScer/{name?}', 'WinsController@showCertificate');
 
 
 Route::get('profile_detail/{nik?}', 'ProfileController@showList');

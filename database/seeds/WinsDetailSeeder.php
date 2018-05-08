@@ -500,7 +500,7 @@ class WinsDetailSeeder extends Seeder
         $bj3 = WinsDetail::create(array(
         	'name' => 'TCGT Batch 8',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Business Service',
 	    	'file_name' => '730245.jpg',

@@ -27,7 +27,7 @@ class EnterpriseSeeder extends Seeder
 	    	'participants' => '651225,591825,670288,633056,622290,780026',	
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-01-01',
+	    	'released_date' => '2018-04-01',
 	    	'expired_at' => '2022-12-12',
 	    	'filename' => 'CSAM Batch 5.xlsx',
 	    	'status' => 'complete'
@@ -46,7 +46,7 @@ class EnterpriseSeeder extends Seeder
 	    	'cfu_fu' => 'CFU DIGITAL SERVICE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-02-01',
-	    	'expired_at' => '2021-02-01',
+	    	'expired_at' => '2017-07-01',
 	    	'filename' => 'TCIF Batch 5.xlsx',
 	    	'status' => 'complete'
         ));
@@ -64,7 +64,7 @@ class EnterpriseSeeder extends Seeder
 	    	'cfu_fu' => 'CFU MOBILE',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-04-01',
-	    	'expired_at' => '2020-02-01',
+	    	'expired_at' => '2018-02-01',
 	    	'filename' => 'TCBPM Batch 5.xlsx',
 	    	'status' => 'complete'
         ));
@@ -195,7 +195,7 @@ class EnterpriseSeeder extends Seeder
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-12-15',
-	    	'expired_at' => '2022-12-15',
+	    	'expired_at' => '2017-12-20',
 	    	'filename' => 'TCGT Batch 5.xlsx',
 	    	'status' => 'complete'
         ));

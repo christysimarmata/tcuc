@@ -13,7 +13,7 @@ class CreateBusinessTable extends Migration
      */
     public function up()
     {
-        Schema::create('business', function (Blueprint $table) {
+        Schema::create('business_enabler', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->date('start_date');
@@ -44,6 +44,6 @@ class CreateBusinessTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business');
+        Schema::dropIfExists('business_enabler');
     }
 }

@@ -3,14 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Consumer;
-use App\Business;
-use App\Disp;
-use App\Enterprise;
-use App\Leadership;
-use App\Mobile;
-use App\Nits;
-use App\Wins;
+use DB;
 use App\Users;
 use App\CertificateTemp;
 use App\MainProgram;
@@ -24,7 +17,6 @@ class ReportsController extends Controller
 
         return view('reports')->with('finish', 0);
         					  
-
     }
 
 
@@ -32,28 +24,62 @@ class ReportsController extends Controller
     public static function updateReports(Request $request) {
     	$start = Input::get('start_date');
     	$finish = Input::get('finish_date');
-
     	$countTahun = $finish-$start+1;
-    	$label_name = [];
+
+    	$list_table = DB::table('academy')->where('flag', date("Y"))->get();
+    	if($finish <= $start) {
+    		return redirect('reports')->with('status', 'Finish years cannot be greater than Starting Years');
+    	} elseif($countTahun > 20) {
+    		return redirect('reports')->with('status', 'Maximum range is 20 years');
+    	} else {
+    		$label_name = [];
 				for($x = 0; $x < $countTahun; $x++) {
 						$temp = $start + $x;
 						$label_name[] = $temp;
-			 			$sumLulus = Nits::jumlahLulus($start+$x) + Consumer::jumlahLulus($start+$x) + Disp::jumlahLulus($start+$x) + Wins::jumlahLulus($start+$x) + Mobile::jumlahLulus($start+$x) + Enterprise::jumlahLulus($start+$x) + Business::jumlahLulus($start+$x) + Leadership::jumlahLulus($start+$x) ;
-			 			$dataLulus[] = $sumLulus;
+						$sum_lulus = 0;
+						$sum_tidak_lulus = 0;
+						$sum_valid = 0;
+						$sum_tidak_valid = 0;
+						foreach($list_table as $list) {
+							$temp_lulus = DB::table($list->table)->whereYear('start_date', '<=', $start+$x)
+																			->whereYear('finish_date', '>=', $start+$x)
+									 										->get(); 
 
+							$temp_lulus_valid = DB::table($list->table)->whereYear('start_date', '<=', $start+$x)
+																			 ->whereYear('finish_date', '>=', $start+$x)
+																			 ->where('expired_at', '>=', date("Y/m/d"))
+																			 ->get();
 
-			 			$sumTidakLulus = Nits::jumlahTidakLulus($start+$x) + Consumer::jumlahTidakLulus($start+$x) + Disp::jumlahTidakLulus($start+$x) + Wins::jumlahTidakLulus($start+$x) + Mobile::jumlahTidakLulus($start+$x) + Enterprise::jumlahTidakLulus($start+$x) + Business::jumlahTidakLulus($start+$x) + Leadership::jumlahTidakLulus($start+$x) ;
-			 			$dataTidakLulus[] = $sumTidakLulus;
-			 			$total1[] = $sumLulus + $sumTidakLulus; 
+							$temp_lulus_tidak_valid = DB::table($list->table)->whereYear('start_date', '<=', $start+$x)
+																			 ->whereYear('finish_date', '>=', $start+$x)
+																			 ->where('expired_at', '<', date("Y/m/d"))
+																			 ->get();								
 
+							
+							foreach($temp_lulus as $data) {
+								$sum_lulus = $sum_lulus + DB::table($list->table_detail)->where('name', $data->name)->where('participant_status', 'Certified')->count();
 
-			 			$sumValid = Nits::lulusValid($start+$x, date("Y/m/d")) + Consumer::lulusValid($start+$x, date("Y/m/d")) + Disp::lulusValid($start+$x, date("Y/m/d")) + Wins::lulusValid($start+$x, date("Y/m/d")) + Mobile::lulusValid($start+$x, date("Y/m/d")) + Enterprise::lulusValid($start+$x, date("Y/m/d")) + Business::lulusValid($start+$x, date("Y/m/d")) + Leadership::lulusValid($start+$x, date("Y/m/d")) ;
-			 			$valid[] = $sumValid;
+								$sum_tidak_lulus = $sum_tidak_lulus + DB::table($list->table_detail)->where('name', $data->name)->where('participant_status', '<>', 'Certified')->count();
 
-			 			$sumTidakValid = Nits::lulusTidakValid($start+$x, date("Y/m/d")) + Consumer::lulusTidakValid($start+$x, date("Y/m/d")) + Disp::lulusTidakValid($start+$x, date("Y/m/d")) + Wins::lulusTidakValid($start+$x, date("Y/m/d")) + Mobile::lulusTidakValid($start+$x, date("Y/m/d")) + Enterprise::lulusTidakValid($start+$x, date("Y/m/d")) + Business::lulusTidakValid($start+$x, date("Y/m/d")) + Leadership::lulusTidakValid($start+$x, date("Y/m/d")) ;
-			 			$tidakvalid[] = $sumTidakValid;
+							}
 
-			 			$total2[] = $sumValid + $sumTidakValid;
+							foreach($temp_lulus_valid as $data) {
+								$sum_valid = $sum_valid + DB::table($list->table_detail)->where('name', $data->name)->where('participant_status', 'Certified')->count();
+							}
+
+							foreach($temp_lulus_tidak_valid as $data) {
+								$sum_tidak_valid = $sum_tidak_valid + DB::table($list->table_detail)->where('name', $data->name)->where('participant_status', 'Certified')->count();
+							}
+							
+							
+						}
+						$dataLulus[] = $sum_lulus;
+						$dataTidakLulus[] = $sum_tidak_lulus;
+						$total1[] = $sum_lulus + $sum_tidak_lulus;
+
+						$valid[] = $sum_valid;
+						$tidakvalid[] = $sum_tidak_valid;
+						$total2[] = $sum_valid + $sum_tidak_valid;
 
 		 			}
 
@@ -192,68 +218,57 @@ class ReportsController extends Controller
         					  			  ->with('chartlulus', $chartlulus)
         					  			  ->with('chartvalid', $chartvalid);
         					  
-	        	
-			
 				}
+			}
 
 
 	public static function updateReportsYear(Request $request) {
+		$list_table = DB::table('academy')->where('flag', date("Y"))->get();
     	$years = Input::get('years');
-				
-	 			$dataLulus[] = Nits::jumlahLulus($years);
-	 			$dataLulus[] = Consumer::jumlahLulus($years);
-	 			$dataLulus[] = Disp::jumlahLulus($years);
-	 			$dataLulus[] = Wins::jumlahLulus($years);
-	 			$dataLulus[] = Mobile::jumlahLulus($years);
-	 			$dataLulus[] = Enterprise::jumlahLulus($years);
-	 			$dataLulus[] = Business::jumlahLulus($years);
-	 			$dataLulus[] = Leadership::jumlahLulus($years);
 
-	 			$dataTidakLulus[] = Nits::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Consumer::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Disp::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Wins::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Mobile::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Enterprise::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Business::jumlahTidakLulus($years);
-	 			$dataTidakLulus[] = Leadership::jumlahTidakLulus($years);
+			foreach($list_table as $table) {
+				$temp_data = DB::table($table->table)->whereYear('start_date', '<=', $years)
+								 ->whereYear('finish_date', '>=', $years)
+								 ->get();
 
-	 			$total1[] = Nits::jumlahLulus($years) + Nits::jumlahTidakLulus($years);
-	 			$total1[] = Consumer::jumlahLulus($years) + Consumer::jumlahTidakLulus($years);
-	 			$total1[] = Disp::jumlahLulus($years) + Disp::jumlahTidakLulus($years);
-	 			$total1[] = Wins::jumlahLulus($years) + Wins::jumlahTidakLulus($years);
-	 			$total1[] = Mobile::jumlahLulus($years) + Mobile::jumlahTidakLulus($years);
-	 			$total1[] = Enterprise::jumlahLulus($years) + Enterprise::jumlahTidakLulus($years);
-	 			$total1[] = Business::jumlahLulus($years) + Business::jumlahTidakLulus($years);
-	 			$total1[] = Leadership::jumlahLulus($years) + Leadership::jumlahTidakLulus($years);
-	 			
+				$temp_lulus_valid = DB::table($table->table)->whereYear('start_date', '<=', $years)
+																			 ->whereYear('finish_date', '>=', $years)
+																			 ->where('expired_at', '>=', date("Y/m/d"))
+																			 ->get();
 
-	 			$valid[] = Nits::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Consumer::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Disp::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Wins::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Mobile::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Enterprise::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Business::lulusValid($years, date("Y/m/d"));
-	 			$valid[] = Leadership::lulusValid($years, date("Y/m/d"));
+				$temp_lulus_tidak_valid = DB::table($table->table)->whereYear('start_date', '<=', $years)
+																			 ->whereYear('finish_date', '>=', $years)
+																			 ->where('expired_at', '<', date("Y/m/d"))
+																			 ->get();		
 
-	 			$tidakvalid[] = Nits::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Consumer::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Disp::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Wins::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Mobile::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Enterprise::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Business::lulusTidakValid($years, date("Y/m/d"));
-	 			$tidakvalid[] = Leadership::lulusTidakValid($years, date("Y/m/d"));
-	 			
-	 			$total2[] = Nits::lulusValid($years, date("Y/m/d")) + Nits::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Consumer::lulusValid($years, date("Y/m/d")) + Consumer::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Disp::lulusValid($years, date("Y/m/d")) + Disp::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Wins::lulusValid($years, date("Y/m/d")) + Wins::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Mobile::lulusValid($years, date("Y/m/d")) + Mobile::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Enterprise::lulusValid($years, date("Y/m/d")) + Enterprise::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Business::lulusValid($years, date("Y/m/d")) + Business::lulusTidakValid($years, date("Y/m/d"));
-	 			$total2[] = Leadership::lulusValid($years, date("Y/m/d")) + Leadership::lulusTidakValid($years, date("Y/m/d"));
+				$temp_sum_lulus = 0;
+				$temp_sum_tidak_lulus = 0;
+				$sum_valid = 0;
+				$sum_tidak_valid = 0;
+
+				foreach($temp_data as $data) {
+					$temp_sum_lulus = $temp_sum_lulus + DB::table($table->table_detail)->where('name', $data->name)->where('participant_status', 'Certified')->count();
+					$temp_sum_tidak_lulus = $temp_sum_tidak_lulus + DB::table($table->table_detail)->where('name', $data->name)->where('participant_status', '<>', 'Certified')->count();
+				}
+
+				foreach($temp_lulus_valid as $data) {
+					$sum_valid = $sum_valid + DB::table($table->table_detail)->where('name', $data->name)->where('participant_status', 'Certified')->count();
+				}
+
+				foreach($temp_lulus_tidak_valid as $data) {
+					$sum_tidak_valid = $sum_tidak_valid + DB::table($table->table_detail)->where('name', $data->name)->where('participant_status', 'Certified')->count();
+				}				
+
+				$dataLulus[] = $temp_sum_lulus;
+				$dataTidakLulus[] = $temp_sum_tidak_lulus;
+				$total1[] = $temp_sum_lulus + $temp_sum_tidak_lulus;
+
+				$valid[] = $sum_valid;
+				$tidakvalid[] = $sum_tidak_valid;
+				$total2[] = $sum_valid + $sum_tidak_valid;
+
+
+			}
 
 			 		$chartlulus = app()->chartjs
 				        ->name('Lulus')
@@ -393,7 +408,7 @@ class ReportsController extends Controller
 	        	
 			
 				}
+    	}
 
     	
-}
 					

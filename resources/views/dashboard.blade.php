@@ -111,16 +111,9 @@
                                 <div class="row form-group hidden" id="input2">
                                     <div class="col-sm-12">
                                         <select class="form-control" name="facademy">
-                                            <option value="">-- Pilih --</option>
-                                            <option value="NITS">NITS</option>
-                                            <option value="Consumer">Consumer</option>        
-                                            <option value="DISP">DISP</option>
-                                            <option value="WINS">WINS</option>
-                                            <option value="Mobile">Mobile</option>
-                                            <option value="Enterprise">Enterprise</option>
-                                            <option value="Business Enabler">Business Enabler</option>
-                                            <option value="Leadership">Leadership</option>
-                                            
+                                            @foreach(session('listacademy') as $academy)
+                                                <option value="{{ $academy }}">{{ $academy }}</option>
+                                            @endforeach
                                         </select>
                                     </div>
                                 </div>

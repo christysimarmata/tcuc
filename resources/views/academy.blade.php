@@ -16,7 +16,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Consumer Certification</h1>
+                        <h1>{{$data[0]->academy}} Certification</h1>
                     </div>
                 </div>
             </div>
@@ -33,7 +33,7 @@
                         </div>
                         <div class="card-body">
 
-                            <form action="Consumercer" method="post" class="form-inline" style="margin-left: 15px;">
+                        <form action="../academy/{{$data[0]->academy}}" method="post" class="form-inline" style="margin-left: 15px;">
                           <div class="form-group"><label for="startDate" class="pr-1  form-control-label">Period </label><input type="date" id="startDate" class="form-control" name="start_date"></div>
                           <div class="form-group"><label for="finishDate" class="px-1  form-control-label">To : </label><input type="date" id="finishDate" class="form-control" name="finish_date"></div>
 
@@ -41,6 +41,7 @@
                           <input type="submit" value="Search" class="btn btn-primary btn-sm" style="margin-left: 30px;">
                         </form>
                         <hr>
+
                   <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                     <thead>
                       <tr>
@@ -69,7 +70,7 @@
                         @foreach($data as $dataNits)
                             <tr>
                             <td>{{ $nomor++ }}</td>
-                            <td><a href="Consumercer/{{ $dataNits->name }}" style="color: black;">{{ $dataNits->name }}</td>
+                            <td><a href="/details/{{ $dataNits->academy}}/{{ $dataNits->name }}" style="color: black; ">{{ $dataNits->name }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
                             <td>{{ $dataNits->location }}</td>
@@ -102,7 +103,6 @@
             </div><!-- .animated -->
         </div><!-- .content -->
 
-
 @push('scripts')
 	<script src="{{ asset('js/lib/data-table/datatables.min.js') }}"></script>
     <script src="{{ asset('js/lib/data-table/dataTables.bootstrap.min.js') }}"></script>
@@ -117,6 +117,8 @@
     <script src="{{ asset('js/lib/data-table/datatables-init.js') }}"></script>
 
 
+
+    
 @endpush
 
 @endsection

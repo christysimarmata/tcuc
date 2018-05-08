@@ -15,12 +15,11 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>Leadership Certification</h1>
+                        <h1>{{ $data->academy }} Certification</h1>
                     </div>
                 </div>
             </div>
     </div>
-
      <div class="col-md-12">
                         <div class="card">
                             <div class="card-body">
@@ -90,11 +89,11 @@
                                 <tr>
                                 <td>{{ $nomor++ }}</td>
                                 <td>{{ $data->name }}</td>
-                                <td><a href="../profile_detail/{{ $datas->nik }}" style="color: black;">{{ $datas->nik }}</a></td>
-                                <td><a href="../profile_detail/{{ $datas->nik }}" style="color: black;">{{ $datas->nama }}</a></td>
+                                <td><a href="../../profile_detail/{{ $datas->nik }}" style="color: black;">{{ $datas->nik }}</a></td>
+                                <td><a href="../../profile_detail/{{ $datas->nik }}" style="color: black;">{{ $datas->nama }}</a></td>
                                 <td>{{ $datas->participant_status }}</td>
                                 <td>{{ $datas->job }}</td>
-                                <td>{{ $datas->division }}</td>
+                                <td>{{ $datas->divisi_ketika_sertifikasi }}</td>
                                 <td>{{ $datas->email }}</td>
                                 <td>{{ $datas->phone_number }}</td>
                                 </tr>

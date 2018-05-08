@@ -46,7 +46,7 @@ class NitsSeeder extends Seeder
 	    	'cfu_fu' => 'CFU DIGITAL SERVICE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-02-01',
-	    	'expired_at' => '2021-02-01',
+	    	'expired_at' => '2017-10-01',
 	    	'filename' => 'TCIF Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
@@ -121,7 +121,7 @@ class NitsSeeder extends Seeder
 	    	'cfu_fu' => 'FU HCM',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-08-01',
-	    	'expired_at' => '2021-08-01',
+	    	'expired_at' => '2017-12-01',
 	    	'filename' => 'Sertifikasi CMPM Batch 1.xlsx',
 	    	'status' => 'complete'
         ));
@@ -175,8 +175,8 @@ class NitsSeeder extends Seeder
 	    	'participants' => '670288,730245,633092,850111,601362',
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Advance',
-	    	'released_date' => '2017-10-01',
-	    	'expired_at' => '2021-10-01',
+	    	'released_date' => '2016-10-01',
+	    	'expired_at' => '2017-10-01',
 	    	'filename' => 'Sertifikasi CISO Batch 1.xlsx',
 	    	'status' => 'complete'
         ));

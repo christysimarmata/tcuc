@@ -499,7 +499,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 2',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Human Development',
 	    	'file_name' => '730245.jpg',
@@ -1012,7 +1012,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 3',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Advertising',
 	    	'file_name' => '730245.jpg',
@@ -1525,7 +1525,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 4',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Human Resource',
 	    	'file_name' => '730245.jpg',
@@ -2038,7 +2038,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 5',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730245.jpg',
@@ -2551,7 +2551,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 6',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Human Resource',
 	    	'file_name' => '730245.jpg',
@@ -3064,7 +3064,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 7',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Human Development',
 	    	'file_name' => '730245.jpg',
@@ -3577,7 +3577,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 1',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Networking',
 	    	'file_name' => '730245.jpg',
@@ -4090,7 +4090,7 @@ class CertificateTempDetailSeeder extends Seeder
         $bj3 = CertificateTempDetail::create(array(
         	'name' => 'TCGT Batch 8',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Business Service',
 	    	'file_name' => '730245.jpg',

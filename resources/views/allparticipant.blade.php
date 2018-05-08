@@ -50,7 +50,7 @@
                                 <th>Certification Name</th>
                                 <th>Participant Status</th>
                                 <th>Job Position</th>
-                                <th>Starting Division</th>
+                                <th>Division</th>
                                 <th>Current Division</th>
                                 <th>Email</th>
                                 <th>Phone Number</th>
@@ -73,260 +73,38 @@
                             </thead>
                             <tbody>
                                 @php ($nomor = 0)
-                                @foreach($datanits as $nits)
-                                    @foreach($parnits[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                       
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach
-                                @foreach($dataconsumer as $nits)
-                                    @foreach($parconsumer[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach
-                                @foreach($datadisp as $nits)
-                                    @foreach($pardisp[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach
-                                @foreach($datawins as $nits)
-                                    @foreach($parwins[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach   
-                                @foreach($datamobile as $nits)
-                                    @foreach($parmobile[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach
-                                @foreach($dataenterprise as $nits)
-                                    @foreach($parenterprise[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach
-                                @foreach($databusiness as $nits)
-                                    @foreach($parbusiness[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
-                                    @endforeach
-                                @endforeach
-                                @foreach($dataleadership as $nits)
-                                    @foreach($parleadership[$nits->name] as $pnits)
-                                    <tr>
-                                        <td>{{ ++$nomor }}</td>                                        
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
-                                        <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
-                                        <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
-                                        <td>{{ $pnits->participant_status }}</td>
-                                        <td>{{ $pnits->job }}</td>
-                                        <td>{{ $pnits->division }}</td>
-                                        <td>{{ $pnits->current_division }}</td>
-                                        <td>{{ $pnits->email }}</td>
-                                        <td>{{ $pnits->phone_number }}</td>
-                                        
-                                        
-                                        <td>{{ $nits->start_date }}</td>
-                                        <td>{{ $nits->finish_date }}</td>
-                                        <td>{{ $nits->location }}</td>
-                                        <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
-                                        <td>{{ $nits->internal }}</td>
-                                        <td>{{ $nits->category }}</td>
-                                        <td>{{ $nits->cfu_fu }}</td>
-                                        <td>{{ $nits->institution }}</td>
-                                        <td>{{ $nits->level }}</td>
-                                        <td>{{ $nits->outline }}</td>
-                                        <td>{{ $nits->telkom_main }}</td>
-                                        <td>{{ $nits->job_family }}</td>
-                                        <td>{{ $nits->released_date }}</td>
-                                        <td>{{ $nits->expired_at }}</td>
-                                    </tr>
+                                @foreach($list as $academy)
+                                    @foreach($data[$academy] as $nits)
+                                        @foreach($paracademy[$nits->name] as $pnits)
+                                        <tr>
+                                            <td>{{ ++$nomor }}</td>                                        
+                                            <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nik }}</a></td>
+                                            <td><a href="../profile_detail/{{ $pnits->nik }}" style="color: black;">{{ $pnits->nama }}</a></td>
+                                            <td><a href="{{$nits->academy}}cer/{{ $nits->name }}" style="color: black;">{{ $nits->name }}</a></td>
+                                            <td>{{ $pnits->participant_status }}</td>
+                                            <td>{{ $pnits->job }}</td>
+                                            <td>{{ $pnits->divisi_ketika_sertifikasi }}</td>
+                                            <td>{{ $pnits->division }}</td>
+                                            <td>{{ $pnits->email }}</td>
+                                            <td>{{ $pnits->phone_number }}</td>
+                                           
+                                            
+                                            <td>{{ $nits->start_date }}</td>
+                                            <td>{{ $nits->finish_date }}</td>
+                                            <td>{{ $nits->location }}</td>
+                                            <td><a href="../{{$nits->academy}}cer" style="color: black;">{{ $nits->academy }}</a></td>
+                                            <td>{{ $nits->internal }}</td>
+                                            <td>{{ $nits->category }}</td>
+                                            <td>{{ $nits->cfu_fu }}</td>
+                                            <td>{{ $nits->institution }}</td>
+                                            <td>{{ $nits->level }}</td>
+                                            <td>{{ $nits->outline }}</td>
+                                            <td>{{ $nits->telkom_main }}</td>
+                                            <td>{{ $nits->job_family }}</td>
+                                            <td>{{ $nits->released_date }}</td>
+                                            <td>{{ $nits->expired_at }}</td>
+                                        </tr>
+                                        @endforeach
                                     @endforeach
                                 @endforeach
                             </tbody>

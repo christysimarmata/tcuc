@@ -16,7 +16,7 @@
             <div class="col-sm-4">
                 <div class="page-header float-left">
                     <div class="page-title">
-                        <h1>NITS Certification</h1>
+                        <h1>Certification</h1>
                     </div>
                 </div>
             </div>
@@ -32,15 +32,6 @@
                             <strong class="card-title">Data Table</strong>
                         </div>
                         <div class="card-body">
-
-                        <form action="NITScer" method="post" class="form-inline" style="margin-left: 15px;">
-                          <div class="form-group"><label for="startDate" class="pr-1  form-control-label">Period </label><input type="date" id="startDate" class="form-control" name="start_date"></div>
-                          <div class="form-group"><label for="finishDate" class="px-1  form-control-label">To : </label><input type="date" id="finishDate" class="form-control" name="finish_date"></div>
-
-                          <input type="hidden" name="_token" value="{{ csrf_token() }}">
-                          <input type="submit" value="Search" class="btn btn-primary btn-sm" style="margin-left: 30px;">
-                        </form>
-                        <hr>
 
                   <table id="bootstrap-data-table-export" class="table table-striped table-bordered">
                     <thead>
@@ -70,7 +61,7 @@
                         @foreach($data as $dataNits)
                             <tr>
                             <td>{{ $nomor++ }}</td>
-                            <td><a href="NITScer/{{ $dataNits->name }}" style="color: black; ">{{ $dataNits->name }}</td>
+                            <td>{{ $dataNits->name }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->start_date)) }}</td>
                             <td>{{ date('d-m-Y', strtotime($dataNits->finish_date)) }}</td>
                             <td>{{ $dataNits->location }}</td>
@@ -102,7 +93,6 @@
                 </div>
             </div><!-- .animated -->
         </div><!-- .content -->
-
 
 @push('scripts')
 	<script src="{{ asset('js/lib/data-table/datatables.min.js') }}"></script>

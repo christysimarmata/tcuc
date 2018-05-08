@@ -46,7 +46,7 @@ class TempSeeder extends Seeder
         ));
 
         $lde2 = Users::create(array(
-            'nik' => 'ldebusiness',
+            'nik' => 'ldebusinessenabler',
             'nama' => 'Zara Larson',
             'password' => 'lde123',
             'role' => 'lde',
@@ -186,11 +186,11 @@ class TempSeeder extends Seeder
         ));
 
         $nonlde3 = Users::create(array(
-            'nik' => 'nonldebusiness',
+            'nik' => 'nonldebusinessenabler',
             'nama'=> 'Rama',
             'password' => 'password',
             'role' => 'nonlde',
-            'email' => 'nonldebusiness@gmail.com',
+            'email' => 'nonldebusinessenabler@gmail.com',
             'phone_number' => '082367368604',
             'job' => 'Non Manager',
             

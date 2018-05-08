@@ -3,22 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Consumer;
-use App\Business;
-use App\Disp;
-use App\Enterprise;
-use App\Leadership;
-use App\Mobile;
-use App\Nits;
-use App\Wins;
-use App\ConsumerDetail;
-use App\BusinessDetail;
-use App\DispDetail;
-use App\EnterpriseDetail;
-use App\LeadershipDetail;
-use App\MobileDetail;
-use App\NitsDetail;
-use App\WinsDetail;
+use DB;
 use App\Users;
 use App\JobFamily;
 use Storage;
@@ -29,51 +14,39 @@ class MyCertificationController extends Controller
 {
     //
     public static function showCertification() {
-    	$jobfamily = JobFamily::getData();
-    	$plucked = $jobfamily->pluck('name');
-    	$plucked->all();
 
-        
-    	$family = [];
+    $user = Users::getParticipantFirst(session('userAktif')); 
+        $plucked = [];
+
+        $list_table = DB::table('academy')->where('flag', date("Y"))->get();
+
+        $list_table_detail = DB::table('academy_detail')->where('flag', date("Y"))->pluck('table');
+        $list_table_detail->all();
+
+          foreach($list_table_detail as $data) {
+            $temp_plucked = DB::table($data)->where('peserta', session('userAktif'))->groupBy('job_family')->pluck('job_family');
+              foreach($temp_plucked as $dataa) {
+                if(!in_array($dataa, $plucked)) {
+                  $plucked[] = $dataa;
+                }
+              }
+          }
+
+        $family = [];
         $filee = [];
-    	foreach($plucked as $plucks) {
-    		if((Nits::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Nits::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = NitsDetail::getFileName(session('userAktif'), $plucks);
-    		}
-		    if((Consumer::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Consumer::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = ConsumerDetail::getFileName(session('userAktif'), $plucks);
-    		}
-    		if((Disp::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Disp::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = DispDetail::getFileName(session('userAktif'), $plucks);
-    		}
-    		if((Wins::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Wins::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = WinsDetail::getFileName(session('userAktif'), $plucks);
-    		}
-    		if((Mobile::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Mobile::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = MobileDetail::getFileName(session('userAktif'), $plucks);
-    		}
-    		if((Enterprise::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Enterprise::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = EnterpriseDetail::getFileName(session('userAktif'), $plucks);
-    		}
-    		if((Business::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Business::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = BusinessDetail::getFileName(session('userAktif'), $plucks);
-    		}
-    		if((Leadership::getWhereThereIs(session('userAktif'), $plucks))->isNotEmpty()) {
-    			$family[$plucks][] = Leadership::getWhereThereIs(session('userAktif'), $plucks);
-                $filee[] = LeadershipDetail::getFileName(session('userAktif'), $plucks);
-    		}	
-    	}
-    	
-	    
-	    return view('my_certification')->with('family',$family)
-                                       ->with('filee', $filee); 
+          foreach($plucked as $plucks) {
+            foreach($list_table as $data) {
+              if((DB::table($data->table)->where('participants','like','%'.session('userAktif').',%')->where('job_family',$plucks)->get())->isNotEmpty()) {
+                $family[$plucks][] = DB::table($data->table)->where('participants','like','%'.session('userAktif').',%')->where('job_family',$plucks)->get();
+                $filee[] = DB::table($data->table_detail)->where('job_family', $plucks)->where('peserta', session('userAktif'))->get();
+              }
+            }
+          }  
+             
+        return view('my_certification')->with('family', $family)
+                                     ->with('filee', $filee)
+                                     ->with('user', $user);
+
     }
     
 }

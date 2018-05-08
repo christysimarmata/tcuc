@@ -54,7 +54,7 @@
                             @foreach($data as $certificate)
 	                        <tr>
 	                        <td>{{ ++$nomor }}</td>
-                        	<td><a href="{{ $certificate->academy }}cer/{{$certificate->name}}" >{{ $certificate->name }}</a></td>
+                        	<td><a href="/details/{{ $certificate->academy}}/{{ $certificate->name }}" style="color: black;" >{{ $certificate->name }}</a></td>
                         	<td>{{ $certificate->start_date }}</td>
                             <td>{{ $certificate->finish_date }}</td>
                         	<td>{{ $certificate->location }}</td>

@@ -125,14 +125,9 @@
                             <label class="control-label col-sm-2" for="facademy">Academy</label>
                             <div class="col-sm-10">
                                 <select name="cer_academy" id="facademy" class="form-control">
-                                <option value="NITS">NITS</option>
-                                <option value="Consumer">Consumer</option>
-                                <option value="DISP">Disp</option>
-                                <option value="WINS">Wins</option>
-                                <option value="Mobile">Mobile</option>
-                                <option value="Enterprise">Enterprise</option>
-                                <option value="Business Enabler">Business Enabler</option>
-                                <option value="Leadership">Leadership</option>
+                                    @foreach(session('listacademy') as $data)
+                                        <option value="{{ $data }}">{{ $data }}</option>
+                                    @endforeach
                               </select>
                             </div>
                         </div>

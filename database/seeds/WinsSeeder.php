@@ -27,8 +27,8 @@ class WinsSeeder extends Seeder
 	    	'participants' => '651225,591825,670288,633056,622290,780026',	
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-01-01',
-	    	'expired_at' => '2022-12-12',
+	    	'released_date' => '2014-01-01',
+	    	'expired_at' => '2015-12-12',
 	    	'filename' => 'CSAM Batch 8.xlsx',
 	    	'status' => 'complete'
         ));
@@ -46,7 +46,7 @@ class WinsSeeder extends Seeder
 	    	'cfu_fu' => 'CFU DIGITAL SERVICE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-02-01',
-	    	'expired_at' => '2021-02-01',
+	    	'expired_at' => '2017-10-01',
 	    	'filename' => 'TCIF Batch 8.xlsx',
 	    	'status' => 'complete'
         ));
@@ -121,7 +121,7 @@ class WinsSeeder extends Seeder
 	    	'cfu_fu' => 'FU HCM',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-08-01',
-	    	'expired_at' => '2021-08-01',
+	    	'expired_at' => '2017-12-01',
 	    	'filename' => 'Sertifikasi CMPM Batch 8.xlsx',
 	    	'status' => 'complete'
         ));

@@ -500,7 +500,7 @@ class NitsDetailSeeder extends Seeder
         $bj3 = NitsDetail::create(array(
         	'name' => 'TCGT Batch 1',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Networking',
 	    	'file_name' => '730245.jpg',

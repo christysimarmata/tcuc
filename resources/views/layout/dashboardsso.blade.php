@@ -64,38 +64,33 @@
             <div id="main-menu" class="main-menu collapse navbar-collapse">
                 <ul class="nav navbar-nav">
                     <li class="active">
-                        <a href="../dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
+                        <a href="../../dashboard"> <i class="menu-icon fa fa-dashboard"></i>Dashboard </a>
                     </li>
                     <li class="menu-item-has-children dropdown">
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <i class="menu-icon fa fa-laptop"></i>Academy</a>
                         <ul class="sub-menu children dropdown-menu">
-                            <li><i class="fa fa-puzzle-piece"></i><a href="../NITScer">NITS</a></li>
-                            <li><i class="fa fa-id-badge"></i><a href="../Consumercer">Consumer</a></li>
-                            <li><i class="fa fa-bars"></i><a href="../DISPcer">DISP</a></li>
-                            <li><i class="fa fa-share-square-o"></i><a href="../WINScer">Wins</a></li>
-                            <li><i class="fa fa-id-card-o"></i><a href="../Mobilecer">Mobile</a></li>
-                            <li><i class="fa fa-exclamation-triangle"></i><a href="../Enterprisecer">Enterprise</a></li>
-                            <li><i class="fa fa-spinner"></i><a href="../Business Enablercer">Business Enabler</a></li>
-                            <li><i class="fa fa-fire"></i><a href="../Leadershipcer">Leadership</a></li>
+                            @foreach(session('listacademy') as $academy)
+                                <li><i class="fa fa-puzzle-piece"></i><a href="../academy/{{ $academy }}">{{ $academy }}</a></li>
+                            @endforeach
                         </ul>
                     </li>
                     <li>
-                        <a href="../profile"> <i class="menu-icon fa fa-table"></i>Profile</a>
+                        <a href="../../profile"> <i class="menu-icon fa fa-table"></i>Profile</a>
                     </li>
                     <li>
-                        <a href="../mycertification"> <i class="menu-icon fa fa-th"></i>My Certification</a>
+                        <a href="../../mycertification"> <i class="menu-icon fa fa-th"></i>My Certification</a>
                     </li>
                     <li>
-                        <a href="../certificationlist"> <i class="menu-icon fa fa-bars"></i>Certification List</a>
+                        <a href="../../certificationlist"> <i class="menu-icon fa fa-bars"></i>Certification List</a>
                     </li>
                     <li>
-                        <a href="../needclarification"> <i class="menu-icon fa fa-spinner"></i>Need Clarification</a>
+                        <a href="../../needclarification"> <i class="menu-icon fa fa-spinner"></i>Need Clarification</a>
                     </li>
                     <li>
-                        <a href="../help"> <i class="menu-icon fa fa-question"></i>Help</a>
+                        <a href="../../help"> <i class="menu-icon fa fa-question"></i>Help</a>
                     </li>
                     <li>
-                        <a href="../logout"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
+                        <a href="../../logout"> <i class="menu-icon fa fa-sign-out"></i>Logout </a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

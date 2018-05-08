@@ -500,7 +500,7 @@ class ConsumerDetailSeeder extends Seeder
         $bj3 = ConsumerDetail::create(array(
         	'name' => 'TCGT Batch 3',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Advertising',
 	    	'file_name' => '730245.jpg',

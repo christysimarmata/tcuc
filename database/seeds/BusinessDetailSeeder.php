@@ -12,7 +12,7 @@ class BusinessDetailSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('business_detail')->delete();
+        DB::table('business_enabler_detail')->delete();
 
         $ba1 = BusinessDetail::create(array(
         	'name' => 'CSAM Batch 2',
@@ -501,7 +501,7 @@ class BusinessDetailSeeder extends Seeder
         $bj3 = BusinessDetail::create(array(
         	'name' => 'TCGT Batch 2',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Human Development',
 	    	'file_name' => '730245.jpg',

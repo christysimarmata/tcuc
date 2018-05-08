@@ -224,9 +224,23 @@
                         </div>
 
                         <div class="row form-group inputacademy">
-                            <label class="control-label col-sm-2" for="facademy">Academy</label>
-                            <div class="col-sm-10">
+                            <label class="control-label col-sm-3" for="facademy">Academy</label>
+                            <div class="col-sm-9">
                                 <input type="text" class="form-control" id="facademy">
+                            </div>
+                        </div>
+
+                        <div class="row form-group inputniklde">
+                            <label class="control-label col-sm-3" for="fniklde">NIK LDE</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="fniklde">
+                            </div>
+                        </div>
+
+                        <div class="row form-group inputniknonlde">
+                            <label class="control-label col-sm-3" for="fniknonlde">NIK Non-LDE</label>
+                            <div class="col-sm-9">
+                                <input type="text" class="form-control" id="fniknonlde">
                             </div>
                         </div>
 
@@ -281,6 +295,8 @@
                 $('.form-horizontal').show();
                 $('.inputfamily').hide();
                 $('.inputacademy').hide();
+                $('.inputniklde').hide();
+                $('.inputniknonlde').hide();
 
             });
 
@@ -316,6 +332,8 @@
                 $('.form-horizontal').show();
                 $('.inputprogram').hide();
                 $('.inputacademy').hide();
+                $('.inputniklde').hide();
+                $('.inputniknonlde').hide();
 
             });
 
@@ -360,7 +378,9 @@
                 url: '/createacademy',
                 data: {
                     '_token': $('input[name=_token]').val(),
-                    'facademy' : $("#facademy").val()
+                    'facademy' : $("#facademy").val(),
+                    'fniklde' : $("#fniklde").val(),
+                    'fniknonlde' : $("#fniknonlde").val()
                 },
                 success: function(data) {
                         setTimeout(function() {

@@ -27,8 +27,8 @@ class MobileSeeder extends Seeder
 	    	'participants' => '651225,591825,670288,633056,622290,780026',	
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-01-01',
-	    	'expired_at' => '2022-12-12',
+	    	'released_date' => '2014-01-01',
+	    	'expired_at' => '2017-12-12',
 	    	'filename' => 'CSAM Batch 7.xlsx',
 	    	'status' => 'complete'
         ));
@@ -64,7 +64,7 @@ class MobileSeeder extends Seeder
 	    	'cfu_fu' => 'CFU MOBILE',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-04-01',
-	    	'expired_at' => '2020-02-01',
+	    	'expired_at' => '2017-08-01',
 	    	'filename' => 'TCBPM Batch 7.xlsx',
 	    	'status' => 'complete'
         ));
@@ -82,8 +82,8 @@ class MobileSeeder extends Seeder
 	    	'participants' => '660404,720565,730561,601626',
 	    	'cfu_fu' => 'CFU Mobile',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-06-01',
-	    	'expired_at' => '2100-12-12',
+	    	'released_date' => '2014-06-01',
+	    	'expired_at' => '2017-12-12',
 	    	'filename' => 'Service Operation Batch 7.xlsx',
 	    	'status' => 'complete'
         ));
@@ -158,7 +158,7 @@ class MobileSeeder extends Seeder
 	    	'cfu_fu' => 'CFU ENTERPRISE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-09-20',
-	    	'expired_at' => '2020-09-20',
+	    	'expired_at' => '2017-12-20',
 	    	'filename' => 'CCNP Batch 7.xlsx',
 	    	'status' => 'complete'
         ));

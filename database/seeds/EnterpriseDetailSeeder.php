@@ -500,7 +500,7 @@ class EnterpriseDetailSeeder extends Seeder
         $bj3 = EnterpriseDetail::create(array(
         	'name' => 'TCGT Batch 5',
 	   	 	'job_family' => 'Job Family 1',
-	    	'peserta' => '730425',
+	    	'peserta' => '730245',
 	    	
 	    	'participant_status' => 'Certified','division' => 'Mobile Development',
 	    	'file_name' => '730245.jpg',

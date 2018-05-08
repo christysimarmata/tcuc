@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBusinessDetailTable extends Migration
+class CreateAcademyDetailTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,11 @@ class CreateBusinessDetailTable extends Migration
      */
     public function up()
     {
-        Schema::create('business_enabler_detail', function (Blueprint $table) {
+        Schema::create('academy_detail', function (Blueprint $table) {
             $table->increments('id');
+            $table->integer('flag');
             $table->string('name');
-            $table->string('job_family')->nullable();
-            $table->string('peserta')->nullable();
-            $table->string('participant_status')->nullable();
-            $table->string('division')->nullable();
-            $table->string('file_name')->nullable();
+            $table->string('table');
             $table->timestamps();
         });
     }
@@ -32,6 +29,6 @@ class CreateBusinessDetailTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('business_enabler_detail');
+        Schema::dropIfExists('academy_detail');
     }
 }

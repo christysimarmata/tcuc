@@ -13,7 +13,7 @@ class BusinessSeeder extends Seeder
     public function run()
     {
         //
-        DB::table('business')->delete();
+        DB::table('business_enabler')->delete();
 
         $ba1 = Business::create(array(
         	'name' => 'CSAM Batch 2',
@@ -27,8 +27,8 @@ class BusinessSeeder extends Seeder
 	    	'participants' => '651225,591825,670288,633056,622290,780026',	
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
-	    	'released_date' => '2017-01-01',
-	    	'expired_at' => '2022-12-12',
+	    	'released_date' => '2016-01-01',
+	    	'expired_at' => '2017-12-12',
 	    	'filename' => 'CSAM Batch 2.xlsx',
 	    	'status' => 'complete'
         ));
@@ -46,7 +46,7 @@ class BusinessSeeder extends Seeder
 	    	'cfu_fu' => 'CFU DIGITAL SERVICE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-02-01',
-	    	'expired_at' => '2021-02-01',
+	    	'expired_at' => '2017-04-01',
 	    	'filename' => 'TCIF Batch 2.xlsx',
 	    	'status' => 'complete'
         ));
@@ -139,8 +139,8 @@ class BusinessSeeder extends Seeder
 	    	'participants' => '651225,830012,670288,730245,622290,650481',
 	    	'cfu_fu' => 'FU ISP',
 	    	'level' => 'Advance',
-	    	'released_date' => '2017-09-01',
-	    	'expired_at' => '2100-12-12',
+	    	'released_date' => '2016-09-01',
+	    	'expired_at' => '2017-12-12',
 	    	'filename' => 'BARJAS Batch 2.xlsx',
 	    	'status' => 'complete'
         ));
@@ -158,7 +158,7 @@ class BusinessSeeder extends Seeder
 	    	'cfu_fu' => 'CFU ENTERPRISE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-09-20',
-	    	'expired_at' => '2020-09-20',
+	    	'expired_at' => '2017-12-20',
 	    	'filename' => 'CCNP Batch 2.xlsx',
 	    	'status' => 'complete'
         ));
@@ -195,7 +195,7 @@ class BusinessSeeder extends Seeder
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-12-15',
-	    	'expired_at' => '2022-12-15',
+	    	'expired_at' => '2018-01-15',
 	    	'filename' => 'TCGT Batch 2.xlsx',
 	    	'status' => 'complete'
         ));

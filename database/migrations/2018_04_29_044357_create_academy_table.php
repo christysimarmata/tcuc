@@ -17,6 +17,10 @@ class CreateAcademyTable extends Migration
             $table->increments('id');
             $table->integer('flag');
             $table->string('name');
+            $table->string('table');
+            $table->string('table_detail');
+            $table->string('niklde');
+            $table->string('niknonlde');
             $table->timestamps();
         });
     }

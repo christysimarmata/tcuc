@@ -28,7 +28,7 @@ class LeadershipSeeder extends Seeder
 	    	'cfu_fu' => 'CEO OFFICE',
 	    	'level' => 'Basic',
 	    	'released_date' => '2017-01-01',
-	    	'expired_at' => '2022-12-12',
+	    	'expired_at' => '2017-12-12',
 	    	'filename' => 'CSAM Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
@@ -102,7 +102,7 @@ class LeadershipSeeder extends Seeder
 	    	'cfu_fu' => 'FU FINANCE',
 	    	'level' => 'Intermediate',
 	    	'released_date' => '2017-07-01',
-	    	'expired_at' => '2020-07-01',
+	    	'expired_at' => '2017-10-01',
 	    	'filename' => 'TCOOA Batch 6.xlsx',
 	    	'status' => 'complete'
         ));
@@ -176,7 +176,7 @@ class LeadershipSeeder extends Seeder
 	    	'cfu_fu' => 'CFU WHOLESALE & INTERNAL',
 	    	'level' => 'Advance',
 	    	'released_date' => '2017-10-01',
-	    	'expired_at' => '2021-10-01',
+	    	'expired_at' => '2018-01-01',
 	    	'filename' => 'Sertifikasi CISO Batch 6.xlsx',
 	    	'status' => 'complete'
         ));

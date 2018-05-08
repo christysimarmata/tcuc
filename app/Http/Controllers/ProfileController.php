@@ -9,23 +9,8 @@ use App\Users;
 use App\UserFix;
 use Illuminate\Support\Facades\Input;
 use App\JobFamily;
-use App\Consumer;
-use App\Business;
-use App\Disp;
-use App\Enterprise;
-use App\Leadership;
-use App\Mobile;
-use App\Nits;
-use App\Wins;
-use App\ConsumerDetail;
-use App\BusinessDetail;
-use App\DispDetail;
-use App\EnterpriseDetail;
-use App\LeadershipDetail;
-use App\MobileDetail;
-use App\NitsDetail;
-use App\WinsDetail;
 use Image;
+use DB;
 
 class ProfileController extends Controller
 {
@@ -85,49 +70,34 @@ class ProfileController extends Controller
     }
 
     public static function showList($nik) {
-        $user = Users::getParticipantFirst($nik);
-        $plucked = JobFamily::getData()->pluck('name');
-        $plucked->all();
+        $user = Users::getParticipantFirst($nik); 
+        $plucked = [];
 
+        $list_table = DB::table('academy')->where('flag', date("Y"))->get();
+
+        $list_table_detail = DB::table('academy_detail')->where('flag', date("Y"))->pluck('table');
+        $list_table_detail->all();
+
+          foreach($list_table_detail as $data) {
+            $temp_plucked = DB::table($data)->where('peserta', $nik)->groupBy('job_family')->pluck('job_family');
+              foreach($temp_plucked as $dataa) {
+                if(!in_array($dataa, $plucked)) {
+                  $plucked[] = $dataa;
+                }
+              }
+          }
 
         $family = [];
         $filee = [];
-        foreach($plucked as $plucks) {
-          if((Nits::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Nits::getWhereThereIs($nik, $plucks);
-            $filee[] = NitsDetail::getFileName($nik, $plucks);
-          }
-          if((Consumer::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Consumer::getWhereThereIs($nik, $plucks);
-            $filee[] = ConsumerDetail::getFileName($nik, $plucks);
-          }
-          if((Disp::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Disp::getWhereThereIs($nik, $plucks);
-            $filee[] = DispDetail::getFileName($nik, $plucks);
-          }
-          if((Wins::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Wins::getWhereThereIs($nik, $plucks);
-            $filee[] = WinsDetail::getFileName($nik, $plucks);
-          }
-          if((Mobile::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Mobile::getWhereThereIs($nik, $plucks);
-            $filee[] = MobileDetail::getFileName($nik, $plucks);
-          }
-          if((Enterprise::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Enterprise::getWhereThereIs($nik, $plucks);
-            $filee[] = EnterpriseDetail::getFileName($nik, $plucks);
-          }
-          if((Business::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Business::getWhereThereIs($nik, $plucks);
-            $filee[] = BusinessDetail::getFileName($nik, $plucks);
-          }
-          if((Leadership::getWhereThereIs($nik, $plucks))->isNotEmpty()) {
-            $family[$plucks][] = Leadership::getWhereThereIs($nik, $plucks);
-            $filee[] = LeadershipDetail::getFileName($nik, $plucks);
-          } 
-        }
-        
-        
+          foreach($plucked as $plucks) {
+            foreach($list_table as $data) {
+              if((DB::table($data->table)->where('participants','like','%'.$nik.',%')->where('job_family',$plucks)->get())->isNotEmpty()) {
+                $family[$plucks][] = DB::table($data->table)->where('participants','like','%'.$nik.',%')->where('job_family',$plucks)->get();
+                $filee[] = DB::table($data->table_detail)->where('job_family', $plucks)->where('peserta', $nik)->get();
+              }
+            }
+          }  
+             
         return view('profile_detail')->with('family', $family)
                                      ->with('filee', $filee)
                                      ->with('user', $user);

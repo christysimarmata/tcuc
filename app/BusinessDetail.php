@@ -8,7 +8,7 @@ use DB;
 class BusinessDetail extends Model
 {
     //
-    protected $table = 'business_detail';
+    protected $table = 'business_enabler_detail';
 
 
 	public $timestamps = true;
@@ -27,6 +27,6 @@ class BusinessDetail extends Model
 
 	
 	public static function getFileName($peserta, $family) {
-		return DB::table('business_detail')->where('job_family', $family)->where('peserta', $peserta)->get();
+		return DB::table('business_enabler_detail')->where('job_family', $family)->where('peserta', $peserta)->get();
 	}	
 }
