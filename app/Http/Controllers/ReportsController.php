@@ -224,6 +224,10 @@ class ReportsController extends Controller
 
 	public static function updateReportsYear(Request $request) {
 		$list_table = DB::table('academy')->where('flag', date("Y"))->get();
+		$list_labels = [];
+    	foreach($list_table as $data) {
+    		$list_labels[] = $data->name;
+    	}
     	$years = Input::get('years');
 
 			foreach($list_table as $table) {
@@ -273,7 +277,7 @@ class ReportsController extends Controller
 			 		$chartlulus = app()->chartjs
 				        ->name('Lulus')
 				        ->type('bar')
-				        ->labels(['NITS', 'Consumer', 'DISP', 'WINS', 'Mobile', 'Enterprise', 'Business Enabler', 'Leadership'])
+				        ->labels($list_labels)
 				        ->datasets([
 				        	[	
 				        		'label'=>'Lulus',
@@ -338,7 +342,7 @@ class ReportsController extends Controller
 			        $chartvalid = app()->chartjs
 				        ->name('Valid')
 				        ->type('bar')
-				        ->labels(['NITS', 'Consumer', 'DISP', 'WINS', 'Mobile', 'Enterprise', 'Business Enabler', 'Leadership'])
+				        ->labels($list_labels)
 				        ->datasets([
 				        	[	
 				        		'label'=>'Valid',
