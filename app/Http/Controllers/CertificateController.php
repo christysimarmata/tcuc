@@ -480,7 +480,7 @@ class CertificateController extends Controller
         $deleted = ($request->fnomor) - 1;
         $name = ($request->fname);
 
-        
+        \Log::info($name);
 
         $data_baru = CertificateTemp::where('name', $name)->get();
         $participant_data = $data_baru[0]->participants;

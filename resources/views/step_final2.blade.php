@@ -278,7 +278,7 @@
             $('.deleteContent').hide();
             $('.form-horizontal').show();
             var stuff = $(this).data('info').split(',');
-            fillmodalData(stuff)
+            fillmodalData(stuff);
 
         });
 
@@ -382,7 +382,7 @@
             console.log($('.did1').html());
             $.ajax({
                 type: 'post',
-                url: 'deleteItem2',
+                url: '../deleteItem2',
                 data: {
                     '_token': $('input[name=_token]').val(),
                     'fnomor': $('.did').html(),

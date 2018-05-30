@@ -613,7 +613,7 @@
 
       date_expire.datepicker({
           format: 'yyyy-mm-dd',
-          orientation: 'top right',
+          orientation: 'bottom right',
           todayHighlight: true,
           autoclose: true
       });
